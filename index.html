@@ -14,270 +14,232 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --navy:#060a14;
-  --navy2:#0a0f1e;
-  --navy3:#0f1628;
-  --navy4:#162035;
-  --ice:#4FC3F7;
-  --ice2:#81d4fa;
-  --ice-dim:rgba(79,195,247,0.08);
-  --ice-glow:rgba(79,195,247,0.35);
-  --white:#ffffff;
-  --off:#e8f4fc;
-  --gray:#4a6a88;
-  --gray2:#6a8faa;
-  --red:#ff3b3b;
-  --fh:'Barlow Condensed',sans-serif;
-  --fb:'Barlow',sans-serif;
+  --navy:#060a14;--navy2:#0a0f1e;--navy3:#0f1628;--navy4:#162035;
+  --ice:#4FC3F7;--ice-dim:rgba(79,195,247,0.08);
+  --white:#ffffff;--gray:#4a6a88;--gray2:#6a8faa;--red:#ff3b3b;
+  --fh:'Barlow Condensed',sans-serif;--fb:'Barlow',sans-serif;
 }
 html{scroll-behavior:auto;}
 body{font-family:var(--fb);background:var(--navy);color:var(--white);overflow-x:hidden;}
 
-/* ── REVIEWS TRUST STRIP ── */
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:0 72px;max-width:none;}
-.review-card{background:var(--navy3);padding:48px 40px;border-top:2px solid transparent;transition:border-color .4s,background .3s;position:relative;}
-.review-card:hover{background:var(--navy4);border-top-color:var(--ice);}
-.rv-stars{font-size:1rem;letter-spacing:3px;color:var(--ice);margin-bottom:22px;}
-.rv-quote{font-family:var(--fh);font-size:1.5rem;font-weight:600;line-height:1.25;color:var(--white);margin-bottom:28px;font-style:italic;}
-.rv-author{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
-.rv-av{width:44px;height:44px;background:var(--ice-dim);border:1px solid rgba(79,195,247,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--ice);flex-shrink:0;}
-.rv-name{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:.06em;}
-.rv-role{font-size:.65rem;letter-spacing:.1em;color:var(--gray2);}
-.rv-tag{display:inline-block;font-size:.55rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ice);background:var(--ice-dim);border:1px solid rgba(79,195,247,.15);padding:5px 12px;}
-.reviews-footer{padding:48px 72px;display:flex;align-items:center;gap:32px;border-top:1px solid rgba(79,195,247,.08);}
-.rf-rating{font-family:var(--fh);font-size:3rem;font-weight:900;color:var(--ice);line-height:1;}
-.rf-count{font-size:.78rem;font-weight:400;color:var(--gray2);}
-.rf-platforms{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);}
-
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 72px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,border-color .4s;border-bottom:1px solid transparent;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 64px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,border-color .4s;border-bottom:1px solid transparent;}
 nav.sc{background:rgba(6,10,20,.97);backdrop-filter:blur(24px);border-color:rgba(79,195,247,.08);}
-.n-brand{text-decoration:none;display:flex;align-items:center;gap:14px;}
-.n-snowflake{font-size:1.4rem;color:var(--ice);}
-.n-name{font-family:var(--fh);font-size:1.3rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--white);line-height:1;}
-.n-name small{display:block;font-size:.42rem;letter-spacing:.38em;color:var(--ice);font-weight:400;font-family:var(--fb);}
+.n-brand{text-decoration:none;display:flex;align-items:center;gap:12px;}
+.n-snowflake{font-size:1.3rem;color:var(--ice);}
+.n-name{font-family:var(--fh);font-size:1.2rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--white);line-height:1;}
+.n-name small{display:block;font-size:.42rem;letter-spacing:.35em;color:var(--ice);font-weight:400;font-family:var(--fb);}
 .n-links{display:flex;gap:40px;list-style:none;align-items:center;}
 .n-links a{font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2);text-decoration:none;transition:color .25s;}
 .n-links a:hover{color:var(--ice);}
-.n-call{background:var(--red);color:var(--white);padding:10px 22px;font-family:var(--fh);font-size:.9rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;animation:redpulse 2.5s ease-in-out infinite;transition:background .2s;}
+.n-call{background:var(--red);color:var(--white);padding:10px 22px;font-family:var(--fh);font-size:.9rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s;animation:redpulse 2.5s ease-in-out infinite;}
 .n-call:hover{background:#cc2222;}
 @keyframes redpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,59,59,.35);}60%{box-shadow:0 0 0 10px rgba(255,59,59,0);}}
 
-/* ── HERO — full immersive ── */
-#hero{position:relative;width:100vw;height:100vh;overflow:hidden;display:flex;align-items:flex-end;}
+/* HERO */
+#hero{
+  position:relative;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  background:var(--navy);
+}
 #hc{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
-
-/* Diagonal slash overlay */
-#hero::after{
-  content:'';
-  position:absolute;
-  top:0;right:0;bottom:0;
-  width:42%;
-  background:linear-gradient(135deg,transparent 0%,rgba(79,195,247,.04) 100%);
-  clip-path:polygon(30% 0,100% 0,100% 100%,0 100%);
-  z-index:2;
-  pointer-events:none;
-}
-
-/* Tech grid overlay */
+/* grid overlay */
 #hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
+  content:'';position:absolute;inset:0;
   background-image:linear-gradient(rgba(79,195,247,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(79,195,247,.025) 1px,transparent 1px);
-  background-size:72px 72px;
-  z-index:2;
-  pointer-events:none;
+  background-size:72px 72px;z-index:2;pointer-events:none;
 }
-
-.h-content{position:relative;z-index:10;padding:120px 72px 180px;width:100%;max-width:860px;}
-
-/* Live indicator — fixed position bottom left, never near nav */
-.h-live{position:absolute;bottom:90px;left:72px;z-index:20;display:inline-flex;align-items:center;gap:10px;}
-.h-live-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:blink 1.1s ease-in-out infinite;}
-@keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(.7);}}
-.h-live-txt{font-size:.58rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--red);}
-
-/* Main headline — slams in as one block */
-.h-headline{font-family:var(--fh);font-size:clamp(5rem,11vw,12rem);font-weight:900;line-height:.82;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:32px;}
-.h-headline .line1{display:block;color:var(--white);}
-.h-headline .line2{display:block;color:var(--ice);font-style:italic;}
-.h-headline .line3{display:block;color:var(--white);}
-
-/* Bottom row */
-.h-bottom{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:32px;}
-.h-desc{font-size:.95rem;font-weight:300;line-height:1.75;color:var(--gray2);max-width:400px;}
-.h-cta-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:14px;}
-.h-phone-big{font-family:var(--fh);font-size:2.6rem;font-weight:900;color:var(--ice);letter-spacing:.04em;text-decoration:none;line-height:1;}
-.h-phone-big:hover{color:var(--white);}
+.h-wrap{
+  position:relative;
+  z-index:10;
+  width:100%;
+  padding:0 64px 72px;
+}
+.h-emergency{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-bottom:20px;
+}
+.h-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:blink 1.1s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
+.h-etxt{font-size:.58rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--red);}
+.h-title{
+  font-family:var(--fh);
+  font-size:clamp(4.5rem,10vw,11rem);
+  font-weight:900;
+  line-height:.86;
+  text-transform:uppercase;
+  letter-spacing:-.01em;
+  margin-bottom:36px;
+}
+.h-title .t1{display:block;color:var(--white);}
+.h-title .t2{display:block;color:var(--ice);font-style:italic;}
+.h-title .t3{display:block;color:var(--white);}
+.h-row{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:32px;
+  flex-wrap:wrap;
+}
+.h-desc{font-size:.92rem;font-weight:300;line-height:1.75;color:var(--gray2);max-width:420px;}
+.h-right{display:flex;flex-direction:column;align-items:flex-end;gap:14px;}
+.h-phone{font-family:var(--fh);font-size:2.4rem;font-weight:900;color:var(--ice);letter-spacing:.04em;text-decoration:none;}
+.h-phone:hover{color:var(--white);}
 .h-btns{display:flex;gap:12px;}
-.btn{font-family:var(--fb);font-size:.65rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:15px 32px;border:none;text-decoration:none;display:inline-block;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,background .25s,color .25s;}
+.btn{font-family:var(--fb);font-size:.65rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:14px 30px;border:none;text-decoration:none;display:inline-block;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;}
 .bp{background:var(--ice);color:var(--navy);}
-.bp:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(79,195,247,.35);}
+.bp:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(79,195,247,.35);}
 .bs{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.2);}
-.bs:hover{border-color:var(--ice);color:var(--ice);transform:translateY(-4px);}
+.bs:hover{border-color:var(--ice);color:var(--ice);transform:translateY(-3px);}
+.h-scroll-ind{position:absolute;right:64px;bottom:36px;z-index:10;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.h-scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,transparent,var(--ice));animation:sd 2s ease-in-out infinite;}
+@keyframes sd{0%,100%{opacity:1;transform:scaleY(1);}50%{opacity:.3;transform:scaleY(.4);}}
+.h-scroll-txt{font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);writing-mode:vertical-rl;}
 
-.h-scroll{position:absolute;right:72px;bottom:40px;z-index:10;display:flex;flex-direction:column;align-items:center;gap:10px;}
-.h-scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,transparent,var(--ice));animation:scrolldrop 2s ease-in-out infinite;}
-@keyframes scrolldrop{0%,100%{transform:scaleY(1);opacity:1;}50%{transform:scaleY(.4);opacity:.3;}}
-.h-scroll-txt{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);writing-mode:vertical-rl;}
-
-/* ── MARQUEE ── */
+/* MARQUEE */
 .mq{background:var(--ice);padding:11px 0;overflow:hidden;}
 .mq-inner{display:flex;width:max-content;animation:mqs 28s linear infinite;}
 .mq-inner:hover{animation-play-state:paused;}
-.mq-item{font-family:var(--fh);font-size:.82rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--navy);padding:0 44px;}
+.mq-item{font-family:var(--fh);font-size:.82rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);padding:0 44px;}
 .mq-item::after{content:' ❄ ';}
 @keyframes mqs{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
-/* ── ROTATING STAT ── */
-#stat{background:var(--navy2);padding:100px 72px;overflow:hidden;position:relative;}
-#stat::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:600px;border:1px solid rgba(79,195,247,.04);border-radius:50%;}
-#stat::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:400px;height:400px;border:1px solid rgba(79,195,247,.06);border-radius:50%;}
-.stat-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:60px;position:relative;z-index:1;}
-.stat-big{text-align:center;}
-.stat-big-num{font-family:var(--fh);font-size:clamp(6rem,14vw,16rem);font-weight:900;color:var(--ice);line-height:1;letter-spacing:-.02em;display:block;opacity:0;transform:scale(.6);}
-.stat-big-lbl{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray2);margin-top:8px;}
-.stat-side{display:flex;flex-direction:column;gap:40px;}
-.stat-mini{opacity:0;transform:translateX(40px);}
-.stat-mini-num{font-family:var(--fh);font-size:3rem;font-weight:800;color:var(--white);line-height:1;letter-spacing:.02em;}
-.stat-mini-lbl{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2);margin-top:4px;}
-.stat-side-left{opacity:0;transform:translateX(-40px);}
+/* STAT SECTION */
+#stat{background:var(--navy2);padding:100px 64px;position:relative;overflow:hidden;}
+#stat::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:580px;height:580px;border:1px solid rgba(79,195,247,.04);border-radius:50%;}
+#stat::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:380px;height:380px;border:1px solid rgba(79,195,247,.06);border-radius:50%;}
+.stat-grid{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:48px;position:relative;z-index:1;}
+.stat-side{display:flex;flex-direction:column;gap:44px;}
+.stat-mini-num{font-family:var(--fh);font-size:2.8rem;font-weight:800;color:var(--white);line-height:1;}
+.stat-mini-lbl{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2);margin-top:4px;}
+.stat-center{text-align:center;}
+.stat-big{font-family:var(--fh);font-size:clamp(6rem,13vw,14rem);font-weight:900;color:var(--ice);line-height:1;letter-spacing:-.02em;display:block;}
+.stat-big-lbl{font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gray2);margin-top:8px;}
 
-/* ── SERVICES — accordion ── */
-#services{background:var(--navy3);padding:140px 72px;}
-.sv-head{max-width:1200px;margin:0 auto 80px;}
-.sv-eyebrow{font-size:.6rem;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--ice);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
-.sv-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--ice);}
-.sv-h2{font-family:var(--fh);font-size:clamp(3rem,5.5vw,6.5rem);font-weight:900;line-height:.88;text-transform:uppercase;color:var(--white);}
+/* SERVICES ACCORDION */
+#services{background:var(--navy3);padding:120px 64px;}
+.sv-head{max-width:1200px;margin:0 auto 72px;}
+.sv-eye{font-size:.6rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ice);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.sv-eye::before{content:'';display:block;width:26px;height:1px;background:var(--ice);}
+.sv-h2{font-family:var(--fh);font-size:clamp(3rem,5.5vw,6rem);font-weight:900;line-height:.9;text-transform:uppercase;color:var(--white);}
 .sv-h2 span{color:var(--ice);}
-
-.sv-accordion{max-width:1200px;margin:0 auto;}
-.sv-row{border-bottom:1px solid rgba(79,195,247,.1);overflow:hidden;}
+.sv-list{max-width:1200px;margin:0 auto;}
+.sv-row{border-bottom:1px solid rgba(79,195,247,.1);}
 .sv-row:first-child{border-top:1px solid rgba(79,195,247,.1);}
-.sv-trigger{width:100%;display:grid;grid-template-columns:80px 1fr 60px;align-items:center;gap:32px;padding:28px 0;background:transparent;border:none;color:var(--white);text-align:left;cursor:pointer;transition:background .3s;}
-.sv-trigger:hover{background:rgba(79,195,247,.03);}
-.sv-t-num{font-family:var(--fh);font-size:3rem;font-weight:800;color:rgba(79,195,247,.15);line-height:1;transition:color .3s;}
-.sv-row.open .sv-t-num{color:rgba(79,195,247,.4);}
-.sv-t-name{font-family:var(--fh);font-size:2.2rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--white);transition:color .3s;}
-.sv-row.open .sv-t-name,.sv-trigger:hover .sv-t-name{color:var(--ice);}
-.sv-t-icon{width:44px;height:44px;border:1px solid rgba(79,195,247,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s,transform .4s;}
-.sv-row.open .sv-t-icon{background:var(--ice);border-color:var(--ice);transform:rotate(45deg);}
-.sv-t-icon svg{stroke:var(--ice);transition:stroke .3s;}
-.sv-row.open .sv-t-icon svg{stroke:var(--navy);}
-
-.sv-panel{height:0;overflow:hidden;transition:height .5s cubic-bezier(.4,0,.2,1);}
-.sv-panel-inner{padding:0 0 36px 112px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
-.sv-panel p{font-size:.92rem;font-weight:300;line-height:1.8;color:var(--gray2);}
-.sv-panel-features{display:flex;flex-direction:column;gap:10px;}
-.sv-feat{display:flex;align-items:center;gap:10px;font-size:.82rem;font-weight:400;color:var(--off);}
+.sv-btn{width:100%;display:grid;grid-template-columns:72px 1fr 52px;align-items:center;gap:28px;padding:26px 0;background:transparent;border:none;color:var(--white);text-align:left;cursor:pointer;transition:background .3s;}
+.sv-btn:hover{background:rgba(79,195,247,.03);}
+.sv-btn-num{font-family:var(--fh);font-size:2.8rem;font-weight:800;color:rgba(79,195,247,.14);line-height:1;transition:color .3s;}
+.sv-row.open .sv-btn-num{color:rgba(79,195,247,.35);}
+.sv-btn-name{font-family:var(--fh);font-size:2rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;transition:color .3s;}
+.sv-row.open .sv-btn-name,.sv-btn:hover .sv-btn-name{color:var(--ice);}
+.sv-btn-icon{width:42px;height:42px;border:1px solid rgba(79,195,247,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s,transform .4s;}
+.sv-row.open .sv-btn-icon{background:var(--ice);border-color:var(--ice);transform:rotate(45deg);}
+.sv-btn-icon svg{stroke:var(--ice);transition:stroke .3s;}
+.sv-row.open .sv-btn-icon svg{stroke:var(--navy);}
+.sv-panel{height:0;overflow:hidden;transition:height .45s cubic-bezier(.4,0,.2,1);}
+.sv-panel-body{padding:0 0 32px 100px;display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+.sv-panel-body p{font-size:.9rem;font-weight:300;line-height:1.8;color:var(--gray2);}
+.sv-feats{display:flex;flex-direction:column;gap:10px;}
+.sv-feat{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--white);}
 .sv-feat::before{content:'';display:block;width:6px;height:6px;background:var(--ice);border-radius:50%;flex-shrink:0;}
 
-/* ── PROCESS — pinned horizontal ── */
+/* PROCESS — pinned horizontal */
 #process{position:relative;}
-.pr-pin-wrap{position:relative;}
+.pr-outer{position:relative;}
 .pr-sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--navy);}
 .pr-track{display:flex;height:100%;will-change:transform;}
-.pr-slide{min-width:100vw;height:100vh;display:flex;align-items:center;padding:0 72px;position:relative;flex-shrink:0;}
+.pr-slide{min-width:100vw;height:100vh;display:flex;align-items:center;padding:0 64px;flex-shrink:0;position:relative;}
 .pr-slide:nth-child(even){background:var(--navy2);}
-
-/* Each slide unique layout */
-.pr-slide-content{max-width:700px;}
-.pr-s-step{font-size:.58rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:var(--ice);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
-.pr-s-step::before{content:'';display:block;width:28px;height:1px;background:var(--ice);}
-.pr-s-num{position:absolute;right:72px;top:50%;transform:translateY(-50%);font-family:var(--fh);font-size:clamp(8rem,18vw,22rem);font-weight:900;color:rgba(79,195,247,.04);line-height:1;user-select:none;pointer-events:none;}
-.pr-s-title{font-family:var(--fh);font-size:clamp(3.5rem,7vw,8rem);font-weight:900;text-transform:uppercase;line-height:.88;color:var(--white);margin-bottom:28px;letter-spacing:-.01em;}
+.pr-s-body{max-width:660px;}
+.pr-s-eye{font-size:.58rem;font-weight:600;letter-spacing:.38em;text-transform:uppercase;color:var(--ice);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.pr-s-eye::before{content:'';display:block;width:26px;height:1px;background:var(--ice);}
+.pr-s-title{font-family:var(--fh);font-size:clamp(3.5rem,7vw,8rem);font-weight:900;text-transform:uppercase;line-height:.88;color:var(--white);margin-bottom:26px;letter-spacing:-.01em;}
 .pr-s-title em{color:var(--ice);font-style:italic;}
-.pr-s-desc{font-size:1rem;font-weight:300;line-height:1.8;color:var(--gray2);max-width:500px;margin-bottom:32px;}
-.pr-s-tag{display:inline-flex;align-items:center;gap:10px;background:var(--ice-dim);border:1px solid rgba(79,195,247,.15);padding:10px 20px;}
-.pr-s-tag-txt{font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ice);}
+.pr-s-desc{font-size:.98rem;font-weight:300;line-height:1.8;color:var(--gray2);margin-bottom:28px;max-width:500px;}
+.pr-s-tag{display:inline-flex;align-items:center;gap:10px;background:var(--ice-dim);border:1px solid rgba(79,195,247,.15);padding:10px 18px;}
+.pr-s-tag span{font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ice);}
+.pr-bg-num{position:absolute;right:64px;top:50%;transform:translateY(-50%);font-family:var(--fh);font-size:clamp(9rem,20vw,24rem);font-weight:900;color:rgba(79,195,247,.035);line-height:1;user-select:none;pointer-events:none;}
+.pr-prog{position:fixed;bottom:0;left:0;right:0;height:2px;background:rgba(79,195,247,.08);z-index:100;}
+.pr-prog-fill{height:100%;background:var(--ice);width:0%;transition:width .08s;}
 
-/* Progress bar for horizontal scroll */
-.pr-progress{position:fixed;bottom:0;left:0;right:0;height:2px;background:rgba(79,195,247,.1);z-index:100;}
-.pr-progress-fill{height:100%;background:var(--ice);width:0%;transition:width .1s;}
-
-/* ── PROJECTS — full screen stacked ── */
+/* PROJECTS stacked */
 #projects{background:var(--navy);padding:0;}
-.pj-header{padding:120px 72px 60px;}
-.pj-eyebrow{font-size:.6rem;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--ice);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
-.pj-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--ice);}
-.pj-h2{font-family:var(--fh);font-size:clamp(3rem,5.5vw,6.5rem);font-weight:900;line-height:.88;text-transform:uppercase;color:var(--white);}
+.pj-hd{padding:100px 64px 52px;}
+.pj-eye{font-size:.6rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--ice);margin-bottom:12px;display:flex;align-items:center;gap:12px;}
+.pj-eye::before{content:'';display:block;width:26px;height:1px;background:var(--ice);}
+.pj-h2{font-family:var(--fh);font-size:clamp(3rem,5.5vw,6rem);font-weight:900;line-height:.9;text-transform:uppercase;color:var(--white);}
 .pj-h2 span{color:var(--ice);}
-
 .pj-stack{display:flex;flex-direction:column;gap:2px;}
-.pj-item{position:relative;height:420px;overflow:hidden;display:flex;align-items:flex-end;}
+.pj-item{position:relative;height:400px;overflow:hidden;display:flex;align-items:flex-end;}
 .pj-item:nth-child(even){flex-direction:row-reverse;}
-.pj-bg-fill{position:absolute;inset:0;transition:transform .7s cubic-bezier(.25,.46,.45,.94);}
-.pj-item:hover .pj-bg-fill{transform:scale(1.04);}
-
-.pj-c1{background:linear-gradient(135deg,#060e1a 0%,#0f1e30 40%,#091525 100%);}
-.pj-c2{background:linear-gradient(135deg,#080c18 0%,#101828 50%,#06101e 100%);}
-.pj-c3{background:linear-gradient(135deg,#06101a 0%,#0c1c2a 50%,#06101a 100%);}
-.pj-c4{background:linear-gradient(135deg,#080a16 0%,#0e1628 50%,#060a14 100%);}
-
-/* Pipe SVG decoration */
+.pj-fill{position:absolute;inset:0;transition:transform .7s cubic-bezier(.25,.46,.45,.94);}
+.pj-item:hover .pj-fill{transform:scale(1.04);}
+.bg1{background:linear-gradient(135deg,#060e1a 0%,#0f1e30 40%,#091525 100%);}
+.bg2{background:linear-gradient(135deg,#080c18 0%,#101828 50%,#06101e 100%);}
+.bg3{background:linear-gradient(135deg,#06101a 0%,#0c1c2a 50%,#06101a 100%);}
+.bg4{background:linear-gradient(135deg,#080a16 0%,#0e1628 50%,#060a14 100%);}
+.pj-grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(79,195,247,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(79,195,247,.03) 1px,transparent 1px);background-size:54px 54px;}
 .pj-pipe{position:absolute;opacity:.18;pointer-events:none;}
+.pj-num{position:absolute;font-family:var(--fh);font-size:13rem;font-weight:900;color:rgba(255,255,255,.022);line-height:1;pointer-events:none;user-select:none;}
+.pj-item:nth-child(odd) .pj-num{right:-10px;bottom:-20px;}
+.pj-item:nth-child(even) .pj-num{left:-10px;bottom:-20px;}
+.pj-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,10,20,.96) 0%,rgba(6,10,20,.15) 55%,transparent 100%);transition:background .4s;}
+.pj-item:hover .pj-ov{background:linear-gradient(to top,rgba(6,10,20,.98) 20%,rgba(6,10,20,.5) 100%);}
+.pj-txt{position:relative;z-index:1;padding:36px 64px;width:100%;}
+.pj-item:nth-child(even) .pj-txt{text-align:right;}
+.pj-tag{font-size:.55rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ice);margin-bottom:8px;}
+.pj-name{font-family:var(--fh);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;text-transform:uppercase;color:var(--white);margin-bottom:6px;letter-spacing:.03em;}
+.pj-det{font-size:.8rem;font-weight:300;color:var(--gray2);}
 
-.pj-c1::before,.pj-c2::before,.pj-c3::before,.pj-c4::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(79,195,247,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(79,195,247,.03) 1px,transparent 1px);background-size:56px 56px;}
-
-.pj-number{position:absolute;font-family:var(--fh);font-size:14rem;font-weight:900;color:rgba(255,255,255,.02);line-height:1;pointer-events:none;user-select:none;}
-.pj-item:nth-child(odd) .pj-number{right:-20px;bottom:-30px;}
-.pj-item:nth-child(even) .pj-number{left:-20px;bottom:-30px;}
-
-.pj-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,10,20,.96) 0%,rgba(6,10,20,.2) 50%,transparent 100%);transition:background .4s;}
-.pj-item:hover .pj-overlay{background:linear-gradient(to top,rgba(6,10,20,.98) 20%,rgba(6,10,20,.5) 100%);}
-
-.pj-text{position:relative;z-index:1;padding:40px 72px;width:100%;}
-.pj-item:nth-child(even) .pj-text{text-align:right;}
-.pj-tag{font-size:.55rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--ice);margin-bottom:10px;}
-.pj-name{font-family:var(--fh);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;text-transform:uppercase;color:var(--white);margin-bottom:8px;letter-spacing:.03em;}
-.pj-detail{font-size:.82rem;font-weight:300;color:var(--gray2);}
-
-/* ── TESTIMONIAL — dark room ── */
-#testimonial{background:var(--navy2);padding:160px 72px;position:relative;overflow:hidden;}
-#testimonial::before{content:'"';position:absolute;top:-60px;left:-20px;font-family:var(--fh);font-size:50rem;font-weight:900;color:rgba(79,195,247,.02);line-height:1;pointer-events:none;}
-.tm-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
-.tm-line{width:32px;height:1px;background:var(--ice);margin-bottom:44px;}
-.tm-quote{font-family:var(--fh);font-size:clamp(2.5rem,5vw,5rem);font-weight:800;text-transform:uppercase;line-height:1.0;color:var(--white);margin-bottom:52px;letter-spacing:.01em;}
+/* TESTIMONIAL */
+#testimonial{background:var(--navy2);padding:140px 64px;position:relative;overflow:hidden;}
+#testimonial::before{content:'"';position:absolute;top:-80px;left:-20px;font-family:var(--fh);font-size:44rem;font-weight:900;color:rgba(79,195,247,.025);line-height:1;pointer-events:none;}
+.tm-inner{max-width:960px;margin:0 auto;position:relative;z-index:1;}
+.tm-bar{width:28px;height:1px;background:var(--ice);margin-bottom:40px;}
+.tm-quote{font-family:var(--fh);font-size:clamp(2.2rem,4.5vw,4.5rem);font-weight:800;text-transform:uppercase;line-height:1.0;color:var(--white);margin-bottom:48px;letter-spacing:.01em;}
 .tm-quote em{color:var(--ice);font-style:italic;}
-.tm-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;}
-.tm-person{display:flex;align-items:center;gap:18px;}
-.tm-av{width:52px;height:52px;background:var(--ice-dim);border:1px solid rgba(79,195,247,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:1.1rem;font-weight:700;color:var(--ice);}
-.tm-name{font-family:var(--fh);font-size:1.2rem;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.08em;}
-.tm-role{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2);}
-.tm-rating{font-family:var(--fh);font-size:1.8rem;font-weight:700;color:var(--ice);letter-spacing:.1em;}
-.tm-rating small{display:block;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray2);font-family:var(--fb);margin-top:2px;}
+.tm-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+.tm-person{display:flex;align-items:center;gap:16px;}
+.tm-av{width:50px;height:50px;background:var(--ice-dim);border:1px solid rgba(79,195,247,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--ice);}
+.tm-name{font-family:var(--fh);font-size:1.1rem;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.08em;}
+.tm-role{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray2);}
+.tm-rating{font-family:var(--fh);font-size:1.6rem;font-weight:700;color:var(--ice);}
+.tm-rating small{display:block;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gray2);font-family:var(--fb);margin-top:2px;}
 
-/* ── CTA — dark room, just the essentials ── */
-#cta{background:var(--navy);min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 72px;}
+/* CTA */
+#cta{background:var(--navy);min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 64px;text-align:center;}
 #cta-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.45;}
-
-/* Minimal crosshair accent */
-.ct-cross{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:2px;height:120px;background:linear-gradient(to bottom,transparent,rgba(79,195,247,.15),transparent);pointer-events:none;z-index:1;}
-.ct-cross::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:2px;background:linear-gradient(to right,transparent,rgba(79,195,247,.15),transparent);}
-
-.ct-inner{position:relative;z-index:2;text-align:center;max-width:900px;}
-.ct-status{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;opacity:0;}
+.cta-ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(79,195,247,.05);animation:rpulse 4s ease-in-out infinite;pointer-events:none;z-index:1;}
+.cta-ring:nth-child(1){width:500px;height:500px;transform:translate(-50%,-50%);}
+.cta-ring:nth-child(2){width:720px;height:720px;transform:translate(-50%,-50%);animation-delay:.8s;}
+.cta-ring:nth-child(3){width:960px;height:960px;transform:translate(-50%,-50%);animation-delay:1.6s;}
+@keyframes rpulse{0%,100%{opacity:.5;}50%{opacity:.1;}}
+.ct-wrap{position:relative;z-index:2;max-width:860px;margin:0 auto;}
+.ct-live{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;}
 .ct-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:blink 1.1s ease-in-out infinite;}
-.ct-status-txt{font-size:.58rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--red);}
-.ct-title{font-family:var(--fh);font-size:clamp(4rem,9vw,10rem);font-weight:900;text-transform:uppercase;line-height:.82;color:var(--white);margin-bottom:16px;letter-spacing:-.01em;opacity:0;transform:translateY(50px);}
+.ct-live-txt{font-size:.58rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--red);}
+.ct-title{font-family:var(--fh);font-size:clamp(4rem,9vw,9.5rem);font-weight:900;text-transform:uppercase;line-height:.84;color:var(--white);margin-bottom:16px;letter-spacing:-.01em;}
 .ct-title span{color:var(--ice);}
-.ct-phone{font-family:var(--fh);font-size:clamp(3rem,7vw,7.5rem);font-weight:900;color:var(--ice);letter-spacing:.04em;text-decoration:none;display:block;margin:28px 0;opacity:0;transform:scale(.8);transition:color .2s,text-shadow .3s;}
+.ct-phone{font-family:var(--fh);font-size:clamp(3rem,7vw,7rem);font-weight:900;color:var(--ice);letter-spacing:.04em;text-decoration:none;display:block;margin:28px 0;transition:color .2s,text-shadow .3s;}
 .ct-phone:hover{color:var(--white);text-shadow:0 0 60px rgba(79,195,247,.6);}
-.ct-sub{font-size:.9rem;font-weight:300;line-height:1.7;color:var(--gray2);margin-bottom:40px;opacity:0;}
-.ct-btn{display:inline-block;background:var(--ice);color:var(--navy);font-family:var(--fh);font-size:1.1rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:18px 52px;text-decoration:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;opacity:0;}
-.ct-btn:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 18px 50px rgba(79,195,247,.4);}
-.ct-email-link{display:block;margin-top:20px;font-size:.78rem;color:var(--gray2);text-decoration:none;letter-spacing:.08em;transition:color .2s;opacity:0;}
-.ct-email-link:hover{color:var(--ice);}
+.ct-sub{font-size:.9rem;font-weight:300;line-height:1.72;color:var(--gray2);margin-bottom:36px;}
+.ct-cta{display:inline-block;background:var(--ice);color:var(--navy);font-family:var(--fh);font-size:1.1rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:18px 52px;text-decoration:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;}
+.ct-cta:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 18px 50px rgba(79,195,247,.4);}
+.ct-email{display:block;margin-top:18px;font-size:.76rem;color:var(--gray2);text-decoration:none;transition:color .2s;}
+.ct-email:hover{color:var(--ice);}
 
-/* ── FOOTER ── */
-footer{background:var(--navy2);padding:64px 72px 40px;border-top:1px solid rgba(79,195,247,.06);}
-.ft-top{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:52px;}
+/* FOOTER */
+footer{background:var(--navy2);padding:64px 64px 40px;border-top:1px solid rgba(79,195,247,.06);}
+.ft-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:52px;}
 .ft-logo{font-family:var(--fh);font-size:1.6rem;font-weight:900;letter-spacing:.1em;color:var(--white);text-transform:uppercase;margin-bottom:4px;}
 .ft-logo span{color:var(--ice);}
-.ft-sub{font-size:.46rem;letter-spacing:.35em;color:var(--ice);text-transform:uppercase;margin-bottom:16px;}
+.ft-tag{font-size:.46rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ice);margin-bottom:14px;}
 .ft-brand p{font-size:.82rem;font-weight:300;line-height:1.7;color:var(--gray2);max-width:270px;}
-.ft-col h4{font-size:.52rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--ice);margin-bottom:18px;}
+.ft-col h4{font-size:.52rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ice);margin-bottom:18px;}
 .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
 .ft-col a{font-size:.82rem;font-weight:300;color:var(--gray2);text-decoration:none;transition:color .2s,padding-left .2s;}
 .ft-col a:hover{color:var(--ice);padding-left:5px;}
@@ -286,43 +248,34 @@ footer{background:var(--navy2);padding:64px 72px 40px;border-top:1px solid rgba(
 .ft-badges{display:flex;gap:8px;}
 .ft-badge{font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);background:rgba(79,195,247,.04);padding:5px 11px;border:1px solid rgba(79,195,247,.1);}
 
-/* ── REVEALS ── */
-.rv{opacity:0;transform:translateY(52px);}
-.rl{opacity:0;transform:translateX(-52px);}
-.rr{opacity:0;transform:translateX(52px);}
-.rs{opacity:0;transform:scale(.92);}
+/* SCROLL REVEALS */
+.rv{opacity:0;transform:translateY(48px);}
+.rs{opacity:0;transform:scale(.93);}
 
-/* ── RESPONSIVE ── */
-@media(max-width:1100px){
+/* RESPONSIVE */
+@media(max-width:1024px){
   nav{padding:18px 32px;}.n-links{display:none;}
-  #hero .h-content{padding:0 32px 72px;}
-  .h-scroll{right:32px;}
-  .mq,.stat-inner,#services,#testimonial,#cta,footer,.pj-header,.pj-text{padding-left:32px!important;padding-right:32px!important;}
-  #stat{padding:80px 32px;}
-  .stat-inner{flex-direction:column;gap:40px;}
-  .sv-head,.sv-accordion{padding-left:0;padding-right:0;}
-  .pr-slide{padding:0 32px;}
-  .pr-s-num{display:none;}
-  .sv-panel-inner{grid-template-columns:1fr;gap:20px;padding-left:0;}
-  .sv-trigger{grid-template-columns:60px 1fr 50px;gap:20px;}
-  .pj-item{height:300px;}
-  .ft-top{grid-template-columns:1fr 1fr;gap:36px;}
-  .tm-bottom{flex-direction:column;align-items:flex-start;gap:20px;}
+  .h-wrap{padding:0 32px 64px;}
+  .h-scroll-ind{right:32px;}
+  #stat,#services,#projects,.pj-hd,#testimonial,#cta,footer{padding-left:32px;padding-right:32px;}
+  .stat-grid{flex-direction:column;gap:36px;}
+  .sv-panel-body{grid-template-columns:1fr;gap:20px;padding-left:0;}
+  .sv-btn{grid-template-columns:56px 1fr 44px;gap:16px;}
+  .pr-slide{padding:0 32px;}.pr-bg-num{display:none;}
+  .pj-item{height:300px;}.pj-txt{padding:28px 32px!important;}
+  .tm-foot{flex-direction:column;align-items:flex-start;}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:36px;}
 }
 @media(max-width:640px){
-  .h-bottom{flex-direction:column;align-items:flex-start;}
-  .h-cta-wrap{align-items:flex-start;}
-  .ft-top{grid-template-columns:1fr;}
-  .pr-slide{padding:0 24px;}
-  .pj-item{height:260px;}
-  .pj-text{padding:28px 32px!important;}
-  .ct-contact{flex-direction:column;}
+  .h-row{flex-direction:column;align-items:flex-start;}
+  .h-right{align-items:flex-start;}
+  .pj-item:nth-child(even){flex-direction:row;}
+  .pj-item:nth-child(even) .pj-txt{text-align:left;}
+  .ft-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
-
-
 
 <!-- NAV -->
 <nav id="nav">
@@ -341,28 +294,28 @@ footer{background:var(--navy2);padding:64px 72px 40px;border-top:1px solid rgba(
 <!-- HERO -->
 <section id="hero">
   <canvas id="hc"></canvas>
-  <div class="h-live" id="h-live">
-    <div class="h-live-dot"></div>
-    <div class="h-live-txt">24/7 Emergency Service Available Now</div>
-  </div>
-  <div class="h-content">
-    <div class="h-headline">
-      <span class="line1">COLD AIR.</span>
-      <span class="line2">HOT WATER.</span>
-      <span class="line3">FIXED FAST.</span>
+  <div class="h-wrap">
+    <div class="h-emergency">
+      <div class="h-dot"></div>
+      <div class="h-etxt">24/7 Emergency Service Available Now</div>
     </div>
-    <div class="h-bottom">
-      <p class="h-desc">Arctic Air & Plumbing — licensed HVAC and plumbing specialists serving homeowners and businesses across the region. We show up, we fix it, we guarantee it.</p>
-      <div class="h-cta-wrap">
-        <a href="tel:5559110100" class="h-phone-big">(555) 911-0100</a>
+    <div class="h-title">
+      <span class="t1">COLD AIR.</span>
+      <span class="t2">HOT WATER.</span>
+      <span class="t3">FIXED FAST.</span>
+    </div>
+    <div class="h-row">
+      <p class="h-desc">Arctic Air & Plumbing — licensed HVAC and plumbing specialists. We show up, we fix it, we guarantee it.</p>
+      <div class="h-right">
+        <a href="tel:5559110100" class="h-phone">(555) 911-0100</a>
         <div class="h-btns">
-          <a href="#cta" class="btn bp mag">Get a Quote</a>
-          <a href="#services" class="btn bs mag">Our Services</a>
+          <a href="#cta" class="btn bp">Get a Quote</a>
+          <a href="#services" class="btn bs">Our Services</a>
         </div>
       </div>
     </div>
   </div>
-  <div class="h-scroll" id="h-scroll">
+  <div class="h-scroll-ind">
     <div class="h-scroll-line"></div>
     <span class="h-scroll-txt">Scroll</span>
   </div>
@@ -371,281 +324,216 @@ footer{background:var(--navy2);padding:64px 72px 40px;border-top:1px solid rgba(
 <!-- MARQUEE -->
 <div class="mq"><div class="mq-inner" id="mq"></div></div>
 
-<!-- ROTATING SINGLE STAT -->
+<!-- STAT -->
 <section id="stat">
-  <div class="stat-inner">
-    <div class="stat-side stat-side-left">
-      <div class="stat-mini">
+  <div class="stat-grid">
+    <div class="stat-side">
+      <div>
         <div class="stat-mini-num" data-target="98" data-suffix="%">0%</div>
         <div class="stat-mini-lbl">Customer Satisfaction</div>
       </div>
-      <div class="stat-mini">
+      <div>
         <div class="stat-mini-num" data-target="15" data-suffix=" Yrs">0</div>
         <div class="stat-mini-lbl">Years in Business</div>
       </div>
     </div>
-    <div class="stat-big">
-      <span class="stat-big-num" id="stat-main" data-target="12000">0</span>
+    <div class="stat-center">
+      <span class="stat-big" id="stat-main">12,000+</span>
       <div class="stat-big-lbl">Systems Installed & Repaired</div>
     </div>
     <div class="stat-side">
-      <div class="stat-mini">
-        <div class="stat-mini-num"><span data-target="2" data-suffix="hr">0</span></div>
+      <div>
+        <div class="stat-mini-num">2hr</div>
         <div class="stat-mini-lbl">Emergency Response</div>
       </div>
-      <div class="stat-mini">
-        <div class="stat-mini-num" data-target="247" data-suffix="">247</div>
+      <div>
+        <div class="stat-mini-num">24/7</div>
         <div class="stat-mini-lbl">Always Available</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES — ACCORDION -->
+<!-- SERVICES ACCORDION -->
 <section id="services">
   <div class="sv-head">
-    <div class="sv-eyebrow rv">What We Do</div>
+    <div class="sv-eye rv">What We Do</div>
     <h2 class="sv-h2 rv">EXPERT SERVICES.<br/><span>EVERY TIME.</span></h2>
   </div>
-  <div class="sv-accordion">
-
+  <div class="sv-list">
     <div class="sv-row open">
-      <button class="sv-trigger" onclick="toggleAccordion(this)">
-        <div class="sv-t-num">01</div>
-        <div class="sv-t-name">AC Installation & Replacement</div>
-        <div class="sv-t-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <button class="sv-btn" onclick="toggleAcc(this)">
+        <div class="sv-btn-num">01</div>
+        <div class="sv-btn-name">AC Installation & Replacement</div>
+        <div class="sv-btn-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
       <div class="sv-panel">
-        <div class="sv-panel-inner">
+        <div class="sv-panel-body">
           <p>Full central air and ductless mini-split installations sized and configured for your exact space. We carry all major brands and offer same-week installation on most systems.</p>
-          <div class="sv-panel-features">
-            <div class="sv-feat">Central Air Systems</div>
-            <div class="sv-feat">Ductless Mini-Splits</div>
-            <div class="sv-feat">Energy-Efficient Upgrades</div>
-            <div class="sv-feat">All Major Brands</div>
-          </div>
+          <div class="sv-feats"><div class="sv-feat">Central Air Systems</div><div class="sv-feat">Ductless Mini-Splits</div><div class="sv-feat">Energy-Efficient Upgrades</div><div class="sv-feat">All Major Brands</div></div>
         </div>
       </div>
     </div>
-
     <div class="sv-row">
-      <button class="sv-trigger" onclick="toggleAccordion(this)">
-        <div class="sv-t-num">02</div>
-        <div class="sv-t-name">Emergency Repair</div>
-        <div class="sv-t-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <button class="sv-btn" onclick="toggleAcc(this)">
+        <div class="sv-btn-num">02</div>
+        <div class="sv-btn-name">Emergency Repair</div>
+        <div class="sv-btn-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
       <div class="sv-panel">
-        <div class="sv-panel-inner">
+        <div class="sv-panel-body">
           <p>AC down at 2am? Pipe burst on a Sunday? A live technician answers every call and dispatches immediately. Average on-site time under 2 hours anywhere in the service area.</p>
-          <div class="sv-panel-features">
-            <div class="sv-feat">24/7/365 Dispatch</div>
-            <div class="sv-feat">2-Hour Response Guarantee</div>
-            <div class="sv-feat">Fully Stocked Trucks</div>
-            <div class="sv-feat">No After-Hours Surcharge</div>
-          </div>
+          <div class="sv-feats"><div class="sv-feat">24/7/365 Dispatch</div><div class="sv-feat">2-Hour Response Guarantee</div><div class="sv-feat">Fully Stocked Trucks</div><div class="sv-feat">No After-Hours Surcharge</div></div>
         </div>
       </div>
     </div>
-
     <div class="sv-row">
-      <button class="sv-trigger" onclick="toggleAccordion(this)">
-        <div class="sv-t-num">03</div>
-        <div class="sv-t-name">Plumbing & Pipe Repair</div>
-        <div class="sv-t-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <button class="sv-btn" onclick="toggleAcc(this)">
+        <div class="sv-btn-num">03</div>
+        <div class="sv-btn-name">Plumbing & Pipe Repair</div>
+        <div class="sv-btn-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
       <div class="sv-panel">
-        <div class="sv-panel-inner">
+        <div class="sv-panel-body">
           <p>From burst pipes to drain clogs to full repiping — we handle every plumbing issue fast, clean, and correctly. Licensed master plumbers on every job.</p>
-          <div class="sv-panel-features">
-            <div class="sv-feat">Leak Detection & Repair</div>
-            <div class="sv-feat">Drain Cleaning</div>
-            <div class="sv-feat">Full Repiping</div>
-            <div class="sv-feat">Water Line Replacement</div>
-          </div>
+          <div class="sv-feats"><div class="sv-feat">Leak Detection & Repair</div><div class="sv-feat">Drain Cleaning</div><div class="sv-feat">Full Repiping</div><div class="sv-feat">Water Line Replacement</div></div>
         </div>
       </div>
     </div>
-
     <div class="sv-row">
-      <button class="sv-trigger" onclick="toggleAccordion(this)">
-        <div class="sv-t-num">04</div>
-        <div class="sv-t-name">Water Heater Services</div>
-        <div class="sv-t-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <button class="sv-btn" onclick="toggleAcc(this)">
+        <div class="sv-btn-num">04</div>
+        <div class="sv-btn-name">Water Heater Services</div>
+        <div class="sv-btn-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
       <div class="sv-panel">
-        <div class="sv-panel-inner">
+        <div class="sv-panel-body">
           <p>Traditional tank and tankless water heater installation, repair, and replacement. Most replacements completed same day with no mess and no disruption.</p>
-          <div class="sv-panel-features">
-            <div class="sv-feat">Tankless Installation</div>
-            <div class="sv-feat">Same-Day Replacement</div>
-            <div class="sv-feat">All Fuel Types</div>
-            <div class="sv-feat">10-Year Warranty Options</div>
-          </div>
+          <div class="sv-feats"><div class="sv-feat">Tankless Installation</div><div class="sv-feat">Same-Day Replacement</div><div class="sv-feat">All Fuel Types</div><div class="sv-feat">10-Year Warranty Options</div></div>
         </div>
       </div>
     </div>
-
     <div class="sv-row">
-      <button class="sv-trigger" onclick="toggleAccordion(this)">
-        <div class="sv-t-num">05</div>
-        <div class="sv-t-name">Maintenance Plans</div>
-        <div class="sv-t-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <button class="sv-btn" onclick="toggleAcc(this)">
+        <div class="sv-btn-num">05</div>
+        <div class="sv-btn-name">Maintenance Plans</div>
+        <div class="sv-btn-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
       <div class="sv-panel">
-        <div class="sv-panel-inner">
+        <div class="sv-panel-body">
           <p>Preventive maintenance extends system life by years. Our plans include bi-annual HVAC tune-ups, plumbing inspections, priority service, and discounted repairs.</p>
-          <div class="sv-panel-features">
-            <div class="sv-feat">Bi-Annual HVAC Tune-Up</div>
-            <div class="sv-feat">Priority Emergency Dispatch</div>
-            <div class="sv-feat">15% Repair Discount</div>
-            <div class="sv-feat">Annual Plumbing Inspection</div>
-          </div>
+          <div class="sv-feats"><div class="sv-feat">Bi-Annual HVAC Tune-Up</div><div class="sv-feat">Priority Emergency Dispatch</div><div class="sv-feat">15% Repair Discount</div><div class="sv-feat">Annual Plumbing Inspection</div></div>
         </div>
       </div>
     </div>
-
     <div class="sv-row">
-      <button class="sv-trigger" onclick="toggleAccordion(this)">
-        <div class="sv-t-num">06</div>
-        <div class="sv-t-name">Commercial HVAC</div>
-        <div class="sv-t-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <button class="sv-btn" onclick="toggleAcc(this)">
+        <div class="sv-btn-num">06</div>
+        <div class="sv-btn-name">Commercial HVAC</div>
+        <div class="sv-btn-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
       </button>
       <div class="sv-panel">
-        <div class="sv-panel-inner">
+        <div class="sv-panel-body">
           <p>Large-scale commercial system design, installation, and maintenance. Rooftop units, chillers, and complete building climate control. Minimal downtime, maximum reliability.</p>
-          <div class="sv-panel-features">
-            <div class="sv-feat">Rooftop Unit Installation</div>
-            <div class="sv-feat">Chiller Systems</div>
-            <div class="sv-feat">Building Automation</div>
-            <div class="sv-feat">Preventive Contracts</div>
-          </div>
+          <div class="sv-feats"><div class="sv-feat">Rooftop Unit Installation</div><div class="sv-feat">Chiller Systems</div><div class="sv-feat">Building Automation</div><div class="sv-feat">Preventive Contracts</div></div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- PROCESS — pinned horizontal scroll -->
+<!-- PROCESS pinned horizontal -->
 <div id="process">
-  <div class="pr-pin-wrap" id="pr-pin-wrap">
+  <div class="pr-outer" id="pr-outer">
     <div class="pr-sticky" id="pr-sticky">
       <div class="pr-track" id="pr-track">
-
         <div class="pr-slide">
-          <div class="pr-s-num">01</div>
-          <div class="pr-slide-content">
-            <div class="pr-s-step">How It Works</div>
+          <div class="pr-bg-num">01</div>
+          <div class="pr-s-body">
+            <div class="pr-s-eye">How It Works</div>
             <div class="pr-s-title">YOU <em>CALL.</em><br/>WE ANSWER.</div>
-            <p class="pr-s-desc">Day or night, every call is answered by a live technician — not a machine, not an answering service. We assess your situation and dispatch immediately.</p>
-            <div class="pr-s-tag"><span class="pr-s-tag-txt">Average Call Answer: Under 3 Rings</span></div>
+            <p class="pr-s-desc">Day or night, every call is answered by a live technician — not a machine. We assess your situation and dispatch immediately.</p>
+            <div class="pr-s-tag"><span>Average Call Answer: Under 3 Rings</span></div>
           </div>
         </div>
-
         <div class="pr-slide">
-          <div class="pr-s-num">02</div>
-          <div class="pr-slide-content">
-            <div class="pr-s-step">Step 02 of 04</div>
+          <div class="pr-bg-num">02</div>
+          <div class="pr-s-body">
+            <div class="pr-s-eye">Step 02 of 04</div>
             <div class="pr-s-title">ON SITE.<br/><em>FAST.</em></div>
-            <p class="pr-s-desc">Our fully stocked trucks are positioned across the service area. We guarantee on-site arrival within 2 hours of your call — and usually faster.</p>
-            <div class="pr-s-tag"><span class="pr-s-tag-txt">Guaranteed 2-Hour Response</span></div>
+            <p class="pr-s-desc">Our fully stocked trucks are positioned across the service area. We guarantee on-site arrival within 2 hours of your call — usually faster.</p>
+            <div class="pr-s-tag"><span>Guaranteed 2-Hour Response</span></div>
           </div>
         </div>
-
         <div class="pr-slide">
-          <div class="pr-s-num">03</div>
-          <div class="pr-slide-content">
-            <div class="pr-s-step">Step 03 of 04</div>
+          <div class="pr-bg-num">03</div>
+          <div class="pr-s-body">
+            <div class="pr-s-eye">Step 03 of 04</div>
             <div class="pr-s-title">FLAT RATE.<br/><em>NO GAMES.</em></div>
             <p class="pr-s-desc">You get a clear written quote before any work begins. Flat-rate pricing — no hourly mystery charges. You approve it. We stick to it. Period.</p>
-            <div class="pr-s-tag"><span class="pr-s-tag-txt">100% Transparent Pricing</span></div>
+            <div class="pr-s-tag"><span>100% Transparent Pricing</span></div>
           </div>
         </div>
-
         <div class="pr-slide">
-          <div class="pr-s-num">04</div>
-          <div class="pr-slide-content">
-            <div class="pr-s-step">Step 04 of 04</div>
+          <div class="pr-bg-num">04</div>
+          <div class="pr-s-body">
+            <div class="pr-s-eye">Step 04 of 04</div>
             <div class="pr-s-title">FIXED.<br/><em>GUARANTEED.</em></div>
-            <p class="pr-s-desc">Every repair comes with a 12-month parts and labor warranty. If anything fails within the year, we return at zero cost. That's the Arctic Air promise.</p>
-            <div class="pr-s-tag"><span class="pr-s-tag-txt">12-Month Warranty on All Work</span></div>
+            <p class="pr-s-desc">Every repair comes with a 12-month parts and labor warranty. If anything fails within the year, we return at zero cost.</p>
+            <div class="pr-s-tag"><span>12-Month Warranty on All Work</span></div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </div>
-<div class="pr-progress"><div class="pr-progress-fill" id="pr-fill"></div></div>
+<div class="pr-prog"><div class="pr-prog-fill" id="pr-fill"></div></div>
 
-<!-- REVIEWS TRUST STRIP -->
+<!-- PROJECTS stacked -->
 <section id="projects">
-  <div class="pj-header">
-    <div class="pj-eyebrow rv">What Clients Say</div>
-    <h2 class="pj-h2 rv">REAL REVIEWS.<br/><span>REAL RESULTS.</span></h2>
+  <div class="pj-hd">
+    <div class="pj-eye rv">Recent Work</div>
+    <h2 class="pj-h2 rv">JOBS WE'VE <span>COMPLETED</span></h2>
   </div>
-  <div class="reviews-grid">
-
-    <div class="review-card rv">
-      <div class="rv-stars">★★★★★</div>
-      <blockquote class="rv-quote">"AC died at midnight. Arctic Air answered immediately, arrived in under an hour, and had it running before 2am. Unbelievable service."</blockquote>
-      <div class="rv-author">
-        <div class="rv-av">JM</div>
-        <div>
-          <div class="rv-name">James Morales</div>
-          <div class="rv-role">Homeowner · Pembroke Pines, FL</div>
-        </div>
+  <div class="pj-stack">
+    <div class="pj-item rs">
+      <div class="pj-fill bg1"><div class="pj-grid-overlay"></div>
+        <svg class="pj-pipe" style="bottom:20px;right:40px;width:45%;height:55%;" viewBox="0 0 500 260" fill="none"><path d="M0 130 L160 130 L160 50 L340 50 L340 190 L500 190" stroke="rgba(79,195,247,0.5)" stroke-width="9" stroke-linecap="round"/><circle cx="160" cy="130" r="15" fill="rgba(79,195,247,0.12)" stroke="rgba(79,195,247,0.55)" stroke-width="2"/><circle cx="340" cy="50" r="15" fill="rgba(79,195,247,0.12)" stroke="rgba(79,195,247,0.55)" stroke-width="2"/><circle cx="340" cy="190" r="15" fill="rgba(79,195,247,0.12)" stroke="rgba(79,195,247,0.55)" stroke-width="2"/></svg>
       </div>
-      <div class="rv-tag">Emergency AC Repair</div>
+      <div class="pj-num">01</div>
+      <div class="pj-ov"></div>
+      <div class="pj-txt"><div class="pj-tag">Commercial · Full HVAC</div><div class="pj-name">24,000 Sq Ft Office Complex</div><div class="pj-det">Downtown District · Dual-Zone Installation</div></div>
     </div>
-
-    <div class="review-card rv">
-      <div class="rv-stars">★★★★★</div>
-      <blockquote class="rv-quote">"Had three other companies give me runaround quotes. Arctic Air came same day, gave me a flat price, and installed my new unit the next morning. No games."</blockquote>
-      <div class="rv-author">
-        <div class="rv-av">ST</div>
-        <div>
-          <div class="rv-name">Sandra Torres</div>
-          <div class="rv-role">Homeowner · Coral Springs, FL</div>
-        </div>
+    <div class="pj-item rs">
+      <div class="pj-fill bg2"><div class="pj-grid-overlay"></div></div>
+      <div class="pj-num">02</div>
+      <div class="pj-ov"></div>
+      <div class="pj-txt"><div class="pj-tag">Residential · Emergency Plumbing</div><div class="pj-name">Main Line Burst — Midnight Call</div><div class="pj-det">Coral Springs · On-Site in 47 Minutes · Fully Restored by 4am</div></div>
+    </div>
+    <div class="pj-item rs">
+      <div class="pj-fill bg3"><div class="pj-grid-overlay"></div></div>
+      <div class="pj-num">03</div>
+      <div class="pj-ov"></div>
+      <div class="pj-txt"><div class="pj-tag">Multi-Family · Ductless Mini-Splits</div><div class="pj-name">32-Unit Condo Tower Upgrade</div><div class="pj-det">Boca Raton · All Units Completed in 8 Days</div></div>
+    </div>
+    <div class="pj-item rs">
+      <div class="pj-fill bg4"><div class="pj-grid-overlay"></div>
+        <svg class="pj-pipe" style="bottom:0;right:0;width:50%;height:60%;" viewBox="0 0 500 280" fill="none"><path d="M0 70 L180 70 L180 200 L380 200 L380 90 L500 90" stroke="rgba(79,195,247,0.4)" stroke-width="8" stroke-linecap="round"/><circle cx="180" cy="70" r="13" fill="rgba(79,195,247,0.1)" stroke="rgba(79,195,247,0.45)" stroke-width="1.5"/><circle cx="380" cy="200" r="13" fill="rgba(79,195,247,0.1)" stroke="rgba(79,195,247,0.45)" stroke-width="1.5"/></svg>
       </div>
-      <div class="rv-tag">AC Installation</div>
+      <div class="pj-num">04</div>
+      <div class="pj-ov"></div>
+      <div class="pj-txt"><div class="pj-tag">Institutional · Complete Retrofit</div><div class="pj-name">School District HVAC Overhaul</div><div class="pj-det">3 Buildings · Full Ductwork Replacement</div></div>
     </div>
-
-    <div class="review-card rv">
-      <div class="rv-stars">★★★★★</div>
-      <blockquote class="rv-quote">"Burst pipe on a Sunday morning. They were at my house within 45 minutes and had everything fixed and cleaned up before noon. Saved my floors. Incredible."</blockquote>
-      <div class="rv-author">
-        <div class="rv-av">RK</div>
-        <div>
-          <div class="rv-name">Robert Kim</div>
-          <div class="rv-role">Homeowner · Boca Raton, FL</div>
-        </div>
-      </div>
-      <div class="rv-tag">Emergency Plumbing</div>
-    </div>
-
-  </div>
-  <div class="reviews-footer rv">
-    <div class="rf-rating">4.9★</div>
-    <div class="rf-count">Based on 312 verified reviews</div>
-    <div class="rf-platforms">Google · Yelp · HomeAdvisor</div>
   </div>
 </section>
 
 <!-- TESTIMONIAL -->
 <section id="testimonial">
   <div class="tm-inner rv">
-    <div class="tm-line"></div>
+    <div class="tm-bar"></div>
     <blockquote class="tm-quote">AC BLEW AT <em>11PM</em> ON A FRIDAY.<br/>ARCTIC AIR WAS AT MY DOOR BY 1AM.<br/>FIXED IN FORTY MINUTES.</blockquote>
-    <div class="tm-bottom">
-      <div class="tm-person">
-        <div class="tm-av">DR</div>
-        <div>
-          <div class="tm-name">David Rivera</div>
-          <div class="tm-role">Homeowner · Sunrise, FL</div>
-        </div>
-      </div>
+    <div class="tm-foot">
+      <div class="tm-person"><div class="tm-av">DR</div><div><div class="tm-name">David Rivera</div><div class="tm-role">Homeowner · Sunrise, FL</div></div></div>
       <div class="tm-rating">4.9★<small>312 Five-Star Reviews</small></div>
     </div>
   </div>
@@ -654,62 +542,49 @@ footer{background:var(--navy2);padding:64px 72px 40px;border-top:1px solid rgba(
 <!-- CTA -->
 <section id="cta">
   <canvas id="cta-canvas"></canvas>
-  <div class="ct-cross"></div>
-  <div class="ct-inner">
-    <div class="ct-status">
-      <div class="ct-dot"></div>
-      <div class="ct-status-txt">Technicians Standing By Right Now</div>
-    </div>
+  <div class="cta-ring"></div><div class="cta-ring"></div><div class="cta-ring"></div>
+  <div class="ct-wrap">
+    <div class="ct-live"><div class="ct-dot"></div><div class="ct-live-txt">Technicians Standing By Right Now</div></div>
     <h2 class="ct-title">NEED HELP<br/><span>RIGHT NOW?</span></h2>
     <a href="tel:5559110100" class="ct-phone">(555) 911-0100</a>
     <p class="ct-sub">We answer 24 hours a day, 365 days a year.<br/>A real technician picks up every single time.</p>
-    <a href="tel:5559110100" class="ct-btn mag">Call Now — We Answer</a>
-    <a href="/cdn-cgi/l/email-protection#582b3d2a2e313b3d18392a3b2c313b39312a763b3735" class="ct-email-link">Or email: <span class="__cf_email__" data-cfemail="d1a2b4a3a7b8b2b491b0a3b2a5b8b2b0b8a3ffb2bebc">[email&#160;protected]</span></a>
+    <a href="tel:5559110100" class="ct-cta">Call Now — We Answer</a>
+    <a href="mailto:service@arcticair.com" class="ct-email">Or email: service@arcticair.com</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="ft-top">
-    <div class="ft-brand">
-      <div class="ft-logo">ARCTIC <span>AIR</span></div>
-      <div class="ft-sub">HVAC & Plumbing · Est. 2009</div>
-      <p>Licensed HVAC and plumbing specialists. Serving homeowners and businesses 24/7 throughout the region. Every job guaranteed.</p>
-    </div>
+  <div class="ft-grid">
+    <div class="ft-brand"><div class="ft-logo">ARCTIC <span>AIR</span></div><div class="ft-tag">HVAC & Plumbing · Est. 2009</div><p>Licensed HVAC and plumbing specialists. Serving homeowners and businesses 24/7. Every job guaranteed.</p></div>
     <div class="ft-col"><h4>Services</h4><ul><li><a href="#">AC Installation</a></li><li><a href="#">Emergency Repair</a></li><li><a href="#">Plumbing</a></li><li><a href="#">Water Heaters</a></li><li><a href="#">Maintenance Plans</a></li></ul></div>
     <div class="ft-col"><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Our Process</a></li><li><a href="#">Projects</a></li><li><a href="#">Reviews</a></li><li><a href="#">Careers</a></li></ul></div>
-    <div class="ft-col"><h4>Contact</h4><ul><li><a href="tel:5559110100">(555) 911-0100</a></li><li><a href="#"><span class="__cf_email__" data-cfemail="bfccdacdc9d6dcdaffdecddccbd6dcded6cd91dcd0d2">[email&#160;protected]</span></a></li><li><a href="#">Free Estimate</a></li><li><a href="#">Emergency Line</a></li></ul></div>
+    <div class="ft-col"><h4>Contact</h4><ul><li><a href="tel:5559110100">(555) 911-0100</a></li><li><a href="#">service@arcticair.com</a></li><li><a href="#">Free Estimate</a></li><li><a href="#">Emergency Line</a></li></ul></div>
   </div>
-  <div class="ft-bot">
-    <p>© 2026 Arctic Air & Plumbing. All rights reserved.</p>
-    <div class="ft-badges"><span class="ft-badge">Licensed</span><span class="ft-badge">Insured</span><span class="ft-badge">NATE Certified</span></div>
-  </div>
+  <div class="ft-bot"><p>© 2026 Arctic Air & Plumbing. All rights reserved.</p><div class="ft-badges"><span class="ft-badge">Licensed</span><span class="ft-badge">Insured</span><span class="ft-badge">NATE Certified</span></div></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // LENIS
 var lenis = new Lenis({ duration:1.4, easing:function(t){ return Math.min(1,1.001-Math.pow(2,-10*t)); }, smooth:true });
 function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
 requestAnimationFrame(raf);
 
 // MAGNETIC
-document.querySelectorAll('.mag').forEach(function(el){
-  el.addEventListener('mousemove',function(e){
-    var r=el.getBoundingClientRect();
-    el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.3+'px,'+(e.clientY-r.top-r.height/2)*.3+'px) translateY(-4px)';
-  });
+document.querySelectorAll('.bp,.bs,.ct-cta').forEach(function(el){
+  el.addEventListener('mousemove',function(e){ var r=el.getBoundingClientRect(); el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.28+'px,'+(e.clientY-r.top-r.height/2)*.28+'px) translateY(-3px)'; });
   el.addEventListener('mouseleave',function(){ el.style.transform=''; });
 });
 
 // MARQUEE
-var mqI=['AC Repair','Heat Pump Install','Leak Detection','24/7 Emergency','Duct Cleaning','Water Heater','Mini-Split Install','Drain Cleaning','Commercial HVAC','Pipe Repair','Refrigerant Recharge','Air Quality Testing'];
-var mqEl=document.getElementById('mq');
-mqI.concat(mqI).concat(mqI).concat(mqI).forEach(function(t){ var d=document.createElement('div'); d.className='mq-item'; d.textContent=t; mqEl.appendChild(d); });
+var mi=['AC Repair','Heat Pump Install','Leak Detection','24/7 Emergency','Duct Cleaning','Water Heater','Mini-Split Install','Drain Cleaning','Commercial HVAC','Pipe Repair','Refrigerant Recharge','Air Quality Testing'];
+var mel=document.getElementById('mq');
+mi.concat(mi).concat(mi).concat(mi).forEach(function(t){ var d=document.createElement('div'); d.className='mq-item'; d.textContent=t; mel.appendChild(d); });
 
 // NAV
 lenis.on('scroll',function(e){ document.getElementById('nav').classList.toggle('sc',e.scroll>60); });
 
-// THREE.JS HERO — pipe network, heavy mouse reaction
+// THREE.JS HERO
 (function(){
   var canvas=document.getElementById('hc');
   var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
@@ -719,103 +594,55 @@ lenis.on('scroll',function(e){ document.getElementById('nav').classList.toggle('
   var scene=new THREE.Scene();
   var camera=new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,.1,1000);
   camera.position.set(0,0,18);
-
   scene.add(new THREE.AmbientLight(0x060a14,2));
   var p1=new THREE.PointLight(0x4FC3F7,5,70); p1.position.set(6,8,10); scene.add(p1);
   var p2=new THREE.PointLight(0x0a1a3a,2,50); p2.position.set(-8,-6,-6); scene.add(p2);
   var p3=new THREE.PointLight(0x4FC3F7,2,40); p3.position.set(0,-10,8); scene.add(p3);
-
   var G=new THREE.Group();
-
   var pm=new THREE.MeshPhongMaterial({color:0x1a3a5a,emissive:0x0a1828,shininess:140,specular:0x4FC3F7});
   var jm=new THREE.MeshPhongMaterial({color:0x2a4a6a,emissive:0x0f1f35,shininess:80});
   var vm=new THREE.MeshPhongMaterial({color:0x3a6a9a,emissive:0x142440,shininess:160,specular:0x88ddff});
-
-  function pipe(rx,ry,rz,px,py,pz,r,l){
-    var m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,l,14),pm.clone());
-    m.rotation.set(rx,ry,rz); m.position.set(px,py,pz); return m;
-  }
+  function pipe(rx,ry,rz,px,py,pz,r,l){ var m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,l,14),pm.clone()); m.rotation.set(rx,ry,rz); m.position.set(px,py,pz); return m; }
   function joint(px,py,pz,r){ var m=new THREE.Mesh(new THREE.SphereGeometry(r||0.38,12,12),jm); m.position.set(px,py,pz); return m; }
-
-  // Main horizontal pipe
   G.add(pipe(0,0,Math.PI/2,0,0,0,0.3,12));
-  // Vertical branches
   G.add(pipe(0,0,0,-4,2.5,0,0.22,5));
   G.add(pipe(0,0,0,-1,-3,0,0.22,6));
   G.add(pipe(0,0,0,3.5,2,0,0.22,4));
-  G.add(pipe(0,0,0,1.5,-4,0,0.18,4));
-  // Cross horizontal
   G.add(pipe(0,0,Math.PI/2,0,3.5,0,0.2,8));
   G.add(pipe(0,0,Math.PI/2,0,-4,0,0.2,7));
-  // Depth
   G.add(pipe(Math.PI/2,0,0,-2,0,0,0.18,5));
   G.add(pipe(Math.PI/2,0,0,2,1,0,0.18,4));
-  // Diagonal
-  G.add(pipe(Math.PI/4,0,Math.PI/4,2,-2,0,0.14,4));
-
-  // Joints
-  [[-4,0,0],[0,0,0],[4,0,0],[-4,3.5,0],[0,3.5,0],[3.5,3.5,0],[-4,-4,0],[0,-4,0],[-2,0,2],[2,1,2],[-1,-3,0],[3.5,2,0]].forEach(function(p){ G.add(joint(p[0],p[1],p[2])); });
-
-  // Valves
-  function valve(px,py,pz){
-    var b=new THREE.Mesh(new THREE.CylinderGeometry(0.48,0.48,0.65,10),vm);
-    var h=new THREE.Mesh(new THREE.BoxGeometry(1.4,0.16,0.16),vm);
-    b.position.set(px,py,pz); h.position.set(px,py+0.42,pz);
-    G.add(b); G.add(h); return h;
-  }
+  [[-4,0,0],[0,0,0],[4,0,0],[-4,3.5,0],[0,3.5,0],[3.5,3.5,0],[-4,-4,0],[0,-4,0],[-2,0,2],[2,1,2]].forEach(function(p){ G.add(joint(p[0],p[1],p[2])); });
   var valveHandles=[];
-  valveHandles.push(valve(-4,0,0));
-  valveHandles.push(valve(0,3.5,0));
-  valveHandles.push(valve(2,1,0));
-
-  // Floating fragments
+  function valve(px,py,pz){ var b=new THREE.Mesh(new THREE.CylinderGeometry(0.48,0.48,0.65,10),vm); var h=new THREE.Mesh(new THREE.BoxGeometry(1.4,0.16,0.16),vm); b.position.set(px,py,pz); h.position.set(px,py+0.42,pz); G.add(b); G.add(h); valveHandles.push(h); }
+  valve(-4,0,0); valve(0,3.5,0); valve(2,1,0);
   var floaters=[];
   for(var i=0;i<14;i++){
-    var s=Math.random()*.8+.3;
-    var axis=Math.floor(Math.random()*3);
-    var fg=new THREE.CylinderGeometry(.1,.1,s,8);
-    var fm=new THREE.Mesh(fg,new THREE.MeshPhongMaterial({color:0x1a3a5a,emissive:0x080e18,shininess:80,transparent:true,opacity:.55}));
+    var s=Math.random()*.8+.3; var axis=Math.floor(Math.random()*3);
+    var fm=new THREE.Mesh(new THREE.CylinderGeometry(.1,.1,s,8),new THREE.MeshPhongMaterial({color:0x1a3a5a,emissive:0x080e18,shininess:80,transparent:true,opacity:.55}));
     fm.position.set((Math.random()-.5)*22,(Math.random()-.5)*14,(Math.random()-.5)*10-2);
-    if(axis===0) fm.rotation.z=Math.PI/2;
-    else if(axis===2) fm.rotation.x=Math.PI/2;
+    if(axis===0) fm.rotation.z=Math.PI/2; else if(axis===2) fm.rotation.x=Math.PI/2;
     fm.userData={bX:fm.position.x,bY:fm.position.y,rs:(Math.random()-.5)*.009,fs:Math.random()*.35+.1,fa:Math.random()*.55+.25,ph:Math.random()*Math.PI*2};
     scene.add(fm); floaters.push(fm);
   }
-
-  // Particles
-  var pg=new THREE.BufferGeometry();
-  var pp=new Float32Array(350*3);
+  var pg=new THREE.BufferGeometry(); var pp=new Float32Array(350*3);
   for(var j=0;j<350*3;j++) pp[j]=(Math.random()-.5)*44;
   pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
   var steam=new THREE.Points(pg,new THREE.PointsMaterial({color:0x4FC3F7,size:.055,transparent:true,opacity:.3}));
   scene.add(steam); scene.add(G);
-  G.position.set(4, 0, 0);
-  G.scale.set(1.5, 1.5, 1.5);
-
   var mx=0,my=0,tx=0,ty=0;
-  document.addEventListener('mousemove',function(e){
-    mx=(e.clientX/window.innerWidth-.5)*2;
-    my=-(e.clientY/window.innerHeight-.5)*2;
-  });
-  window.addEventListener('resize',function(){
-    camera.aspect=window.innerWidth/window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth,window.innerHeight);
-  });
-
+  document.addEventListener('mousemove',function(e){ mx=(e.clientX/window.innerWidth-.5)*2; my=-(e.clientY/window.innerHeight-.5)*2; });
+  window.addEventListener('resize',function(){ camera.aspect=window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth,window.innerHeight); });
   var time=0;
   (function anim(){
     requestAnimationFrame(anim); time+=.007;
-    // STRONG mouse reaction
     tx+=(mx-tx)*.07; ty+=(my-ty)*.07;
-    G.rotation.y=tx*.7;
-    G.rotation.x=ty*.4;
+    G.rotation.y=tx*.7; G.rotation.x=ty*.4;
     G.position.y=Math.sin(time*.35)*.18;
     floaters.forEach(function(f){
       f.rotation.x+=f.userData.rs; f.rotation.y+=f.userData.rs*.7;
       f.position.y=f.userData.bY+Math.sin(time*f.userData.fs+f.userData.ph)*f.userData.fa;
-      f.position.x=f.userData.bX+mx*.7; // Very reactive X
-      f.position.z=f.userData.bY*.05+my*.3;
+      f.position.x=f.userData.bX+mx*.7;
     });
     valveHandles.forEach(function(vh){ vh.rotation.y+=.005; });
     steam.rotation.y+=.0006; steam.position.x=mx*.5;
@@ -828,113 +655,85 @@ lenis.on('scroll',function(e){ document.getElementById('nav').classList.toggle('
   var canvas=document.getElementById('cta-canvas');
   var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
   renderer.setPixelRatio(1); renderer.setSize(window.innerWidth,window.innerHeight); renderer.setClearColor(0,0);
-  var scene=new THREE.Scene(); var camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1000);
-  camera.position.z=5;
+  var scene=new THREE.Scene(); var camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1000); camera.position.z=5;
   var g=new THREE.BufferGeometry(); var p=new Float32Array(500*3);
   for(var i=0;i<500*3;i++) p[i]=(Math.random()-.5)*26;
   g.setAttribute('position',new THREE.BufferAttribute(p,3));
-  var pts=new THREE.Points(g,new THREE.PointsMaterial({color:0x4FC3F7,size:.045,transparent:true,opacity:.28}));
-  scene.add(pts);
+  var pts=new THREE.Points(g,new THREE.PointsMaterial({color:0x4FC3F7,size:.045,transparent:true,opacity:.28})); scene.add(pts);
   (function a(){ requestAnimationFrame(a); pts.rotation.y+=.0007; pts.rotation.x+=.0003; renderer.render(scene,camera); })();
 })();
 
 // ACCORDION
-function toggleAccordion(trigger){
-  var row=trigger.parentElement;
+function toggleAcc(btn){
+  var row=btn.parentElement;
   var panel=row.querySelector('.sv-panel');
   var isOpen=row.classList.contains('open');
-  // Close all
-  document.querySelectorAll('.sv-row').forEach(function(r){
-    r.classList.remove('open');
-    var p=r.querySelector('.sv-panel');
-    p.style.height='0px';
-  });
-  if(!isOpen){
-    row.classList.add('open');
-    panel.style.height=panel.scrollHeight+'px';
-  }
+  document.querySelectorAll('.sv-row').forEach(function(r){ r.classList.remove('open'); r.querySelector('.sv-panel').style.height='0'; });
+  if(!isOpen){ row.classList.add('open'); panel.style.height=panel.scrollHeight+'px'; }
 }
-// Init first open
-(function(){
-  var firstPanel=document.querySelector('.sv-row.open .sv-panel');
-  if(firstPanel) firstPanel.style.height=firstPanel.scrollHeight+'px';
-})();
+(function(){ var p=document.querySelector('.sv-row.open .sv-panel'); if(p) p.style.height=p.scrollHeight+'px'; })();
 
-// Fire animations immediately — no loader
-window.addEventListener('load', function(){ startAnims(); });
-
-// GSAP
-function startAnims(){
+// GSAP + ScrollTrigger
+window.addEventListener('load',function(){
   gsap.registerPlugin(ScrollTrigger);
   lenis.on('scroll',ScrollTrigger.update);
   gsap.ticker.add(function(t){ lenis.raf(t*1000); });
   gsap.ticker.lagSmoothing(0);
 
-  // Hero visible on load — no entrance animations
-
-  // Stat section
-  ScrollTrigger.create({trigger:'#stat',start:'top 80%',once:true,onEnter:function(){
-    // Big center number
-    var el=document.getElementById('stat-main');
-    gsap.to(el,{opacity:1,scale:1,duration:1,ease:'back.out(1.2)'});
-    gsap.to({v:0},{v:12000,duration:2.8,ease:'power2.out',onUpdate:function(){ el.textContent=Math.floor(this.targets()[0].v).toLocaleString()+'+'; }});
-
-    // Side minis
-    document.querySelectorAll('.stat-mini [data-target]').forEach(function(el2){
-      var t=parseInt(el2.dataset.target), s=el2.dataset.suffix||'';
-      gsap.to({v:0},{v:t,duration:2,ease:'power2.out',onUpdate:function(){ el2.textContent=Math.floor(this.targets()[0].v)+s; }});
+  // Stat counters
+  ScrollTrigger.create({trigger:'#stat',start:'top 85%',once:true,onEnter:function(){
+    document.querySelectorAll('[data-target]').forEach(function(el){
+      var target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'';
+      gsap.to({v:0},{v:target,duration:2.2,ease:'power2.out',onUpdate:function(){ el.textContent=Math.floor(this.targets()[0].v)+suffix; }});
     });
-    gsap.to('.stat-side-left',{opacity:1,x:0,duration:.9,ease:'power3.out'});
-    gsap.to('.stat-mini',{opacity:1,x:0,duration:.9,stagger:.15,ease:'power3.out'});
+    gsap.from('.stat-big',{scale:.6,opacity:0,duration:1.1,ease:'back.out(1.2)'});
+    gsap.from('.stat-side',{opacity:0,x:40,duration:.9,stagger:.2,ease:'power3.out'});
   }});
 
-  // Reveals
+  // Generic reveals
   document.querySelectorAll('.rv').forEach(function(el){
-    gsap.to(el,{opacity:1,y:0,duration:.95,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 87%',once:true}});
-  });
-  document.querySelectorAll('.rl').forEach(function(el){
-    gsap.to(el,{opacity:1,x:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 87%',once:true}});
-  });
-  document.querySelectorAll('.rr').forEach(function(el){
-    gsap.to(el,{opacity:1,x:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 87%',once:true}});
+    gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});
   });
   document.querySelectorAll('.rs').forEach(function(el){
-    gsap.to(el,{opacity:1,scale:1,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 87%',once:true}});
+    gsap.to(el,{opacity:1,scale:1,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});
   });
 
-  // HORIZONTAL PINNED PROCESS
-  var slides=document.querySelectorAll('.pr-slide');
-  var totalSlides=slides.length;
-  var prFill=document.getElementById('pr-fill');
+  // Accordion rows
+  ScrollTrigger.create({trigger:'#services',start:'top 78%',once:true,onEnter:function(){
+    gsap.from('.sv-row',{opacity:0,y:28,duration:.6,stagger:.07,ease:'power3.out'});
+  }});
 
+  // Horizontal pinned process
+  var slides=document.querySelectorAll('.pr-slide');
+  var prFill=document.getElementById('pr-fill');
   ScrollTrigger.create({
-    trigger:'#pr-pin-wrap',
-    start:'top top',
-    end:function(){ return '+='+(totalSlides-1)*window.innerWidth; },
-    pin:'#pr-sticky',
-    scrub:1,
+    trigger:'#pr-outer',start:'top top',
+    end:function(){ return '+='+(slides.length-1)*window.innerWidth; },
+    pin:'#pr-sticky',scrub:1,
     onUpdate:function(self){
-      var track=document.getElementById('pr-track');
-      track.style.transform='translateX(-'+(self.progress*(totalSlides-1)*100)+'vw)';
+      document.getElementById('pr-track').style.transform='translateX(-'+(self.progress*(slides.length-1)*100)+'vw)';
       prFill.style.width=(self.progress*100)+'%';
     }
   });
 
-  // Stack project items
-  ScrollTrigger.create({trigger:'#projects',start:'top 80%',once:true,onEnter:function(){
-    gsap.from('.pj-item',{opacity:0,y:60,duration:.85,stagger:.15,ease:'power3.out'});
+  // Projects
+  ScrollTrigger.create({trigger:'#projects',start:'top 82%',once:true,onEnter:function(){
+    gsap.from('.pj-item',{opacity:0,y:50,duration:.8,stagger:.12,ease:'power3.out'});
   }});
 
-  // CTA slam
-  ScrollTrigger.create({trigger:'#cta',start:'top 75%',once:true,onEnter:function(){
-    gsap.to('.ct-status',{opacity:1,duration:.6,ease:'power3.out'});
-    gsap.to('.ct-title',{opacity:1,y:0,duration:1,delay:.15,ease:'expo.out'});
-    gsap.to('.ct-phone',{opacity:1,scale:1,duration:.9,delay:.4,ease:'back.out(1.5)'});
-    gsap.to('.ct-sub',{opacity:1,duration:.7,delay:.65,ease:'power3.out'});
-    gsap.to('.ct-btn',{opacity:1,duration:.6,delay:.8,ease:'power3.out'});
-    gsap.to('.ct-email-link',{opacity:1,duration:.5,delay:.95,ease:'power3.out'});
+  // Testimonial
+  ScrollTrigger.create({trigger:'#testimonial',start:'top 80%',once:true,onEnter:function(){
+    gsap.from('.tm-quote',{opacity:0,y:44,duration:1,ease:'expo.out'});
+    gsap.from('.tm-foot',{opacity:0,y:24,duration:.8,delay:.35,ease:'power3.out'});
   }});
 
-  // Accordion rows fade in
-  ScrollTrigger.create({trigger:'#services',start:'top 78%',once:true,onEnter:function(){
-    gsap.from('.sv-row',{opacity:0,y:30,duration:.65,sta
+  // CTA
+  ScrollTrigger.create({trigger:'#cta',start:'top 80%',once:true,onEnter:function(){
+    gsap.from('.ct-title',{y:70,opacity:0,duration:1.1,ease:'expo.out'});
+    gsap.from('.ct-phone',{scale:.7,opacity:0,duration:.9,delay:.35,ease:'back.out(1.5)'});
+    gsap.from('.ct-sub,.ct-cta,.ct-email',{opacity:0,y:20,duration:.7,stagger:.1,delay:.6,ease:'power3.out'});
+  }});
+});
+</script>
+</body>
+</html>

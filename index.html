@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Arctic Air & Plumbing — Stay Cool. Stay Flowing.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -14,697 +14,414 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --white:#ffffff;
-  --off:#f8fafc;
-  --light:#f1f5f9;
-  --border:#e2e8f0;
-  --border2:#cbd5e1;
-  --text:#0f172a;
-  --text2:#475569;
-  --text3:#94a3b8;
-  --blue:#0ea5e9;
-  --blue-dark:#0284c7;
-  --blue-deeper:#0369a1;
-  --blue-dim:rgba(14,165,233,0.09);
-  --red:#ef4444;
-  --navy:#0c1a2e;
+  --w:#fff;--off:#f8fafc;--light:#f1f5f9;
+  --bd:#e2e8f0;--bd2:#cbd5e1;
+  --t:#0f172a;--t2:#475569;--t3:#94a3b8;
+  --bl:#0ea5e9;--bld:#0284c7;--bldd:#0369a1;
+  --bdim:rgba(14,165,233,.09);
+  --rd:#ef4444;--nv:#0c1a2e;
   --fh:'Barlow Condensed',sans-serif;
   --fb:'Inter',sans-serif;
 }
 html{scroll-behavior:auto;}
-body{font-family:var(--fb);background:var(--white);color:var(--text);overflow-x:hidden;}
+body{font-family:var(--fb);background:var(--w);color:var(--t);overflow-x:hidden;}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  height:68px;padding:0 56px;
-  display:flex;justify-content:space-between;align-items:center;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-}
-#hero{padding-top:calc(68px + 36px);}
-body{padding-top:0;}
-.n-brand{text-decoration:none;display:flex;align-items:center;gap:10px;}
-.n-mark{width:34px;height:34px;background:var(--blue-dark);border-radius:8px;display:flex;align-items:center;justify-content:center;}
-.n-mark svg{stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;}
-.n-name{font-size:.9rem;font-weight:700;color:var(--text);}
-.n-name span{color:var(--blue-dark);}
-.n-links{display:flex;gap:28px;list-style:none;}
-.n-links a{font-size:.82rem;font-weight:500;color:var(--text2);text-decoration:none;transition:color .2s;}
-.n-links a:hover{color:var(--text);}
-.n-right{display:flex;align-items:center;gap:12px;}
-.n-tel{font-size:.8rem;font-weight:600;color:var(--text2);text-decoration:none;}
-.n-tel:hover{color:var(--blue-dark);}
-.n-cta{padding:9px 20px;border-radius:6px;font-size:.78rem;font-weight:600;text-decoration:none;background:var(--red);color:var(--white);animation:rp 2.5s ease-in-out infinite;transition:background .2s;}
-.n-cta:hover{background:#dc2626;}
-@keyframes rp{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.25);}60%{box-shadow:0 0 0 7px rgba(239,68,68,0);}}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;padding:0 52px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);}
+.nb{text-decoration:none;display:flex;align-items:center;gap:10px;}
+.nm{width:32px;height:32px;background:var(--bld);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.nm svg{stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;}
+.nn{font-size:.88rem;font-weight:700;color:var(--t);}
+.nn span{color:var(--bld);}
+.nl{display:flex;gap:28px;list-style:none;}
+.nl a{font-size:.8rem;font-weight:500;color:var(--t2);text-decoration:none;transition:color .2s;}
+.nl a:hover{color:var(--t);}
+.nr{display:flex;align-items:center;gap:12px;}
+.ntel{font-size:.8rem;font-weight:600;color:var(--t2);text-decoration:none;}
+.ntel:hover{color:var(--bld);}
+.ncta{padding:8px 16px;border-radius:7px;font-size:.75rem;font-weight:700;text-decoration:none;background:var(--rd);color:#fff;letter-spacing:.02em;animation:rp 2.5s ease-in-out infinite;}
+@keyframes rp{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.3);}60%{box-shadow:0 0 0 8px rgba(239,68,68,0);}}
 
-/* ── HERO — SPLIT LAYOUT ── */
-#hero{
-  position:relative;
-  width:100vw;
-  height:100vh;
-  min-height:700px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  overflow:hidden;
-  background:var(--white);
-  padding-top:68px;
-}
-
-/* Left side — content */
-.h-left{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:60px 56px 60px;
-  z-index:10;
-}
-/* Dot grid only on left */
-.h-left::before{
-  content:'';position:absolute;inset:0;
-  background-image:radial-gradient(circle,#cbd5e1 1px,transparent 1px);
-  background-size:26px 26px;
-  opacity:.5;z-index:-1;
-}
-.h-left::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,.0) 0%,rgba(255,255,255,.7) 100%);
-  z-index:-1;pointer-events:none;
-}
-.h-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);
-  border-radius:100px;padding:6px 14px;margin-bottom:24px;width:fit-content;
-}
-.h-badge-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.1s ease-in-out infinite;}
+/* EMERGENCY BANNER */
+.ebanner{position:fixed;top:64px;left:0;right:0;z-index:999;background:var(--rd);padding:8px 52px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.eb-l{display:flex;align-items:center;gap:10px;}
+.eb-dot{width:7px;height:7px;background:#fff;border-radius:50%;flex-shrink:0;animation:blink 1.1s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
-.h-badge-txt{font-size:.68rem;font-weight:600;color:var(--red);}
-.h-title{
-  font-family:var(--fh);
-  font-size:clamp(3.8rem,6.5vw,7rem);
-  font-weight:800;line-height:.95;
-  letter-spacing:-.01em;color:var(--text);
-  text-transform:uppercase;
-  margin-bottom:20px;
-}
-.h-title em{font-style:italic;color:var(--blue-dark);font-weight:700;text-transform:none;}
-.h-sub{
-  font-size:.95rem;font-weight:400;line-height:1.75;
-  color:var(--text2);max-width:420px;margin-bottom:36px;
-}
-.h-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;}
-.btn-solid{padding:13px 26px;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;display:inline-block;background:var(--blue-dark);color:var(--white);transition:background .2s,transform .25s,box-shadow .25s;}
-.btn-solid:hover{background:var(--blue-deeper);transform:translateY(-2px);box-shadow:0 8px 24px rgba(2,132,199,.3);}
-.btn-ghost{padding:13px 26px;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;display:inline-block;background:var(--white);color:var(--text);border:1.5px solid var(--border2);transition:border-color .2s,transform .25s;}
-.btn-ghost:hover{border-color:var(--blue-dark);color:var(--blue-dark);transform:translateY(-2px);}
-.h-trust-logos{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.h-trust-label{font-size:.68rem;font-weight:500;color:var(--text3);white-space:nowrap;}
-.logo-tag{font-size:.75rem;font-weight:700;color:var(--text3);background:var(--light);border:1px solid var(--border);padding:4px 12px;border-radius:100px;transition:color .2s,border-color .2s;}
-.logo-tag:hover{color:var(--blue-dark);border-color:var(--blue);}
+.eb-txt{font-size:.7rem;font-weight:700;color:#fff;letter-spacing:.05em;}
+.eb-tel{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:#fff;text-decoration:none;}
+.eb-sub{font-size:.65rem;font-weight:600;color:rgba(255,255,255,.75);letter-spacing:.05em;text-transform:uppercase;}
 
-/* Right side — photo + 3D pipes + floating cards */
-.h-right{
-  position:relative;
-  overflow:hidden;
-  background:#0c1a2e;
-  min-height:100%;
-}
-/* Real hero photo */
-.h-photo{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center;
-  transition:transform .8s ease;
-  display:block;
-}
-.h-right:hover .h-photo{transform:scale(1.03);}
-/* Dark overlay for readability */
-.h-photo-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(12,26,46,.45) 0%,rgba(12,26,46,.15) 100%);
-  z-index:1;
-}
-/* Three.js canvas — pipes on right side */
+/* HERO */
+#hero{width:100vw;height:100vh;min-height:680px;display:grid;grid-template-columns:1fr 1fr;padding-top:calc(64px + 36px);background:var(--w);}
+.hl{position:relative;display:flex;flex-direction:column;justify-content:center;padding:48px 52px;z-index:2;}
+.hl::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,#cbd5e1 1px,transparent 1px);background-size:26px 26px;opacity:.4;z-index:-1;}
+.hl::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,0) 60%,rgba(255,255,255,.95) 100%);z-index:-1;pointer-events:none;}
+.h-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:100px;padding:5px 14px;margin-bottom:20px;width:fit-content;}
+.h-badge-dot{width:6px;height:6px;background:var(--rd);border-radius:50%;animation:blink 1.1s ease-in-out infinite;}
+.h-badge-txt{font-size:.67rem;font-weight:600;color:var(--rd);letter-spacing:.02em;}
+.h-title{font-family:var(--fh);font-size:clamp(3rem,4.6vw,5.2rem);font-weight:800;line-height:.92;letter-spacing:-.01em;text-transform:uppercase;color:var(--t);margin-bottom:18px;}
+.h-title em{display:block;font-style:italic;color:var(--bld);font-weight:700;text-transform:none;font-size:1.08em;}
+.h-sub{font-size:.88rem;font-weight:400;line-height:1.72;color:var(--t2);max-width:400px;margin-bottom:26px;}
+.h-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
+.btn-s{padding:12px 24px;border-radius:8px;font-size:.82rem;font-weight:700;text-decoration:none;display:inline-block;background:var(--bld);color:#fff;letter-spacing:.01em;transition:background .2s,transform .2s,box-shadow .2s;}
+.btn-s:hover{background:var(--bldd);transform:translateY(-2px);box-shadow:0 8px 20px rgba(2,132,199,.3);}
+.btn-g{padding:12px 24px;border-radius:8px;font-size:.82rem;font-weight:700;text-decoration:none;display:inline-block;background:#fff;color:var(--t);border:1.5px solid var(--bd2);transition:border-color .2s,transform .2s;}
+.btn-g:hover{border-color:var(--bld);color:var(--bld);transform:translateY(-2px);}
+.h-tel{font-size:.76rem;color:var(--t3);}
+.h-tel a{color:var(--bld);font-weight:600;text-decoration:none;}
+.h-logos{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:20px;}
+.h-logos-lbl{font-size:.64rem;font-weight:500;color:var(--t3);white-space:nowrap;}
+.logo-pill{font-size:.7rem;font-weight:700;color:var(--t2);background:var(--light);border:1px solid var(--bd);padding:3px 10px;border-radius:100px;}
+
+/* HERO RIGHT */
+.hr{position:relative;overflow:hidden;background:#0c1a2e;}
+.hr-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.hr-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,26,46,.48),rgba(12,26,46,.12));z-index:1;}
 #hc{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;}
+.hsc{position:absolute;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.8);border-radius:12px;padding:14px 18px;box-shadow:0 8px 28px rgba(0,0,0,.12);}
+.hsc:nth-of-type(1){top:22%;left:-28px;}
+.hsc:nth-of-type(2){bottom:26%;right:28px;}
+.hsc:nth-of-type(3){top:58%;left:-16px;}
+.hsc-num{font-family:var(--fh);font-size:1.8rem;font-weight:800;color:var(--bld);line-height:1;margin-bottom:2px;}
+.hsc-lbl{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);}
 
-/* Floating stat cards */
-.h-stat-card{
-  position:absolute;z-index:10;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,.8);
-  border-radius:12px;
-  padding:16px 20px;
-  box-shadow:0 8px 32px rgba(0,0,0,.12);
-}
-.h-stat-card:nth-child(1){top:22%;left:-32px;}
-.h-stat-card:nth-child(2){bottom:28%;right:32px;}
-.h-stat-card:nth-child(3){top:52%;left:20px;}
-.hsc-num{font-family:var(--fh);font-size:2rem;font-style:italic;color:var(--blue-dark);line-height:1;margin-bottom:2px;}
-.hsc-lbl{font-size:.62rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);}
-
-/* ── MARQUEE ── */
-.mq{background:var(--blue-dark);padding:10px 0;overflow:hidden;}
+/* MARQUEE */
+.mq{background:var(--bld);padding:10px 0;overflow:hidden;}
 .mq-inner{display:flex;width:max-content;animation:mqs 28s linear infinite;}
 .mq-inner:hover{animation-play-state:paused;}
-.mq-item{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8);padding:0 36px;}
-.mq-item::after{content:' · ';}
+.mq-item{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);padding:0 32px;}
+.mq-item::after{content:' ·';}
 @keyframes mqs{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
-/* ── TRUST BAR ── */
-.trust{background:var(--white);border-bottom:1px solid var(--border);padding:28px 56px;}
+/* TRUST */
+.trust{background:var(--w);border-bottom:1px solid var(--bd);padding:28px 52px;}
 .trust-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
-.trust-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 16px;position:relative;}
-.trust-item:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);height:36px;width:1px;background:var(--border);}
-.trust-num{font-family:var(--fh);font-size:2.8rem;font-weight:800;color:var(--blue-dark);line-height:1;letter-spacing:-.01em;}
-.trust-lbl{font-size:.62rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--text3);text-align:center;}
+.trust-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 12px;position:relative;}
+.trust-item:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);height:32px;width:1px;background:var(--bd);}
+.trust-num{font-family:var(--fh);font-size:2.6rem;font-weight:800;color:var(--bld);line-height:1;letter-spacing:-.01em;}
+.trust-lbl{font-size:.6rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--t3);text-align:center;}
 
-/* ── SECTION COMMON ── */
-.s-tag{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-dark);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.s-tag::before{content:'';display:block;width:16px;height:2px;background:var(--blue-dark);}
-.s-title{font-family:var(--fh);font-size:clamp(2.6rem,4.5vw,4.8rem);font-weight:800;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;color:var(--text);margin-bottom:14px;}
-.s-title em{font-style:italic;color:var(--blue-dark);font-weight:700;text-transform:none;letter-spacing:-.02em;}
-.s-sub{font-size:.92rem;line-height:1.75;color:var(--text2);}
+/* SECTION HELPERS */
+.s-tag{font-size:.65rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--bld);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.s-tag::before{content:'';display:block;width:14px;height:2px;background:var(--bld);}
+.s-title{font-family:var(--fh);font-size:clamp(2.6rem,4.5vw,4.4rem);font-weight:800;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;color:var(--t);margin-bottom:12px;}
+.s-title em{font-style:italic;color:var(--bld);font-weight:700;text-transform:none;}
+.s-sub{font-size:.9rem;line-height:1.75;color:var(--t2);}
 
-/* ── SERVICES ── */
-#services{background:var(--white);padding:96px 56px;}
+/* SERVICES */
+#services{padding:88px 52px;background:var(--w);}
 .sv-wrap{max-width:1100px;margin:0 auto;}
-.sv-header{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:end;margin-bottom:56px;}
-.sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
-.sv-card{background:var(--white);padding:32px 28px;position:relative;transition:background .25s;overflow:hidden;}
+.sv-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:48px;}
+.sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:14px;overflow:hidden;}
+.sv-card{background:var(--w);padding:28px 24px;position:relative;transition:background .2s;overflow:hidden;}
+.sv-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--bld),var(--bl));transform:scaleX(0);transform-origin:left;transition:transform .3s;}
 .sv-card:hover{background:var(--off);}
-.sv-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue-dark),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform .35s;}
 .sv-card:hover::after{transform:scaleX(1);}
-.sv-cn{font-size:.6rem;font-weight:700;color:var(--text3);letter-spacing:.1em;margin-bottom:14px;}
-.sv-icon{width:42px;height:42px;background:var(--blue-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
-.sv-icon svg{stroke:var(--blue-dark);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.sv-name{font-family:var(--fh);font-size:1.25rem;color:var(--text);margin-bottom:8px;letter-spacing:-.01em;}
-.sv-desc{font-size:.8rem;line-height:1.65;color:var(--text2);}
-.sv-foot{margin-top:44px;display:flex;align-items:center;gap:16px;}
-.sv-foot-txt{font-size:.84rem;color:var(--text2);}
+.sv-n{font-size:.58rem;font-weight:700;color:var(--t3);letter-spacing:.1em;margin-bottom:12px;}
+.sv-ico{width:40px;height:40px;background:var(--bdim);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.sv-ico svg{stroke:var(--bld);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.sv-name{font-family:var(--fh);font-size:1.3rem;font-weight:700;color:var(--t);margin-bottom:6px;}
+.sv-desc{font-size:.78rem;line-height:1.65;color:var(--t2);}
+.sv-foot{margin-top:36px;display:flex;align-items:center;gap:14px;}
+.sv-foot-txt{font-size:.82rem;color:var(--t2);}
 
-/* ── ABOUT SPLIT — photo left, text right ── */
-#about{background:var(--off);padding:96px 56px;}
-.ab-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
-.ab-photo-wrap{position:relative;}
-.ab-photo{
-  width:100%;aspect-ratio:4/5;border-radius:16px;overflow:hidden;
-  display:block;object-fit:cover;object-position:center;
-  box-shadow:0 24px 64px rgba(0,0,0,.12);
-}
-/* Floating card on photo */
-.ab-float{
-  position:absolute;bottom:-20px;right:-20px;
-  background:var(--white);border-radius:12px;
-  padding:20px 24px;
-  box-shadow:0 12px 40px rgba(0,0,0,.1);
-  border:1px solid var(--border);
-  min-width:180px;
-}
-.ab-float-num{font-family:var(--fh);font-size:2.8rem;font-style:italic;color:var(--blue-dark);line-height:1;margin-bottom:4px;}
-.ab-float-lbl{font-size:.65rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);}
-.ab-content{}
-.ab-checks{display:flex;flex-direction:column;gap:14px;margin:28px 0;}
+/* ABOUT */
+#about{background:var(--off);padding:88px 52px;}
+.ab-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.ab-img-wrap{position:relative;}
+.ab-img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;border-radius:16px;display:block;box-shadow:0 20px 56px rgba(0,0,0,.12);}
+.ab-float{position:absolute;bottom:-16px;right:-16px;background:var(--w);border-radius:12px;padding:18px 22px;box-shadow:0 12px 36px rgba(0,0,0,.1);border:1px solid var(--bd);min-width:170px;}
+.ab-float-num{font-family:var(--fh);font-size:2.4rem;font-weight:800;color:var(--bld);line-height:1;margin-bottom:3px;}
+.ab-float-lbl{font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);}
+.ab-content{display:flex;flex-direction:column;justify-content:center;}
+.ab-checks{display:flex;flex-direction:column;gap:12px;margin:22px 0;}
 .ab-check{display:flex;align-items:flex-start;gap:12px;}
-.ab-check-icon{width:20px;height:20px;background:var(--blue-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
-.ab-check-icon svg{stroke:var(--blue-dark);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
-.ab-check-text{font-size:.88rem;line-height:1.6;color:var(--text2);}
-.ab-check-text strong{color:var(--text);font-weight:600;}
+.ab-ck-ico{width:20px;height:20px;background:var(--bdim);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.ab-ck-ico svg{stroke:var(--bld);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+.ab-ck-txt{font-size:.86rem;line-height:1.6;color:var(--t2);}
+.ab-ck-txt strong{color:var(--t);font-weight:600;}
 
-/* ── PROCESS — pinned horizontal ── */
+/* PROCESS */
 #process{position:relative;}
 .pr-outer{position:relative;}
 .pr-sticky{position:sticky;top:0;height:100vh;overflow:hidden;}
 .pr-track{display:flex;height:100%;will-change:transform;}
-.pr-slide{
-  min-width:100vw;height:100vh;
-  display:grid;grid-template-columns:1fr 1fr;
-  align-items:center;gap:0;
-  padding:0 56px 0 56px;flex-shrink:0;
-  position:relative;background:var(--white);
-}
-.pr-slide::before{
-  content:'';position:absolute;inset:0;
-  background-image:radial-gradient(circle,#cbd5e1 1px,transparent 1px);
-  background-size:26px 26px;opacity:.28;pointer-events:none;
-}
-.pr-slide::after{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 80% at 25% 50%,rgba(255,255,255,0) 0%,var(--white) 68%);
-  pointer-events:none;
-}
+.pr-slide{min-width:100vw;height:100vh;flex-shrink:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 52px;position:relative;background:var(--w);}
 .pr-slide:nth-child(even){background:var(--off);}
-.pr-slide:nth-child(even)::after{background:radial-gradient(ellipse 60% 80% at 25% 50%,rgba(248,250,252,0) 0%,var(--off) 68%);}
-.pr-content{position:relative;z-index:1;max-width:520px;}
-.pr-visual{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;}
-.pr-snum{font-size:.68rem;font-weight:700;color:var(--blue-dark);letter-spacing:.1em;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-.pr-snum::before{content:'';display:block;width:16px;height:2px;background:var(--blue-dark);}
-.pr-h{font-family:var(--fh);font-size:clamp(3.5rem,6vw,7.5rem);font-weight:800;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;color:var(--text);margin-bottom:22px;}
-.pr-h em{font-style:italic;color:var(--blue-dark);font-weight:700;text-transform:none;}
-.pr-p{font-size:.95rem;line-height:1.75;color:var(--text2);margin-bottom:28px;max-width:420px;}
-.pr-pill{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);border:1px solid rgba(14,165,233,.2);border-radius:100px;padding:8px 16px;}
-.pr-pill span{font-size:.7rem;font-weight:600;color:var(--blue-dark);}
-.pr-bgnum{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--fh);font-size:clamp(16rem,28vw,34rem);font-weight:400;font-style:italic;color:rgba(14,165,233,.04);line-height:1;user-select:none;pointer-events:none;z-index:0;}
-/* Bigger visible progress bar */
-.pr-prog{position:fixed;bottom:0;left:0;right:0;height:5px;background:var(--border);z-index:100;}
-.pr-bar{height:100%;background:linear-gradient(90deg,var(--blue-dark),var(--blue));width:0%;transition:width .1s linear;box-shadow:0 0 8px rgba(2,132,199,.4);}
+.pr-slide::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,#cbd5e1 1px,transparent 1px);background-size:26px 26px;opacity:.2;pointer-events:none;}
+.pr-slide::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 25% 50%,transparent 0%,var(--w) 70%);pointer-events:none;}
+.pr-slide:nth-child(even)::after{background:radial-gradient(ellipse 55% 70% at 25% 50%,transparent 0%,var(--off) 70%);}
+.pr-txt{position:relative;z-index:2;}
+.pr-vis{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:24px;}
+.pr-step{font-size:.65rem;font-weight:700;color:var(--bld);letter-spacing:.1em;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.pr-step::before{content:'';display:block;width:14px;height:2px;background:var(--bld);}
+.pr-h{font-family:var(--fh);font-size:clamp(3.5rem,6vw,7rem);font-weight:800;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;color:var(--t);margin-bottom:18px;}
+.pr-h em{font-style:italic;color:var(--bld);font-weight:700;text-transform:none;display:block;}
+.pr-p{font-size:.9rem;line-height:1.75;color:var(--t2);margin-bottom:22px;max-width:400px;}
+.pr-pill{display:inline-flex;align-items:center;gap:8px;background:var(--bdim);border:1px solid rgba(14,165,233,.2);border-radius:100px;padding:7px 16px;}
+.pr-pill span{font-size:.68rem;font-weight:600;color:var(--bld);}
+.pr-bg-n{position:absolute;right:0;top:50%;transform:translateY(-50%);font-family:var(--fh);font-size:clamp(14rem,26vw,32rem);font-weight:800;color:rgba(14,165,233,.04);line-height:1;user-select:none;pointer-events:none;z-index:0;}
 
-/* process visual cards */
-.pr-vis-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px 32px;box-shadow:0 8px 32px rgba(0,0,0,.07);min-width:180px;text-align:center;margin:8px;}
-.pr-vis-card--alt{background:var(--off);}
-.pr-vis-icon{margin-bottom:12px;}
-.pr-vis-stat{font-family:var(--fh);font-size:1.7rem;font-style:italic;color:var(--blue-dark);line-height:1;margin-bottom:4px;}
-.pr-vis-lbl{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);}
-/* map visual */
-.pr-vis-map{position:relative;width:260px;height:220px;background:linear-gradient(135deg,#e0f2fe,#f0f9ff);border-radius:16px;border:1px solid var(--border);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.07);}
-.pr-vis-map-bg{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(14,165,233,.06) 0px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,rgba(14,165,233,.06) 0px,transparent 1px,transparent 40px);}
-.pr-vis-pin{position:absolute;top:50px;left:50%;transform:translateX(-50%);}
-.pr-vis-truck{position:absolute;top:100px;left:40%;font-size:1.6rem;}
-.pr-vis-eta{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:white;border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:.72rem;text-align:center;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.08);}
-.pr-vis-eta strong{color:var(--blue-dark);font-size:.82rem;display:block;}
-.pr-vis-eta span{color:var(--text3);}
-/* quote visual */
-.pr-vis-quote{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px 24px;box-shadow:0 8px 32px rgba(0,0,0,.07);width:280px;}
-.pr-vis-quote-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);}
-.pr-vis-quote-tag{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);}
-.pr-vis-quote-locked{font-size:.65rem;font-weight:600;color:#059669;background:#dcfce7;border-radius:100px;padding:3px 8px;}
-.pr-vis-line{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--text2);padding:5px 0;}
-.pr-vis-total{display:flex;justify-content:space-between;align-items:center;padding-top:10px;margin-top:6px;border-top:2px solid var(--text);font-size:.82rem;color:var(--text);}
-.pr-vis-total strong{font-family:var(--fh);font-size:1.4rem;font-style:italic;color:var(--blue-dark);}
-.pr-vis-note{margin-top:10px;font-size:.65rem;color:#059669;font-weight:500;}
-/* guarantee badge */
-.pr-vis-badge{position:relative;width:200px;height:200px;display:flex;align-items:center;justify-content:center;}
-.pr-vis-badge-ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(14,165,233,.2);animation:pr-ring 3s ease-in-out infinite;}
-@keyframes pr-ring{0%,100%{transform:scale(1);opacity:.6;}50%{transform:scale(1.08);opacity:1;}}
-.pr-vis-badge-inner{background:var(--white);border:2px solid var(--blue-dark);border-radius:50%;width:160px;height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;box-shadow:0 8px 32px rgba(2,132,199,.15);}
-.pr-vis-badge-num{font-family:var(--fh);font-size:2.8rem;font-style:italic;color:var(--blue-dark);line-height:1;}
-.pr-vis-badge-lbl{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);text-align:center;line-height:1.4;}
+/* process visuals */
+.pv-cards{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.pv-card{background:var(--w);border:1px solid var(--bd);border-radius:14px;padding:24px 28px;box-shadow:0 6px 24px rgba(0,0,0,.06);text-align:center;min-width:160px;}
+.pv-card.alt{background:var(--off);}
+.pv-ico{margin-bottom:10px;}
+.pv-stat{font-family:var(--fh);font-size:1.6rem;font-weight:800;color:var(--bld);line-height:1;margin-bottom:3px;}
+.pv-lbl{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);}
+.pv-map{position:relative;width:250px;height:200px;background:linear-gradient(135deg,#e0f2fe,#f0f9ff);border-radius:14px;border:1px solid var(--bd);overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.06);}
+.pv-map-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(14,165,233,.07) 0,transparent 1px,transparent 38px),repeating-linear-gradient(90deg,rgba(14,165,233,.07) 0,transparent 1px,transparent 38px);}
+.pv-pin{position:absolute;top:52px;left:50%;transform:translateX(-50%);font-size:1.4rem;}
+.pv-truck{position:absolute;top:96px;left:38%;font-size:1.4rem;}
+.pv-eta{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--bd);border-radius:8px;padding:6px 12px;font-size:.7rem;text-align:center;white-space:nowrap;box-shadow:0 3px 10px rgba(0,0,0,.07);}
+.pv-eta strong{color:var(--bld);font-size:.78rem;display:block;}
+.pv-eta span{color:var(--t3);}
+.pv-quote{background:var(--w);border:1px solid var(--bd);border-radius:14px;padding:20px 22px;box-shadow:0 6px 24px rgba(0,0,0,.06);width:270px;}
+.pv-q-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--bd);}
+.pv-q-tag{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);}
+.pv-q-lock{font-size:.62rem;font-weight:600;color:#059669;background:#dcfce7;border-radius:100px;padding:3px 8px;}
+.pv-q-row{display:flex;justify-content:space-between;font-size:.76rem;color:var(--t2);padding:4px 0;}
+.pv-q-total{display:flex;justify-content:space-between;align-items:center;padding-top:10px;margin-top:6px;border-top:2px solid var(--t);font-size:.8rem;color:var(--t);}
+.pv-q-total strong{font-family:var(--fh);font-size:1.5rem;font-weight:800;color:var(--bld);}
+.pv-q-note{margin-top:8px;font-size:.63rem;color:#059669;font-weight:500;}
+.pv-badge{position:relative;width:190px;height:190px;display:flex;align-items:center;justify-content:center;}
+.pv-badge-ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(14,165,233,.2);animation:br 3s ease-in-out infinite;}
+@keyframes br{0%,100%{transform:scale(1);opacity:.6;}50%{transform:scale(1.07);opacity:1;}}
+.pv-badge-inner{background:var(--w);border:2px solid var(--bld);border-radius:50%;width:154px;height:154px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;box-shadow:0 8px 28px rgba(2,132,199,.14);}
+.pv-badge-num{font-family:var(--fh);font-size:2.8rem;font-weight:800;color:var(--bld);line-height:1;}
+.pv-badge-lbl{font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);text-align:center;line-height:1.4;}
 
-/* ── REVIEWS GRID ── */
-#reviews{background:var(--white);padding:96px 56px;}
-.rv-inner{max-width:1100px;margin:0 auto;}
-.rv-head{text-align:center;margin-bottom:56px;}
+.pr-prog{position:fixed;bottom:0;left:0;right:0;height:5px;background:var(--bd);z-index:100;}
+.pr-bar{height:100%;background:linear-gradient(90deg,var(--bld),var(--bl));width:0%;box-shadow:0 0 8px rgba(2,132,199,.4);}
+
+/* GUARANTEE */
+.gband{background:linear-gradient(135deg,#0c1a2e,#0369a1);padding:48px 52px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:28px;}
+.gband-l{display:flex;align-items:center;gap:18px;}
+.gband-ico{width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:50%;border:2px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.gband-ico svg{stroke:#7dd3fc;fill:none;stroke-width:1.5;stroke-linecap:round;}
+.gband-title{font-family:var(--fh);font-size:1.6rem;font-weight:700;color:#fff;line-height:1;margin-bottom:4px;}
+.gband-sub{font-size:.76rem;color:rgba(255,255,255,.55);}
+.gband-stats{display:flex;gap:36px;flex-wrap:wrap;}
+.gband-stat-n{font-family:var(--fh);font-size:2rem;font-weight:800;color:#7dd3fc;line-height:1;}
+.gband-stat-l{font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.4);margin-top:3px;}
+.gband-btn{padding:11px 26px;border-radius:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.8rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s;}
+.gband-btn:hover{background:rgba(255,255,255,.22);}
+
+/* REVIEWS */
+#reviews{padding:88px 52px;background:var(--w);}
+.rv-wrap{max-width:1100px;margin:0 auto;}
+.rv-head{text-align:center;max-width:500px;margin:0 auto 48px;}
 .rv-head .s-tag{justify-content:center;}
-.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
-.rv-grid-2{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.rv-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px 24px;transition:border-color .25s,transform .25s,box-shadow .25s;}
-.rv-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 10px 32px rgba(14,165,233,.1);}
-.rv-stars{display:flex;gap:2px;margin-bottom:14px;}
-.rv-stars span{font-size:.85rem;color:var(--blue-dark);}
-.rv-text{font-size:.84rem;line-height:1.65;color:var(--text2);margin-bottom:18px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
+.rv-grid2{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.rv-card{background:var(--w);border:1px solid var(--bd);border-radius:12px;padding:24px 22px;transition:border-color .2s,transform .2s,box-shadow .2s;}
+.rv-card:hover{border-color:var(--bl);transform:translateY(-3px);box-shadow:0 8px 24px rgba(14,165,233,.1);}
+.rv-stars{display:flex;gap:2px;margin-bottom:12px;}
+.rv-stars span{font-size:.82rem;color:var(--bld);}
+.rv-text{font-size:.8rem;line-height:1.65;color:var(--t2);margin-bottom:14px;}
 .rv-person{display:flex;align-items:center;gap:10px;}
-.rv-av{width:36px;height:36px;border-radius:50%;background:var(--blue-dark);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--white);flex-shrink:0;}
-.rv-name{font-size:.82rem;font-weight:600;color:var(--text);}
-.rv-role{font-size:.7rem;color:var(--text3);}
-.rv-footer{margin-top:44px;text-align:center;padding-top:32px;border-top:1px solid var(--border);}
-.rv-footer-txt{font-size:.85rem;color:var(--text2);}
-.rv-footer strong{color:var(--blue-dark);}
+.rv-av{width:34px;height:34px;border-radius:50%;background:var(--bld);display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;color:#fff;flex-shrink:0;}
+.rv-name{font-size:.8rem;font-weight:600;color:var(--t);}
+.rv-role{font-size:.68rem;color:var(--t3);}
+.rv-footer{margin-top:40px;padding-top:28px;border-top:1px solid var(--bd);text-align:center;font-size:.82rem;color:var(--t2);}
+.rv-footer strong{color:var(--bld);}
 
-/* ── PROJECTS ── */
-#projects{background:var(--off);padding:96px 56px;}
-.pj-inner{max-width:1100px;margin:0 auto;}
-.pj-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;}
-/* Tilted photo cards like Webild travel template */
-.pj-grid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:380px 280px;gap:14px;}
-.pj-card{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);}
+/* PROJECTS */
+#projects{padding:88px 52px;background:var(--off);}
+.pj-wrap{max-width:1100px;margin:0 auto;}
+.pj-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;}
+.pj-grid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:360px 260px;gap:12px;}
+.pj-card{position:relative;border-radius:14px;overflow:hidden;}
 .pj-card:first-child{grid-row:span 2;}
-.pj-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .7s ease;}
-.pj-card:hover .pj-fill{transform:scale(1.04);}
-.pj-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,26,46,.9) 0%,rgba(12,26,46,.1) 55%,transparent 100%);transition:background .4s;}
-.pj-card:hover .pj-ov{background:linear-gradient(to top,rgba(12,26,46,.95) 20%,rgba(12,26,46,.35) 100%);}
-.pj-body{position:absolute;bottom:0;left:0;right:0;padding:24px 28px;z-index:1;}
-.pj-label{font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:6px;}
-.pj-title{font-family:var(--fh);font-size:1.5rem;font-weight:400;color:var(--white);letter-spacing:-.01em;line-height:1.2;margin-bottom:4px;}
-.pj-sub{font-size:.72rem;color:rgba(255,255,255,.5);}
+.pj-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease;}
+.pj-card:hover .pj-img{transform:scale(1.05);}
+.pj-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,20,40,.92) 0%,rgba(10,20,40,.08) 55%,transparent 100%);transition:background .4s;}
+.pj-card:hover .pj-ov{background:linear-gradient(to top,rgba(10,20,40,.96) 25%,rgba(10,20,40,.3) 100%);}
+.pj-body{position:absolute;bottom:0;left:0;right:0;padding:22px 26px;z-index:2;}
+.pj-label{font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:5px;}
+.pj-title{font-family:var(--fh);font-size:1.5rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:3px;}
+.pj-sub{font-size:.7rem;color:rgba(255,255,255,.48);}
 
-/* ── EMERGENCY BAND ── */
-.em-band{background:var(--red);padding:26px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-.em-left{display:flex;align-items:center;gap:16px;}
-.em-pulse{width:12px;height:12px;background:var(--white);border-radius:50%;position:relative;flex-shrink:0;}
-.em-pulse::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(255,255,255,.4);animation:ep 1.5s ease-out infinite;}
+/* EMERGENCY BAND */
+.emband{background:var(--rd);padding:24px 52px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.emband-l{display:flex;align-items:center;gap:14px;}
+.emband-pulse{width:11px;height:11px;background:#fff;border-radius:50%;position:relative;flex-shrink:0;}
+.emband-pulse::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(255,255,255,.4);animation:ep 1.5s ease-out infinite;}
 @keyframes ep{0%{transform:scale(1);opacity:1;}100%{transform:scale(2.2);opacity:0;}}
-.em-txt{font-family:var(--fh);font-size:1.4rem;font-weight:400;font-style:italic;color:var(--white);}
-.em-num{font-family:var(--fh);font-size:2.2rem;font-weight:400;font-style:italic;color:var(--white);text-decoration:none;}
-.em-num:hover{opacity:.85;}
-.em-sub{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);}
+.emband-txt{font-family:var(--fh);font-size:1.4rem;font-weight:700;color:#fff;}
+.emband-num{font-family:var(--fh);font-size:2.2rem;font-weight:800;color:#fff;text-decoration:none;}
+.emband-num:hover{opacity:.85;}
+.emband-sub{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);}
 
-/* ── CTA ── */
-#cta{background:var(--navy);padding:120px 56px;text-align:center;position:relative;overflow:hidden;}
-#ctacanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.35;}
+/* CTA */
+#cta{background:var(--nv);padding:112px 52px;text-align:center;position:relative;overflow:hidden;}
+#ctacanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.3;}
 .ct-ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(14,165,233,.06);animation:crp 4s ease-in-out infinite;pointer-events:none;z-index:1;}
 .ct-ring:nth-child(1){width:480px;height:480px;transform:translate(-50%,-50%);}
 .ct-ring:nth-child(2){width:700px;height:700px;transform:translate(-50%,-50%);animation-delay:.9s;}
 .ct-ring:nth-child(3){width:920px;height:920px;transform:translate(-50%,-50%);animation-delay:1.8s;}
 @keyframes crp{0%,100%{opacity:.5;}50%{opacity:.1;}}
-.ct-inner{position:relative;z-index:2;max-width:680px;margin:0 auto;}
-.ct-live{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.25);border-radius:100px;padding:6px 16px;}
-.ct-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.1s ease-in-out infinite;}
-.ct-live-txt{font-size:.68rem;font-weight:600;color:var(--red);}
-.ct-title{font-family:var(--fh);font-size:clamp(3rem,6vw,6rem);font-weight:800;font-style:italic;line-height:.95;text-transform:uppercase;color:var(--white);margin-bottom:14px;letter-spacing:-.01em;}
-.ct-sub{font-size:.92rem;line-height:1.7;color:rgba(255,255,255,.5);margin-bottom:10px;}
-.ct-phone{font-family:var(--fh);font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:800;color:#7dd3fc;text-decoration:none;display:block;margin:18px 0;transition:color .2s;letter-spacing:-.01em;}
-.ct-phone:hover{color:var(--white);}
-.ct-btn{display:inline-block;padding:14px 36px;border-radius:8px;font-size:.88rem;font-weight:600;background:var(--blue);color:var(--white);text-decoration:none;transition:background .2s,transform .25s;}
-.ct-btn:hover{background:var(--blue-dark);transform:translateY(-2px);}
-.ct-email{display:block;margin-top:14px;font-size:.75rem;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;}
-.ct-email:hover{color:rgba(255,255,255,.65);}
+.ct-inner{position:relative;z-index:2;max-width:660px;margin:0 auto;}
+.ct-live{display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.25);border-radius:100px;padding:5px 14px;}
+.ct-dot{width:6px;height:6px;background:var(--rd);border-radius:50%;animation:blink 1.1s ease-in-out infinite;}
+.ct-live-txt{font-size:.66rem;font-weight:600;color:var(--rd);}
+.ct-title{font-family:var(--fh);font-size:clamp(3.2rem,6vw,6.5rem);font-weight:800;font-style:italic;line-height:.92;text-transform:uppercase;color:#fff;margin-bottom:12px;}
+.ct-sub{font-size:.88rem;line-height:1.7;color:rgba(255,255,255,.48);margin-bottom:8px;}
+.ct-phone{font-family:var(--fh);font-size:clamp(3rem,5.5vw,5.5rem);font-weight:800;color:#7dd3fc;text-decoration:none;display:block;margin:16px 0;transition:color .2s;}
+.ct-phone:hover{color:#fff;}
+.ct-btn{display:inline-block;padding:13px 34px;border-radius:8px;background:var(--bl);color:#fff;font-size:.85rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s;}
+.ct-btn:hover{background:var(--bld);transform:translateY(-2px);}
+.ct-email{display:block;margin-top:12px;font-size:.72rem;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s;}
+.ct-email:hover{color:rgba(255,255,255,.6);}
 
-/* ── FOOTER ── */
-footer{background:#07101e;padding:56px 56px 36px;border-top:1px solid rgba(255,255,255,.05);}
-.ft-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;}
-.ft-logo{font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:12px;}
+/* FOOTER */
+footer{background:#060e1a;padding:52px 52px 32px;border-top:1px solid rgba(255,255,255,.05);}
+.ft-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:44px;margin-bottom:36px;}
+.ft-logo{font-family:var(--fh);font-size:1rem;font-weight:700;color:#fff;margin-bottom:10px;}
 .ft-logo span{color:#7dd3fc;}
-.ft-brand p{font-size:.78rem;line-height:1.7;color:rgba(255,255,255,.3);max-width:230px;}
-.ft-col h4{font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:14px;}
-.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.ft-col a{font-size:.78rem;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s;}
-.ft-col a:hover{color:rgba(255,255,255,.75);}
-.ft-bot{max-width:1100px;margin:0 auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
-.ft-bot p{font-size:.7rem;color:rgba(255,255,255,.18);}
+.ft-brand p{font-size:.76rem;line-height:1.7;color:rgba(255,255,255,.3);max-width:220px;}
+.ft-col h4{font-size:.58rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:12px;}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.ft-col a{font-size:.76rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
+.ft-col a:hover{color:rgba(255,255,255,.72);}
+.ft-bot{max-width:1100px;margin:0 auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.ft-bot p{font-size:.68rem;color:rgba(255,255,255,.16);}
 .ft-certs{display:flex;gap:6px;}
-.ft-cert{font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.22);background:rgba(255,255,255,.04);padding:4px 10px;border-radius:4px;border:1px solid rgba(255,255,255,.06);}
-
-
-/* REVEALS — CSS only, no GSAP dependency, always visible */
-.rv,.rl,.rr,.rs{
-  opacity:0;
-  animation:fadeUp .7s ease forwards;
-}
-.rl{animation-name:fadeLeft;}
-.rr{animation-name:fadeRight;}
-.rs{animation-name:fadeScale;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeLeft{from{opacity:0;transform:translateX(-28px);}to{opacity:1;transform:translateX(0);}}
-@keyframes fadeRight{from{opacity:0;transform:translateX(28px);}to{opacity:1;transform:translateX(0);}}
-@keyframes fadeScale{from{opacity:0;transform:scale(.95);}to{opacity:1;transform:scale(1);}}
-/* stagger children in grids */
-.sv-card:nth-child(1){animation-delay:.05s;}
-.sv-card:nth-child(2){animation-delay:.1s;}
-.sv-card:nth-child(3){animation-delay:.15s;}
-.sv-card:nth-child(4){animation-delay:.2s;}
-.sv-card:nth-child(5){animation-delay:.25s;}
-.sv-card:nth-child(6){animation-delay:.3s;}
-.rv-card:nth-child(1){animation-delay:.05s;}
-.rv-card:nth-child(2){animation-delay:.1s;}
-.rv-card:nth-child(3){animation-delay:.15s;}
-.rv-card:nth-child(4){animation-delay:.2s;}
-.rv-card:nth-child(5){animation-delay:.25s;}
-.rv-card:nth-child(6){animation-delay:.3s;}
-/* trust items */
-.trust-item:nth-child(1) .trust-num{animation:fadeUp .6s .1s ease both;}
-.trust-item:nth-child(2) .trust-num{animation:fadeUp .6s .2s ease both;}
-.trust-item:nth-child(3) .trust-num{animation:fadeUp .6s .3s ease both;}
-.trust-item:nth-child(4) .trust-num{animation:fadeUp .6s .4s ease both;}
+.ft-cert{font-size:.56rem;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.2);background:rgba(255,255,255,.04);padding:3px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.06);}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  nav{padding:0 24px;}.n-links{display:none;}
-  #hero{grid-template-columns:1fr;}.h-right{display:none;}
-  .h-left{padding:40px 24px 60px;}
-  .trust,.mq{padding-left:24px;padding-right:24px;}
-  #services,#about,#reviews,#projects,#cta,footer,.em-band{padding-left:24px;padding-right:24px;}
-  .trust-inner{grid-template-columns:repeat(2,1fr);}
-  .trust-item:nth-child(2)::after{display:none;}
-  .sv-header{grid-template-columns:1fr;gap:20px;}
+  nav{padding:0 22px;}.nl{display:none;}
+  .ebanner{padding:8px 22px;}
+  #hero{grid-template-columns:1fr;height:auto;min-height:100vh;}
+  .hr{min-height:50vw;max-height:55vw;}
+  .hsc{display:none;}
+  .trust,.mq,#services,#about,#reviews,#projects,#cta,footer,.emband,.gband{padding-left:22px;padding-right:22px;}
+  .sv-head{grid-template-columns:1fr;gap:18px;}
   .sv-grid{grid-template-columns:1fr 1fr;}
-  .ab-inner{grid-template-columns:1fr;gap:40px;}
-  .pr-slide{padding:0 24px;}.pr-bgnum{display:none;}
+  .ab-inner{grid-template-columns:1fr;}
+  .pr-slide{grid-template-columns:1fr;padding:0 22px;}
+  .pr-vis{display:none;}
   .pj-grid{grid-template-columns:1fr;grid-template-rows:auto;}
+  .pj-card{height:260px;}
   .pj-card:first-child{grid-row:span 1;height:300px;}
-  .pj-card{height:220px;}
-  .rv-grid,.rv-grid-2{grid-template-columns:1fr 1fr;}
+  .rv-grid,.rv-grid2{grid-template-columns:1fr 1fr;}
   .ft-top{grid-template-columns:1fr 1fr;gap:28px;}
+  .gband{flex-direction:column;align-items:flex-start;}
 }
 @media(max-width:640px){
-  .sv-grid{grid-template-columns:1fr;}
-  .rv-grid,.rv-grid-2{grid-template-columns:1fr;}
+  .sv-grid,.rv-grid,.rv-grid2{grid-template-columns:1fr;}
   .ft-top{grid-template-columns:1fr;}
-  .h-actions{flex-direction:column;}
+  .h-btns{flex-direction:column;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#" class="n-brand">
-    <div class="n-mark"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg></div>
-    <div class="n-name">Arctic Air <span>&</span> Plumbing</div>
-  </a>
-  <ul class="n-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">How It Works</a></li>
-    <li><a href="#projects">Our Work</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-  </ul>
-  <div class="n-right">
-    <a href="tel:5559110100" class="n-tel">(555) 911-0100</a>
-    <a href="#cta" class="n-cta">Emergency? Call Now</a>
-  </div>
+  <a href="#" class="nb"><div class="nm"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg></div><div class="nn">Arctic Air <span>&</span> Plumbing</div></a>
+  <ul class="nl"><li><a href="#services">Services</a></li><li><a href="#process">How It Works</a></li><li><a href="#projects">Our Work</a></li><li><a href="#reviews">Reviews</a></li></ul>
+  <div class="nr"><a href="tel:5559110100" class="ntel">(555) 911-0100</a><a href="#cta" class="ncta">Emergency? Call Now</a></div>
 </nav>
 
-<!-- EMERGENCY BANNER -->
-<div id="emg-banner" style="position:fixed;top:68px;left:0;right:0;z-index:999;background:#ef4444;padding:9px 56px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
-  <div style="display:flex;align-items:center;gap:10px;">
-    <div style="width:7px;height:7px;background:#fff;border-radius:50%;animation:blink 1.1s ease-in-out infinite;flex-shrink:0;"></div>
-    <span style="font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.04em;">AC OUT? PIPE BURST? WE COME TO YOU —</span>
-  </div>
-  <a href="tel:5559110100" style="font-family:'Fraunces',serif;font-size:1.05rem;font-style:italic;font-weight:600;color:#fff;text-decoration:none;letter-spacing:-.01em;">(555) 911-0100</a>
-  <span style="font-size:.68rem;font-weight:500;color:rgba(255,255,255,.75);letter-spacing:.04em;text-transform:uppercase;">Average Response Under 2 Hours</span>
+<div class="ebanner">
+  <div class="eb-l"><div class="eb-dot"></div><span class="eb-txt">AC OUT? PIPE BURST? WE COME TO YOU —</span></div>
+  <a href="tel:5559110100" class="eb-tel">(555) 911-0100</a>
+  <span class="eb-sub">Average Response Under 2 Hours</span>
 </div>
 
-<!-- HERO — SPLIT -->
 <section id="hero">
-  <!-- Left: content -->
-  <div class="h-left">
+  <div class="hl">
     <div class="h-badge"><div class="h-badge-dot"></div><span class="h-badge-txt">24/7 Emergency — We Answer Every Call</span></div>
-    <h1 class="h-title">Stay Cool.<br/><em>Stay Flowing.</em><br/>Stay Comfortable.</h1>
+    <h1 class="h-title">Stay Cool.<em>Stay Flowing.</em>Stay Comfortable.</h1>
     <p class="h-sub">Expert HVAC installation, emergency repair, and plumbing services for homeowners and businesses. Licensed, NATE certified, and guaranteed.</p>
-    <div class="h-actions">
-      <a href="#cta" class="btn-solid">Get a Free Quote</a>
-      <a href="#services" class="btn-ghost">Explore Services</a>
-    </div>
-    <div class="h-trust-logos">
-      <span class="h-trust-label">Certified for:</span>
-      <span class="logo-tag">Carrier</span>
-      <span class="logo-tag">Trane</span>
-      <span class="logo-tag">Rheem</span>
-      <span class="logo-tag">Lennox</span>
-    </div>
+    <div class="h-btns"><a href="#cta" class="btn-s">Get a Free Quote</a><a href="#services" class="btn-g">Explore Services</a></div>
+    <div class="h-tel">Available 24/7 · Call <a href="tel:5559110100">(555) 911-0100</a></div>
+    <div class="h-logos"><span class="h-logos-lbl">Certified for:</span><span class="logo-pill">Carrier</span><span class="logo-pill">Trane</span><span class="logo-pill">Rheem</span><span class="logo-pill">Lennox</span></div>
   </div>
-
-  <!-- Right: photo + big 3D pipes + floating stats -->
-  <div class="h-right">
-    <img class="h-photo" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&q=80&auto=format&fit=crop" alt="HVAC technician at work"/>
-    <div class="h-photo-overlay"></div>
+  <div class="hr">
+    <img class="hr-img" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&q=80&auto=format&fit=crop" alt="HVAC technician"/>
+    <div class="hr-ov"></div>
     <canvas id="hc"></canvas>
-
-    <!-- Floating stat cards -->
-    <div class="h-stat-card">
-      <div class="hsc-num">12K+</div>
-      <div class="hsc-lbl">Systems Installed</div>
-    </div>
-    <div class="h-stat-card">
-      <div class="hsc-num">4.9★</div>
-      <div class="hsc-lbl">Average Rating</div>
-    </div>
-    <div class="h-stat-card">
-      <div class="hsc-num">2hr</div>
-      <div class="hsc-lbl">Response Time</div>
-    </div>
+    <div class="hsc"><div class="hsc-num">12K+</div><div class="hsc-lbl">Systems Installed</div></div>
+    <div class="hsc"><div class="hsc-num">4.9★</div><div class="hsc-lbl">Average Rating</div></div>
+    <div class="hsc"><div class="hsc-num">2hr</div><div class="hsc-lbl">Response Time</div></div>
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="mq"><div class="mq-inner" id="mq"></div></div>
 
-<!-- TRUST BAR -->
 <div class="trust">
   <div class="trust-inner">
-    <div class="trust-item rs"><div class="trust-num" data-target="12000" data-suffix="+">0</div><div class="trust-lbl">Systems Installed</div></div>
-    <div class="trust-item rs"><div class="trust-num" data-target="98" data-suffix="%">0</div><div class="trust-lbl">Satisfaction Rate</div></div>
-    <div class="trust-item rs"><div class="trust-num" data-target="15" data-suffix=" Yrs">0</div><div class="trust-lbl">In Business</div></div>
-    <div class="trust-item rs"><div class="trust-num">24/7</div><div class="trust-lbl">Always Available</div></div>
+    <div class="trust-item"><div class="trust-num" id="c1">0</div><div class="trust-lbl">Systems Installed</div></div>
+    <div class="trust-item"><div class="trust-num" id="c2">0</div><div class="trust-lbl">Satisfaction Rate</div></div>
+    <div class="trust-item"><div class="trust-num" id="c3">0</div><div class="trust-lbl">In Business</div></div>
+    <div class="trust-item"><div class="trust-num">24/7</div><div class="trust-lbl">Always Available</div></div>
   </div>
 </div>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="sv-wrap">
-    <div class="sv-header">
-      <div class="rl">
-        <div class="s-tag">What We Do</div>
-        <h2 class="s-title">Everything your home <em>needs to run right.</em></h2>
-      </div>
-      <p class="s-sub rr">From emergency repairs to full system replacements — we handle every HVAC and plumbing need with speed, precision, and a guarantee behind every job.</p>
+    <div class="sv-head">
+      <div><div class="s-tag">What We Do</div><h2 class="s-title">Everything your home <em>needs to run right.</em></h2></div>
+      <p class="s-sub">From emergency repairs to full system replacements — we handle every HVAC and plumbing need with speed, precision, and a guarantee behind every job.</p>
     </div>
     <div class="sv-grid">
-      <div class="sv-card rv">
-        <div class="sv-cn">01</div>
-        <div class="sv-icon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
-        <div class="sv-name">AC Installation</div>
-        <div class="sv-desc">Central air, ductless mini-splits, and heat pumps. All major brands. Same-week installation available.</div>
-      </div>
-      <div class="sv-card rv">
-        <div class="sv-cn">02</div>
-        <div class="sv-icon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        <div class="sv-name">Emergency Repair</div>
-        <div class="sv-desc">Live technician answers every call. 2-hour response guaranteed, 24/7. No after-hours surcharge.</div>
-      </div>
-      <div class="sv-card rv">
-        <div class="sv-cn">03</div>
-        <div class="sv-icon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="sv-name">Maintenance Plans</div>
-        <div class="sv-desc">Bi-annual tune-ups, priority dispatch, and 15% off repairs. Systems last years longer with care.</div>
-      </div>
-      <div class="sv-card rv">
-        <div class="sv-cn">04</div>
-        <div class="sv-icon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0014 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 01-11.91 4.97"/></svg></div>
-        <div class="sv-name">Water Heaters</div>
-        <div class="sv-desc">Tank and tankless installation and replacement. Most jobs same day. All fuel types serviced.</div>
-      </div>
-      <div class="sv-card rv">
-        <div class="sv-cn">05</div>
-        <div class="sv-icon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2v6m0 14v-4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6m14 0h-4M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/></svg></div>
-        <div class="sv-name">Plumbing & Pipes</div>
-        <div class="sv-desc">Leak detection, drain cleaning, repiping, and water line replacement. Licensed master plumbers.</div>
-      </div>
-      <div class="sv-card rv">
-        <div class="sv-cn">06</div>
-        <div class="sv-icon"><svg width="20" height="20" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
-        <div class="sv-name">Commercial HVAC</div>
-        <div class="sv-desc">Rooftop units, chillers, and full building climate control. Preventive service contracts available.</div>
-      </div>
+      <div class="sv-card"><div class="sv-n">01</div><div class="sv-ico"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div><div class="sv-name">AC Installation</div><div class="sv-desc">Central air, ductless mini-splits, and heat pumps. All major brands. Same-week install.</div></div>
+      <div class="sv-card"><div class="sv-n">02</div><div class="sv-ico"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="sv-name">Emergency Repair</div><div class="sv-desc">Live tech answers every call. 2-hour response guaranteed, 24/7. No after-hours surcharge.</div></div>
+      <div class="sv-card"><div class="sv-n">03</div><div class="sv-ico"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="sv-name">Maintenance Plans</div><div class="sv-desc">Bi-annual tune-ups, priority dispatch, 15% off repairs. Systems last years longer.</div></div>
+      <div class="sv-card"><div class="sv-n">04</div><div class="sv-ico"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0014 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 01-11.91 4.97"/></svg></div><div class="sv-name">Water Heaters</div><div class="sv-desc">Tank and tankless install and replacement. Most jobs same day. All fuel types.</div></div>
+      <div class="sv-card"><div class="sv-n">05</div><div class="sv-ico"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 22V12m0-10C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h8M12 8v8"/></svg></div><div class="sv-name">Plumbing & Pipes</div><div class="sv-desc">Leak detection, drain cleaning, repiping, water line replacement. Master plumbers.</div></div>
+      <div class="sv-card"><div class="sv-n">06</div><div class="sv-ico"><svg width="20" height="20" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div><div class="sv-name">Commercial HVAC</div><div class="sv-desc">Rooftop units, chillers, full building climate control. Service contracts available.</div></div>
     </div>
-    <div class="sv-foot">
-      <a href="#cta" class="btn-solid">Schedule a Service</a>
-      <span class="sv-foot-txt">or call <strong>(555) 911-0100</strong> for emergencies</span>
-    </div>
+    <div class="sv-foot"><a href="#cta" class="btn-s">Schedule a Service</a><span class="sv-foot-txt">or call <strong>(555) 911-0100</strong> for emergencies</span></div>
   </div>
 </section>
 
-<!-- ABOUT — photo left, content right -->
 <section id="about">
   <div class="ab-inner">
-    <div class="ab-photo-wrap rl">
-      <img class="ab-photo" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&q=80&auto=format&fit=crop" alt="HVAC technician at work"/>
-      <div class="ab-float">
-        <div class="ab-float-num">15+</div>
-        <div class="ab-float-lbl">Years of Excellence</div>
-      </div>
+    <div class="ab-img-wrap">
+      <img class="ab-img" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&q=80&auto=format&fit=crop" alt="HVAC technician"/>
+      <div class="ab-float"><div class="ab-float-num">15+</div><div class="ab-float-lbl">Years of Excellence</div></div>
     </div>
-    <div class="rr">
+    <div class="ab-content">
       <div class="s-tag">Why Arctic Air</div>
       <h2 class="s-title">The difference is in <em>the details.</em></h2>
-      <p class="s-sub" style="margin-bottom:4px;">We're not a call center dispatching strangers. Every technician on our team is NATE certified, background checked, and has been with us for years. You get a professional every time.</p>
+      <p class="s-sub">We're not a call center dispatching strangers. Every tech is NATE certified, background checked, and has been with us for years.</p>
       <div class="ab-checks">
-        <div class="ab-check">
-          <div class="ab-check-icon"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="ab-check-text"><strong>NATE Certified Technicians</strong> — The gold standard in HVAC and plumbing expertise. We don't send rookies.</div>
-        </div>
-        <div class="ab-check">
-          <div class="ab-check-icon"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="ab-check-text"><strong>Same-Day Service</strong> — Most jobs completed same day. Full truck inventory means we're rarely waiting on parts.</div>
-        </div>
-        <div class="ab-check">
-          <div class="ab-check-icon"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="ab-check-text"><strong>Flat-Rate Pricing</strong> — Written quote before we touch anything. No hourly billing surprises. You approve it, we stick to it.</div>
-        </div>
-        <div class="ab-check">
-          <div class="ab-check-icon"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="ab-check-text"><strong>12-Month Warranty</strong> — Every repair guaranteed for a full year. If it fails, we come back free.</div>
-        </div>
+        <div class="ab-check"><div class="ab-ck-ico"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ab-ck-txt"><strong>NATE Certified Technicians</strong> — The gold standard in HVAC expertise. We don't send rookies.</div></div>
+        <div class="ab-check"><div class="ab-ck-ico"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ab-ck-txt"><strong>Same-Day Service</strong> — Most jobs completed same day. Fully stocked trucks on the road.</div></div>
+        <div class="ab-check"><div class="ab-ck-ico"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ab-ck-txt"><strong>Flat-Rate Pricing</strong> — Written quote before we touch anything. You approve it, we stick to it.</div></div>
+        <div class="ab-check"><div class="ab-ck-ico"><svg width="10" height="10" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="ab-ck-txt"><strong>12-Month Warranty</strong> — Every repair guaranteed a full year. It fails, we come back free.</div></div>
       </div>
-      <a href="#cta" class="btn-solid">Learn More About Us</a>
+      <a href="#cta" class="btn-s" style="width:fit-content;">Learn More About Us</a>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
 <div id="process">
   <div class="pr-outer" id="pr-outer">
     <div class="pr-sticky" id="pr-sticky">
       <div class="pr-track" id="pr-track">
         <div class="pr-slide">
-          <div class="pr-bgnum">01</div>
-          <div class="pr-content">
-            <div class="pr-snum">How It Works</div>
-            <div class="pr-h">You call.<br/><em>We answer.</em></div>
-            <p class="pr-p">Day or night, a real technician answers every call. Not a machine. Not voicemail. We assess your situation and get someone moving your way immediately.</p>
-            <div class="pr-pill"><span>Average answer: under 3 rings</span></div>
-          </div>
-          <div class="pr-visual">
-            <div class="pr-vis-card">
-              <div class="pr-vis-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 9.75 19.79 19.79 0 01.88 1.1 2 2 0 012.86.001h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-              <div class="pr-vis-stat">Under 3 rings</div>
-              <div class="pr-vis-lbl">Live tech, every time</div>
-            </div>
-            <div class="pr-vis-card pr-vis-card--alt">
-              <div class="pr-vis-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-              <div class="pr-vis-stat">24 / 7 / 365</div>
-              <div class="pr-vis-lbl">Always available</div>
-            </div>
-          </div>
+          <div class="pr-bg-n">01</div>
+          <div class="pr-txt"><div class="pr-step">How It Works</div><div class="pr-h">You call.<em>We answer.</em></div><p class="pr-p">Day or night, a real technician picks up. Not a machine. Not voicemail. We assess and dispatch someone immediately.</p><div class="pr-pill"><span>Average answer: under 3 rings</span></div></div>
+          <div class="pr-vis"><div class="pv-cards"><div class="pv-card"><div class="pv-ico"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 9.75 19.79 19.79 0 01.88 1.1 2 2 0 012.86 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div class="pv-stat">Under 3 rings</div><div class="pv-lbl">Live Tech Every Time</div></div><div class="pv-card alt"><div class="pv-ico"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="pv-stat">24/7/365</div><div class="pv-lbl">Always Available</div></div></div></div>
         </div>
         <div class="pr-slide">
-          <div class="pr-bgnum">02</div>
-          <div class="pr-content">
-            <div class="pr-snum">Step 02 of 04</div>
-            <div class="pr-h">On site.<br/><em>Fast.</em></div>
-            <p class="pr-p">Fully stocked trucks positioned across the service area. Guaranteed on-site within 2 hours. We usually beat it by a lot.</p>
-            <div class="pr-pill"><span>Guaranteed 2-hour response</span></div>
-          </div>
-          <div class="pr-visual">
-            <div class="pr-vis-map">
-              <div class="pr-vis-map-bg"></div>
-              <div class="pr-vis-pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="#ef4444" stroke="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z"/></svg></div>
-              <div class="pr-vis-truck">🚛</div>
-              <div class="pr-vis-eta"><strong>ETA: 42 min</strong><br/><span>En route to you</span></div>
-            </div>
-          </div>
+          <div class="pr-bg-n">02</div>
+          <div class="pr-txt"><div class="pr-step">Step 02 of 04</div><div class="pr-h">On site.<em>Fast.</em></div><p class="pr-p">Fully stocked trucks across the service area. On-site within 2 hours guaranteed. We usually beat that by a lot.</p><div class="pr-pill"><span>Guaranteed 2-hour response</span></div></div>
+          <div class="pr-vis"><div class="pv-map"><div class="pv-map-grid"></div><div class="pv-pin">📍</div><div class="pv-truck">🚛</div><div class="pv-eta"><strong>ETA: 42 min</strong><span>En route to you</span></div></div></div>
         </div>
         <div class="pr-slide">
-          <div class="pr-bgnum">03</div>
-          <div class="pr-content">
-            <div class="pr-snum">Step 03 of 04</div>
-            <div class="pr-h">Flat rate.<br/><em>No games.</em></div>
-            <p class="pr-p">Clear written quote before any work starts. Flat-rate pricing — no hourly billing surprises. You approve it, we stick to it. Period.</p>
-            <div class="pr-pill"><span>100% transparent pricing</span></div>
-          </div>
-          <div class="pr-visual">
-            <div class="pr-vis-quote">
-              <div class="pr-vis-quote-header">
-                <span class="pr-vis-quote-tag">Written Estimate</span>
-                <span class="pr-vis-quote-locked">🔒 Locked In</span>
-              </div>
-              <div class="pr-vis-line"><span>AC Compressor Replacement</span><span>$480</span></div>
-              <div class="pr-vis-line"><span>Labor (flat rate)</span><span>$120</span></div>
-              <div class="pr-vis-line"><span>Parts & materials</span><span>$95</span></div>
-              <div class="pr-vis-total"><span>Total</span><strong>$695</strong></div>
-              <div class="pr-vis-note">✓ No surprises. No hourly billing. You approved it.</div>
-            </div>
-          </div>
+          <div class="pr-bg-n">03</div>
+          <div class="pr-txt"><div class="pr-step">Step 03 of 04</div><div class="pr-h">Flat rate.<em>No games.</em></div><p class="pr-p">Written quote before we touch anything. Flat-rate pricing, no hourly surprises. You approve it, we stick to it. Period.</p><div class="pr-pill"><span>100% transparent pricing</span></div></div>
+          <div class="pr-vis"><div class="pv-quote"><div class="pv-q-hd"><span class="pv-q-tag">Written Estimate</span><span class="pv-q-lock">🔒 Locked In</span></div><div class="pv-q-row"><span>AC Compressor Replacement</span><span>$480</span></div><div class="pv-q-row"><span>Labor (flat rate)</span><span>$120</span></div><div class="pv-q-row"><span>Parts & materials</span><span>$95</span></div><div class="pv-q-total"><span>Total</span><strong>$695</strong></div><div class="pv-q-note">✓ No surprises. No hourly billing. You approved it.</div></div></div>
         </div>
         <div class="pr-slide">
-          <div class="pr-bgnum">04</div>
-          <div class="pr-content">
-            <div class="pr-snum">Step 04 of 04</div>
-            <div class="pr-h">Fixed.<br/><em>Guaranteed.</em></div>
-            <p class="pr-p">Every repair comes with a 12-month parts and labor warranty. If it fails within the year, we come back at zero cost. No excuses, no fine print.</p>
-            <div class="pr-pill"><span>12-month warranty on all work</span></div>
-          </div>
-          <div class="pr-visual">
-            <div class="pr-vis-badge">
-              <div class="pr-vis-badge-ring"></div>
-              <div class="pr-vis-badge-inner">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                <div class="pr-vis-badge-num">12</div>
-                <div class="pr-vis-badge-lbl">Month<br/>Warranty</div>
-              </div>
-            </div>
-          </div>
+          <div class="pr-bg-n">04</div>
+          <div class="pr-txt"><div class="pr-step">Step 04 of 04</div><div class="pr-h">Fixed.<em>Guaranteed.</em></div><p class="pr-p">Every repair: 12-month parts and labor warranty. If it fails within the year, we come back at zero cost. No excuses.</p><div class="pr-pill"><span>12-month warranty on all work</span></div></div>
+          <div class="pr-vis"><div class="pv-badge"><div class="pv-badge-ring"></div><div class="pv-badge-inner"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg><div class="pv-badge-num">12</div><div class="pv-badge-lbl">Month<br/>Warranty</div></div></div></div>
         </div>
       </div>
     </div>
@@ -712,113 +429,46 @@ footer{background:#07101e;padding:56px 56px 36px;border-top:1px solid rgba(255,2
 </div>
 <div class="pr-prog"><div class="pr-bar" id="pr-bar"></div></div>
 
-<!-- GUARANTEE BAND -->
-<div style="background:linear-gradient(135deg,#0c1a2e 0%,#0369a1 100%);padding:52px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;">
-  <div style="display:flex;align-items:center;gap:20px;">
-    <div style="width:56px;height:56px;background:rgba(255,255,255,.1);border-radius:50%;border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7dd3fc" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-    </div>
-    <div>
-      <div style="font-family:'Fraunces',serif;font-size:1.6rem;font-style:italic;color:#fff;line-height:1;margin-bottom:4px;">12-Month Guarantee</div>
-      <div style="font-size:.78rem;color:rgba(255,255,255,.55);">Every job backed — if it fails within the year, we come back free. No fine print.</div>
-    </div>
-  </div>
-  <div style="display:flex;gap:40px;flex-wrap:wrap;">
-    <div style="text-align:center;">
-      <div style="font-family:'Fraunces',serif;font-size:2rem;font-style:italic;color:#7dd3fc;line-height:1;">$0</div>
-      <div style="font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.4);margin-top:4px;">Callback Fee</div>
-    </div>
-    <div style="text-align:center;">
-      <div style="font-family:'Fraunces',serif;font-size:2rem;font-style:italic;color:#7dd3fc;line-height:1;">100%</div>
-      <div style="font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.4);margin-top:4px;">Parts + Labor</div>
-    </div>
-    <div style="text-align:center;">
-      <div style="font-family:'Fraunces',serif;font-size:2rem;font-style:italic;color:#7dd3fc;line-height:1;">365</div>
-      <div style="font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.4);margin-top:4px;">Days Coverage</div>
-    </div>
-  </div>
-  <a href="#cta" style="padding:12px 28px;border-radius:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.82rem;font-weight:600;text-decoration:none;transition:background .2s;white-space:nowrap;" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">Get Your Free Quote</a>
+<div class="gband">
+  <div class="gband-l"><div class="gband-ico"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><div><div class="gband-title">12-Month Guarantee</div><div class="gband-sub">Every job backed — if it fails within the year, we come back free. No fine print.</div></div></div>
+  <div class="gband-stats"><div><div class="gband-stat-n">$0</div><div class="gband-stat-l">Callback Fee</div></div><div><div class="gband-stat-n">100%</div><div class="gband-stat-l">Parts + Labor</div></div><div><div class="gband-stat-n">365</div><div class="gband-stat-l">Days Coverage</div></div></div>
+  <a href="#cta" class="gband-btn">Get Your Free Quote</a>
 </div>
 
-<!-- REVIEWS GRID -->
 <section id="reviews">
-  <div class="rv-inner">
-    <div class="rv-head rv">
-      <div class="s-tag">What Clients Say</div>
-      <h2 class="s-title">Trusted by <em>thousands of families.</em></h2>
-    </div>
+  <div class="rv-wrap">
+    <div class="rv-head"><div class="s-tag">What Clients Say</div><h2 class="s-title">Trusted by <em>thousands of families.</em></h2></div>
     <div class="rv-grid">
-      <div class="rv-card rv">
-        <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="rv-text">"AC blew at 11pm on a Friday. Arctic Air was at my door by 1am. Fixed in forty minutes. Honest price. These are the only guys I'll ever call."</div>
-        <div class="rv-person"><div class="rv-av">DR</div><div><div class="rv-name">David Rivera</div><div class="rv-role">Homeowner · Sunrise, FL</div></div></div>
-      </div>
-      <div class="rv-card rv">
-        <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="rv-text">"Called at 8am and they were here by 10. Diagnosed the issue, gave me a flat rate, fixed it. No upselling, no drama. Will use them for everything."</div>
-        <div class="rv-person"><div class="rv-av" style="background:#059669;">ML</div><div><div class="rv-name">Maria Lopez</div><div class="rv-role">Homeowner · Boca Raton, FL</div></div></div>
-      </div>
-      <div class="rv-card rv">
-        <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="rv-text">"Commercial HVAC for our office building. 12,000 sq ft, dual zone, finished on schedule and under budget. Exceptional professionalism from start to finish."</div>
-        <div class="rv-person"><div class="rv-av" style="background:#7c3aed;">JT</div><div><div class="rv-name">James Thornton</div><div class="rv-role">Business Owner · Fort Lauderdale</div></div></div>
-      </div>
+      <div class="rv-card"><div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="rv-text">"AC blew at 11pm on a Friday. Arctic Air was at my door by 1am. Fixed in forty minutes. Honest price. These are the only guys I'll ever call."</div><div class="rv-person"><div class="rv-av">DR</div><div><div class="rv-name">David Rivera</div><div class="rv-role">Homeowner · Sunrise, FL</div></div></div></div>
+      <div class="rv-card"><div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="rv-text">"Called at 8am, here by 10. Flat rate, fixed it, no upselling, no drama. Will use them for everything going forward."</div><div class="rv-person"><div class="rv-av" style="background:#059669;">ML</div><div><div class="rv-name">Maria Lopez</div><div class="rv-role">Homeowner · Boca Raton, FL</div></div></div></div>
+      <div class="rv-card"><div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="rv-text">"12,000 sq ft office, dual zone, on schedule and under budget. Exceptional professionalism from start to finish."</div><div class="rv-person"><div class="rv-av" style="background:#7c3aed;">JT</div><div><div class="rv-name">James Thornton</div><div class="rv-role">Business Owner · Fort Lauderdale</div></div></div></div>
     </div>
-    <div class="rv-grid-2" style="margin-top:16px;">
-      <div class="rv-card rv">
-        <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="rv-text">"Pipe burst on Christmas Eve. They showed up in 90 minutes. I couldn't believe it. Genuinely saved our holiday. Thank you Arctic Air."</div>
-        <div class="rv-person"><div class="rv-av" style="background:#d97706;">SP</div><div><div class="rv-name">Sandra Park</div><div class="rv-role">Homeowner · Coral Springs</div></div></div>
-      </div>
-      <div class="rv-card rv">
-        <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="rv-text">"Water heater died on a Tuesday morning. They installed a new tankless system same day. Clean work, professional crew, fair price. Highly recommend."</div>
-        <div class="rv-person"><div class="rv-av" style="background:#dc2626;">RC</div><div><div class="rv-name">Robert Chen</div><div class="rv-role">Homeowner · Parkland, FL</div></div></div>
-      </div>
-      <div class="rv-card rv">
-        <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <div class="rv-text">"Been on their maintenance plan for 3 years. My system runs better than when it was new. The priority dispatch alone is worth every penny."</div>
-        <div class="rv-person"><div class="rv-av" style="background:#0891b2;">AW</div><div><div class="rv-name">Angela Williams</div><div class="rv-role">Homeowner · Weston, FL</div></div></div>
-      </div>
+    <div class="rv-grid2" style="margin-top:14px;">
+      <div class="rv-card"><div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="rv-text">"Pipe burst on Christmas Eve. They showed up in 90 minutes. Genuinely saved our holiday."</div><div class="rv-person"><div class="rv-av" style="background:#d97706;">SP</div><div><div class="rv-name">Sandra Park</div><div class="rv-role">Homeowner · Coral Springs</div></div></div></div>
+      <div class="rv-card"><div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="rv-text">"Water heater died Tuesday. Tankless installed same day. Clean work, fair price, professional crew."</div><div class="rv-person"><div class="rv-av" style="background:#dc2626;">RC</div><div><div class="rv-name">Robert Chen</div><div class="rv-role">Homeowner · Parkland, FL</div></div></div></div>
+      <div class="rv-card"><div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="rv-text">"Maintenance plan for 3 years. System runs better than new. Priority dispatch is worth every penny."</div><div class="rv-person"><div class="rv-av" style="background:#0891b2;">AW</div><div><div class="rv-name">Angela Williams</div><div class="rv-role">Homeowner · Weston, FL</div></div></div></div>
     </div>
-    <div class="rv-footer rv">
-      <div class="rv-footer-txt">Rated <strong>4.9 out of 5</strong> across Google, HomeAdvisor, Yelp, and Angi — based on <strong>312 verified reviews.</strong></div>
-    </div>
+    <div class="rv-footer">Rated <strong>4.9 out of 5</strong> across Google, HomeAdvisor, Yelp, and Angi — based on <strong>312 verified reviews.</strong></div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
-  <div class="pj-inner">
-    <div class="pj-head">
-      <div><div class="s-tag rv">Our Work</div><h2 class="s-title rv">Recent <em>jobs completed.</em></h2></div>
-      <a href="#cta" class="btn-solid rv" style="opacity:1;flex-shrink:0;">Get a Free Quote</a>
-    </div>
+  <div class="pj-wrap">
+    <div class="pj-head"><div><div class="s-tag">Our Work</div><h2 class="s-title">Recent <em>jobs completed.</em></h2></div><a href="#cta" class="btn-s">Get a Free Quote</a></div>
     <div class="pj-grid">
-      <div class="pj-card rs">
-        <img class="pj-fill" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80&auto=format&fit=crop" alt="Commercial HVAC installation"/>
-        <div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Commercial · Full HVAC</div><div class="pj-title">24,000 Sq Ft Office Complex</div><div class="pj-sub">Downtown District · Dual-Zone · On Schedule</div></div>
-      </div>
-      <div class="pj-card rs">
-        <img class="pj-fill" src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80&auto=format&fit=crop" alt="HVAC repair work"/>
-        <div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Residential · Emergency</div><div class="pj-title">Main Line Burst Repair</div><div class="pj-sub">On-Site in 47 Min · Restored by 4am</div></div>
-      </div>
-      <div class="pj-card rs">
-        <img class="pj-fill" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Plumbing work"/>
-        <div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Multi-Family · Mini-Splits</div><div class="pj-title">32-Unit Condo Tower</div><div class="pj-sub">All Units · 8 Days · Zero Complaints</div></div>
-      </div>
+      <div class="pj-card"><img class="pj-img" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80&auto=format&fit=crop" alt="Commercial HVAC"/><div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Commercial · Full HVAC System</div><div class="pj-title">24,000 Sq Ft Office Complex</div><div class="pj-sub">Downtown District · Dual-Zone · On Schedule</div></div></div>
+      <div class="pj-card"><img class="pj-img" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80&auto=format&fit=crop" alt="HVAC technician"/><div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Residential · Emergency Repair</div><div class="pj-title">Main Line Burst Repair</div><div class="pj-sub">On-Site in 47 Min · Restored by 4am</div></div></div>
+      <div class="pj-card"><img class="pj-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Plumbing work"/><div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Multi-Family · Mini-Splits</div><div class="pj-title">32-Unit Condo Tower</div><div class="pj-sub">All Units · 8 Days · Zero Complaints</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- EMERGENCY BAND -->
-<div class="em-band">
-  <div class="em-left"><div class="em-pulse"></div><div class="em-txt">AC Out? Pipe Burst? We Come To You —</div></div>
-  <a href="tel:5559110100" class="em-num">(555) 911-0100</a>
-  <div class="em-sub">Average Response Under 2 Hours</div>
+<div class="emband">
+  <div class="emband-l"><div class="emband-pulse"></div><div class="emband-txt">AC Out? Pipe Burst? We Come To You —</div></div>
+  <a href="tel:5559110100" class="emband-num">(555) 911-0100</a>
+  <div class="emband-sub">Average Response Under 2 Hours</div>
 </div>
 
-<!-- CTA -->
 <section id="cta">
   <canvas id="ctacanvas"></canvas>
   <div class="ct-ring"></div><div class="ct-ring"></div><div class="ct-ring"></div>
@@ -828,30 +478,28 @@ footer{background:#07101e;padding:56px 56px 36px;border-top:1px solid rgba(255,2
     <p class="ct-sub">We answer 24 hours a day, 365 days a year. A real technician picks up every time.</p>
     <a href="tel:5559110100" class="ct-phone">(555) 911-0100</a>
     <a href="tel:5559110100" class="ct-btn">Call Now — We Answer</a>
-    <a href="/cdn-cgi/l/email-protection#6b180e191d02080e2b0a19081f02080a021945080406" class="ct-email"><span class="__cf_email__" data-cfemail="3c4f594e4a555f597c5d4e5f48555f5d554e125f5351">[email&#160;protected]</span></a>
+    <a href="mailto:service@arcticair.com" class="ct-email">service@arcticair.com</a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="ft-top">
-    <div class="ft-brand"><div class="ft-logo">Arctic Air <span>&</span> Plumbing</div><p>Licensed HVAC and plumbing specialists. Serving homeowners and businesses 24/7. Every job guaranteed.</p></div>
-    <div class="ft-col"><h4>Services</h4><ul><li><a href="#">AC Installation</a></li><li><a href="#">Emergency Repair</a></li><li><a href="#">Plumbing</a></li><li><a href="#">Water Heaters</a></li><li><a href="#">Maintenance Plans</a></li></ul></div>
+    <div class="ft-brand"><div class="ft-logo">Arctic Air <span>&</span> Plumbing</div><p>Licensed HVAC and plumbing specialists serving homeowners and businesses 24/7. Every job guaranteed.</p></div>
+    <div class="ft-col"><h4>Services</h4><ul><li><a href="#">AC Installation</a></li><li><a href="#">Emergency Repair</a></li><li><a href="#">Plumbing</a></li><li><a href="#">Water Heaters</a></li><li><a href="#">Maintenance</a></li></ul></div>
     <div class="ft-col"><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">How It Works</a></li><li><a href="#">Our Work</a></li><li><a href="#">Reviews</a></li><li><a href="#">Careers</a></li></ul></div>
-    <div class="ft-col"><h4>Contact</h4><ul><li><a href="tel:5559110100">(555) 911-0100</a></li><li><a href="#"><span class="__cf_email__" data-cfemail="4132243337282224012033223528222028336f222e2c">[email&#160;protected]</span></a></li><li><a href="#">Free Estimate</a></li><li><a href="#">Emergency Line</a></li></ul></div>
+    <div class="ft-col"><h4>Contact</h4><ul><li><a href="tel:5559110100">(555) 911-0100</a></li><li><a href="#">service@arcticair.com</a></li><li><a href="#">Free Estimate</a></li><li><a href="#">Emergency Line</a></li></ul></div>
   </div>
   <div class="ft-bot"><p>© 2026 Arctic Air & Plumbing. All rights reserved.</p><div class="ft-certs"><span class="ft-cert">Licensed</span><span class="ft-cert">Insured</span><span class="ft-cert">NATE Certified</span></div></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // LENIS
-var lenis=new Lenis({duration:1.3,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smooth:true});
-function raf(t){lenis.raf(t);requestAnimationFrame(raf);}
-requestAnimationFrame(raf);
+var lenis=new Lenis({duration:1.3,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));}});
+(function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);
 
 // MAGNETIC
-document.querySelectorAll('.btn-solid,.ct-btn').forEach(function(el){
-  el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.2+'px,'+(e.clientY-r.top-r.height/2)*.2+'px) translateY(-2px)';});
+document.querySelectorAll('.btn-s,.ct-btn').forEach(function(el){
+  el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.18+'px,'+(e.clientY-r.top-r.height/2)*.18+'px) translateY(-2px)';});
   el.addEventListener('mouseleave',function(){el.style.transform='';});
 });
 
@@ -860,149 +508,105 @@ var mi=['AC Repair','Heat Pump Install','Leak Detection','24/7 Emergency','Duct 
 var mel=document.getElementById('mq');
 mi.concat(mi).concat(mi).concat(mi).forEach(function(t){var d=document.createElement('div');d.className='mq-item';d.textContent=t;mel.appendChild(d);});
 
-// THREE.JS — BIG PIPES on right side, strong mouse reaction
+// COUNTERS — pure JS, fires on load, no GSAP dependency
+function animCount(id,target,suffix,duration){
+  var el=document.getElementById(id),start=0,step=target/(duration/16);
+  var t=setInterval(function(){
+    start=Math.min(start+step,target);
+    el.textContent=(target>=1000?Math.floor(start).toLocaleString():Math.floor(start))+suffix;
+    if(start>=target)clearInterval(t);
+  },16);
+}
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    animCount('c1',12000,'+',1800);
+    animCount('c2',98,'%',1400);
+    animCount('c3',15,' Yrs',1200);
+  },500);
+});
+
+// THREE.JS — hero right side, big pipes
 (function(){
   var canvas=document.getElementById('hc');
   if(!canvas)return;
-  var W=canvas.offsetWidth||window.innerWidth/2;
-  var H=canvas.offsetHeight||window.innerHeight;
+  var W=canvas.offsetWidth||window.innerWidth/2,H=canvas.offsetHeight||window.innerHeight;
   var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  renderer.setSize(W,H);
-  renderer.setClearColor(0,0);
-  var scene=new THREE.Scene();
-  var camera=new THREE.PerspectiveCamera(55,W/H,.1,1000);
+  renderer.setSize(W,H);renderer.setClearColor(0,0);
+  var scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(55,W/H,.1,1000);
   camera.position.set(0,0,16);
-
-  // Lighting
-  scene.add(new THREE.AmbientLight(0xffffff,.6));
-  var dl=new THREE.DirectionalLight(0x0ea5e9,2.5);dl.position.set(8,10,8);scene.add(dl);
-  var dl2=new THREE.DirectionalLight(0x7dd3fc,1.2);dl2.position.set(-6,-4,6);scene.add(dl2);
-  var pt=new THREE.PointLight(0x0284c7,3,40);pt.position.set(0,0,8);scene.add(pt);
-
+  scene.add(new THREE.AmbientLight(0xffffff,.5));
+  var dl=new THREE.DirectionalLight(0x38bdf8,3);dl.position.set(8,10,8);scene.add(dl);
+  var dl2=new THREE.DirectionalLight(0x7dd3fc,1.5);dl2.position.set(-6,-4,6);scene.add(dl2);
+  var pt=new THREE.PointLight(0x0284c7,4,40);pt.position.set(0,0,8);scene.add(pt);
   var G=new THREE.Group();
+  var pm=new THREE.MeshPhongMaterial({color:0x93c5fd,emissive:0x3b82f6,emissiveIntensity:.18,shininess:180,transparent:true,opacity:.85});
+  var jm=new THREE.MeshPhongMaterial({color:0x60a5fa,emissive:0x2563eb,emissiveIntensity:.22,shininess:120,transparent:true,opacity:.9});
+  var vm=new THREE.MeshPhongMaterial({color:0x3b82f6,emissive:0x1d4ed8,emissiveIntensity:.28,shininess:200,transparent:true,opacity:.92});
+  function pipe(rx,ry,rz,px,py,pz,r,l){var m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,l,16),pm.clone());m.rotation.set(rx,ry,rz);m.position.set(px,py,pz);return m;}
+  function jt(px,py,pz){var m=new THREE.Mesh(new THREE.SphereGeometry(.55,14,14),jm);m.position.set(px,py,pz);return m;}
 
-  // BIGGER PIPES — increased radius and length
-  var pm=new THREE.MeshPhongMaterial({color:0x93c5fd,emissive:0x3b82f6,emissiveIntensity:.15,shininess:160,transparent:true,opacity:.82});
-  var jm=new THREE.MeshPhongMaterial({color:0x60a5fa,emissive:0x2563eb,emissiveIntensity:.2,shininess:100,transparent:true,opacity:.88});
-  var vm=new THREE.MeshPhongMaterial({color:0x3b82f6,emissive:0x1d4ed8,emissiveIntensity:.25,shininess:200,transparent:true,opacity:.9});
-
-  function pipe(rx,ry,rz,px,py,pz,r,l){
-    var m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,l,16),pm.clone());
-    m.rotation.set(rx,ry,rz);m.position.set(px,py,pz);return m;
-  }
-  function joint(px,py,pz,r){
-    var m=new THREE.Mesh(new THREE.SphereGeometry(r||.55,14,14),jm);
-    m.position.set(px,py,pz);return m;
-  }
-
-  // MAIN PIPE NETWORK — bigger radius and longer
-  G.add(pipe(0,0,Math.PI/2,0,0,0,.42,14));       // big horizontal main
-  G.add(pipe(0,0,0,-5,3,0,.32,6));               // left vertical branch
-  G.add(pipe(0,0,0,4.5,2,0,.32,5));              // right vertical branch
-  G.add(pipe(0,0,0,-1.5,-3.5,0,.32,7));          // center down branch
-  G.add(pipe(0,0,Math.PI/2,0,4,0,.28,10));       // upper horizontal
-  G.add(pipe(0,0,Math.PI/2,0,-4.5,0,.28,9));     // lower horizontal
-  G.add(pipe(Math.PI/2,0,0,-2.5,0,0,.26,6));     // depth pipe left
-  G.add(pipe(Math.PI/2,0,0,3,1.5,0,.26,5));      // depth pipe right
-  G.add(pipe(Math.PI/4,0,Math.PI/6,1,-2,0,.2,5));// diagonal accent
-
-  // Joints at intersections
-  [[-5,0,0],[0,0,0],[4.5,0,0],[-5,4,0],[0,4,0],[4.5,4,0],[-5,-4.5,0],[0,-4.5,0],[-2.5,0,3],[3,1.5,2.5]].forEach(function(p){
-    G.add(joint(p[0],p[1],p[2],.55));
-  });
-
-  // Valve handles
+  G.add(pipe(0,0,Math.PI/2,0,0,0,.42,15));
+  G.add(pipe(0,0,0,-5,3,0,.32,6));
+  G.add(pipe(0,0,0,4.5,2,0,.32,5));
+  G.add(pipe(0,0,0,-1.5,-3.5,0,.32,7));
+  G.add(pipe(0,0,Math.PI/2,0,4,0,.28,10));
+  G.add(pipe(0,0,Math.PI/2,0,-4.5,0,.28,9));
+  G.add(pipe(Math.PI/2,0,0,-2.5,0,0,.26,6));
+  G.add(pipe(Math.PI/2,0,0,3,1.5,0,.24,5));
+  [[-5,0,0],[0,0,0],[4.5,0,0],[-5,4,0],[0,4,0],[4.5,4,0],[-5,-4.5,0],[0,-4.5,0]].forEach(function(p){G.add(jt(p[0],p[1],p[2]));});
   var vhs=[];
-  function valve(px,py,pz){
-    var b=new THREE.Mesh(new THREE.CylinderGeometry(.62,.62,.78,12),vm);
-    var h=new THREE.Mesh(new THREE.BoxGeometry(1.8,.2,.2),vm);
-    b.position.set(px,py,pz);h.position.set(px,py+.52,pz);
-    G.add(b);G.add(h);vhs.push(h);
-  }
+  function valve(px,py,pz){var b=new THREE.Mesh(new THREE.CylinderGeometry(.62,.62,.78,12),vm);var h=new THREE.Mesh(new THREE.BoxGeometry(1.8,.2,.2),vm);b.position.set(px,py,pz);h.position.set(px,py+.52,pz);G.add(b);G.add(h);vhs.push(h);}
   valve(-5,0,0);valve(0,4,0);valve(3,1.5,0);valve(-1.5,-3.5,0);
-
-  // Floating pipe fragments — bigger
   var floaters=[];
-  for(var i=0;i<12;i++){
-    var s=Math.random()*1.2+.5;
-    var axis=Math.floor(Math.random()*3);
-    var fm=new THREE.Mesh(new THREE.CylinderGeometry(.15,.15,s,10),
-      new THREE.MeshPhongMaterial({color:0x7dd3fc,emissive:0x0ea5e9,emissiveIntensity:.1,shininess:80,transparent:true,opacity:.5}));
-    fm.position.set((Math.random()-.5)*20,(Math.random()-.5)*14,(Math.random()-.5)*8-1);
-    if(axis===0)fm.rotation.z=Math.PI/2;else if(axis===2)fm.rotation.x=Math.PI/2;
+  for(var i=0;i<14;i++){
+    var s=Math.random()*1.2+.5,ax=Math.floor(Math.random()*3);
+    var fm=new THREE.Mesh(new THREE.CylinderGeometry(.15,.15,s,10),new THREE.MeshPhongMaterial({color:0x7dd3fc,emissive:0x0ea5e9,emissiveIntensity:.12,shininess:80,transparent:true,opacity:.42}));
+    fm.position.set((Math.random()-.5)*22,(Math.random()-.5)*14,(Math.random()-.5)*8-1);
+    if(ax===0)fm.rotation.z=Math.PI/2;else if(ax===2)fm.rotation.x=Math.PI/2;
     fm.userData={bX:fm.position.x,bY:fm.position.y,rs:(Math.random()-.5)*.008,fs:Math.random()*.3+.1,fa:Math.random()*.5+.2,ph:Math.random()*Math.PI*2};
     scene.add(fm);floaters.push(fm);
   }
-
-  // Sparse elegant particles
-  var pg=new THREE.BufferGeometry();var pp=new Float32Array(200*3);
+  var pg=new THREE.BufferGeometry(),pp=new Float32Array(200*3);
   for(var j=0;j<200*3;j++)pp[j]=(Math.random()-.5)*36;
   pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
-  var steam=new THREE.Points(pg,new THREE.PointsMaterial({color:0x7dd3fc,size:.055,transparent:true,opacity:.22}));
+  var steam=new THREE.Points(pg,new THREE.PointsMaterial({color:0x7dd3fc,size:.055,transparent:true,opacity:.18}));
   scene.add(steam);scene.add(G);
-
-  window.addEventListener('resize',function(){
-    var W2=canvas.offsetWidth;var H2=canvas.offsetHeight;
-    camera.aspect=W2/H2;camera.updateProjectionMatrix();renderer.setSize(W2,H2);
-  });
-
+  window.addEventListener('resize',function(){var W2=canvas.offsetWidth,H2=canvas.offsetHeight;camera.aspect=W2/H2;camera.updateProjectionMatrix();renderer.setSize(W2,H2);});
   var mx=0,my=0,tx=0,ty=0;
-  document.addEventListener('mousemove',function(e){
-    mx=(e.clientX/window.innerWidth-.5)*2;
-    my=-(e.clientY/window.innerHeight-.5)*2;
-  });
-
+  document.addEventListener('mousemove',function(e){mx=(e.clientX/window.innerWidth-.5)*2;my=-(e.clientY/window.innerHeight-.5)*2;});
   var time=0;
-  (function anim(){
-    requestAnimationFrame(anim);time+=.007;
-    // STRONG mouse reaction
+  (function anim(){requestAnimationFrame(anim);time+=.007;
     tx+=(mx-tx)*.07;ty+=(my-ty)*.07;
-    G.rotation.y=tx*.65;
-    G.rotation.x=ty*.38;
+    G.rotation.y=tx*.65;G.rotation.x=ty*.38;
     G.position.y=Math.sin(time*.32)*.2;
-    floaters.forEach(function(f){
-      f.rotation.x+=f.userData.rs;f.rotation.y+=f.userData.rs*.8;
-      f.position.y=f.userData.bY+Math.sin(time*f.userData.fs+f.userData.ph)*f.userData.fa;
-      f.position.x=f.userData.bX+mx*.7; // strong X reaction
-    });
-    vhs.forEach(function(vh){vh.rotation.y+=.005;});
-    steam.rotation.y+=.0005;steam.position.x=mx*.45;
+    floaters.forEach(function(f){f.rotation.x+=f.userData.rs;f.rotation.y+=f.userData.rs*.8;f.position.y=f.userData.bY+Math.sin(time*f.userData.fs+f.userData.ph)*f.userData.fa;f.position.x=f.userData.bX+mx*.7;});
+    vhs.forEach(function(v){v.rotation.y+=.005;});
+    steam.rotation.y+=.0005;steam.position.x=mx*.4;
     renderer.render(scene,camera);
   })();
 })();
 
-// CTA CANVAS
+// CTA canvas
 (function(){
-  var canvas=document.getElementById('ctacanvas');
+  var canvas=document.getElementById('ctacanvas');if(!canvas)return;
   var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
   renderer.setPixelRatio(1);renderer.setSize(window.innerWidth,window.innerHeight);renderer.setClearColor(0,0);
-  var scene=new THREE.Scene();var camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1000);camera.position.z=5;
-  var g=new THREE.BufferGeometry();var p=new Float32Array(400*3);
+  var scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1000);camera.position.z=5;
+  var g=new THREE.BufferGeometry(),p=new Float32Array(400*3);
   for(var i=0;i<400*3;i++)p[i]=(Math.random()-.5)*22;
   g.setAttribute('position',new THREE.BufferAttribute(p,3));
-  var pts=new THREE.Points(g,new THREE.PointsMaterial({color:0x38bdf8,size:.04,transparent:true,opacity:.2}));scene.add(pts);
+  var pts=new THREE.Points(g,new THREE.PointsMaterial({color:0x38bdf8,size:.04,transparent:true,opacity:.18}));scene.add(pts);
   (function a(){requestAnimationFrame(a);pts.rotation.y+=.0006;pts.rotation.x+=.0002;renderer.render(scene,camera);})();
 })();
 
-// GSAP — keep only Lenis sync + counter + process pin (CSS handles all reveals now)
+// GSAP — Lenis sync + process pin
 window.addEventListener('load',function(){
   gsap.registerPlugin(ScrollTrigger);
   lenis.on('scroll',ScrollTrigger.update);
   gsap.ticker.add(function(t){lenis.raf(t*1000);});
   gsap.ticker.lagSmoothing(0);
-
-  // Trust counters
-  ScrollTrigger.create({trigger:'.trust',start:'top 92%',once:true,onEnter:function(){
-    document.querySelectorAll('[data-target]').forEach(function(el){
-      var target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'';
-      gsap.to({v:0},{v:target,duration:2,ease:'power2.out',onUpdate:function(){el.textContent=Math.floor(this.targets()[0].v).toLocaleString()+suffix;}});
-    });
-  }});
-
-  // Pinned process horizontal scroll
-  var slides=document.querySelectorAll('.pr-slide');
-  var prBar=document.getElementById('pr-bar');
+  var slides=document.querySelectorAll('.pr-slide'),prBar=document.getElementById('pr-bar');
   ScrollTrigger.create({
     trigger:'#pr-outer',start:'top top',
     end:function(){return '+='+(slides.length-1)*window.innerWidth;},
@@ -1013,3 +617,6 @@ window.addEventListener('load',function(){
     }
   });
 });
+</script>
+</body>
+</html>

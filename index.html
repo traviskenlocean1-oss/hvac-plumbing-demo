@@ -6,7 +6,7 @@
 <title>Arctic Air & Plumbing — Stay Cool. Stay Flowing.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600;1,9..144,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -28,8 +28,8 @@
   --blue-dim:rgba(14,165,233,0.09);
   --red:#ef4444;
   --navy:#0c1a2e;
-  --fh:'Fraunces',serif;
-  --fb:'DM Sans',sans-serif;
+  --fh:'Barlow Condensed',sans-serif;
+  --fb:'Inter',sans-serif;
 }
 html{scroll-behavior:auto;}
 body{font-family:var(--fb);background:var(--white);color:var(--text);overflow-x:hidden;}
@@ -104,12 +104,13 @@ body{padding-top:0;}
 .h-badge-txt{font-size:.68rem;font-weight:600;color:var(--red);}
 .h-title{
   font-family:var(--fh);
-  font-size:clamp(3rem,5.5vw,5rem);
-  font-weight:400;line-height:1.06;
-  letter-spacing:-.02em;color:var(--text);
+  font-size:clamp(3.8rem,6.5vw,7rem);
+  font-weight:800;line-height:.95;
+  letter-spacing:-.01em;color:var(--text);
+  text-transform:uppercase;
   margin-bottom:20px;
 }
-.h-title em{font-style:italic;color:var(--blue-dark);}
+.h-title em{font-style:italic;color:var(--blue-dark);font-weight:700;text-transform:none;}
 .h-sub{
   font-size:.95rem;font-weight:400;line-height:1.75;
   color:var(--text2);max-width:420px;margin-bottom:36px;
@@ -128,19 +129,22 @@ body{padding-top:0;}
 .h-right{
   position:relative;
   overflow:hidden;
-  background:var(--off);
+  background:#0c1a2e;
+  min-height:100%;
 }
 /* Real hero photo */
 .h-photo{
-  position:absolute;inset:0;
-  background:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&q=80&auto=format&fit=crop') center/cover no-repeat;
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
   transition:transform .8s ease;
+  display:block;
 }
 .h-right:hover .h-photo{transform:scale(1.03);}
 /* Dark overlay for readability */
 .h-photo-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(12,26,46,.5) 0%,rgba(12,26,46,.2) 100%);
+  background:linear-gradient(135deg,rgba(12,26,46,.45) 0%,rgba(12,26,46,.15) 100%);
+  z-index:1;
 }
 /* Three.js canvas — pipes on right side */
 #hc{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;}
@@ -174,14 +178,14 @@ body{padding-top:0;}
 .trust-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
 .trust-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 16px;position:relative;}
 .trust-item:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);height:36px;width:1px;background:var(--border);}
-.trust-num{font-family:var(--fh);font-size:2.4rem;font-style:italic;color:var(--blue-dark);line-height:1;}
+.trust-num{font-family:var(--fh);font-size:2.8rem;font-weight:800;color:var(--blue-dark);line-height:1;letter-spacing:-.01em;}
 .trust-lbl{font-size:.62rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--text3);text-align:center;}
 
 /* ── SECTION COMMON ── */
 .s-tag{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-dark);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
 .s-tag::before{content:'';display:block;width:16px;height:2px;background:var(--blue-dark);}
-.s-title{font-family:var(--fh);font-size:clamp(2.2rem,3.8vw,3.6rem);font-weight:400;line-height:1.1;letter-spacing:-.02em;color:var(--text);margin-bottom:14px;}
-.s-title em{font-style:italic;color:var(--blue-dark);}
+.s-title{font-family:var(--fh);font-size:clamp(2.6rem,4.5vw,4.8rem);font-weight:800;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;color:var(--text);margin-bottom:14px;}
+.s-title em{font-style:italic;color:var(--blue-dark);font-weight:700;text-transform:none;letter-spacing:-.02em;}
 .s-sub{font-size:.92rem;line-height:1.75;color:var(--text2);}
 
 /* ── SERVICES ── */
@@ -207,7 +211,7 @@ body{padding-top:0;}
 .ab-photo-wrap{position:relative;}
 .ab-photo{
   width:100%;aspect-ratio:4/5;border-radius:16px;overflow:hidden;
-  background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop') center/cover no-repeat;
+  display:block;object-fit:cover;object-position:center;
   box-shadow:0 24px 64px rgba(0,0,0,.12);
 }
 /* Floating card on photo */
@@ -257,8 +261,8 @@ body{padding-top:0;}
 .pr-visual{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;}
 .pr-snum{font-size:.68rem;font-weight:700;color:var(--blue-dark);letter-spacing:.1em;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .pr-snum::before{content:'';display:block;width:16px;height:2px;background:var(--blue-dark);}
-.pr-h{font-family:var(--fh);font-size:clamp(3rem,5.5vw,6.5rem);font-weight:400;line-height:.92;letter-spacing:-.02em;color:var(--text);margin-bottom:22px;}
-.pr-h em{font-style:italic;color:var(--blue-dark);}
+.pr-h{font-family:var(--fh);font-size:clamp(3.5rem,6vw,7.5rem);font-weight:800;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;color:var(--text);margin-bottom:22px;}
+.pr-h em{font-style:italic;color:var(--blue-dark);font-weight:700;text-transform:none;}
 .pr-p{font-size:.95rem;line-height:1.75;color:var(--text2);margin-bottom:28px;max-width:420px;}
 .pr-pill{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);border:1px solid rgba(14,165,233,.2);border-radius:100px;padding:8px 16px;}
 .pr-pill span{font-size:.7rem;font-weight:600;color:var(--blue-dark);}
@@ -326,11 +330,8 @@ body{padding-top:0;}
 .pj-grid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:380px 280px;gap:14px;}
 .pj-card{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);}
 .pj-card:first-child{grid-row:span 2;}
-.pj-fill{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s ease;}
+.pj-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .7s ease;}
 .pj-card:hover .pj-fill{transform:scale(1.04);}
-.pj-c1{background-image:url('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80&auto=format&fit=crop');}
-.pj-c2{background-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80&auto=format&fit=crop');}
-.pj-c3{background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop');}
 .pj-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,26,46,.9) 0%,rgba(12,26,46,.1) 55%,transparent 100%);transition:background .4s;}
 .pj-card:hover .pj-ov{background:linear-gradient(to top,rgba(12,26,46,.95) 20%,rgba(12,26,46,.35) 100%);}
 .pj-body{position:absolute;bottom:0;left:0;right:0;padding:24px 28px;z-index:1;}
@@ -361,9 +362,9 @@ body{padding-top:0;}
 .ct-live{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.25);border-radius:100px;padding:6px 16px;}
 .ct-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.1s ease-in-out infinite;}
 .ct-live-txt{font-size:.68rem;font-weight:600;color:var(--red);}
-.ct-title{font-family:var(--fh);font-size:clamp(2.6rem,5.5vw,5rem);font-weight:400;font-style:italic;line-height:1.05;color:var(--white);margin-bottom:14px;letter-spacing:-.02em;}
+.ct-title{font-family:var(--fh);font-size:clamp(3rem,6vw,6rem);font-weight:800;font-style:italic;line-height:.95;text-transform:uppercase;color:var(--white);margin-bottom:14px;letter-spacing:-.01em;}
 .ct-sub{font-size:.92rem;line-height:1.7;color:rgba(255,255,255,.5);margin-bottom:10px;}
-.ct-phone{font-family:var(--fh);font-size:clamp(2.4rem,5vw,4.5rem);font-weight:400;font-style:italic;color:#7dd3fc;text-decoration:none;display:block;margin:18px 0;transition:color .2s;}
+.ct-phone{font-family:var(--fh);font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:800;color:#7dd3fc;text-decoration:none;display:block;margin:18px 0;transition:color .2s;letter-spacing:-.01em;}
 .ct-phone:hover{color:var(--white);}
 .ct-btn{display:inline-block;padding:14px 36px;border-radius:8px;font-size:.88rem;font-weight:600;background:var(--blue);color:var(--white);text-decoration:none;transition:background .2s,transform .25s;}
 .ct-btn:hover{background:var(--blue-dark);transform:translateY(-2px);}
@@ -385,11 +386,37 @@ footer{background:#07101e;padding:56px 56px 36px;border-top:1px solid rgba(255,2
 .ft-certs{display:flex;gap:6px;}
 .ft-cert{font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.22);background:rgba(255,255,255,.04);padding:4px 10px;border-radius:4px;border:1px solid rgba(255,255,255,.06);}
 
-/* REVEALS */
-.rv{opacity:0;transform:translateY(32px);}
-.rl{opacity:0;transform:translateX(-32px);}
-.rr{opacity:0;transform:translateX(32px);}
-.rs{opacity:0;transform:scale(.95);}
+
+/* REVEALS — CSS only, no GSAP dependency, always visible */
+.rv,.rl,.rr,.rs{
+  opacity:0;
+  animation:fadeUp .7s ease forwards;
+}
+.rl{animation-name:fadeLeft;}
+.rr{animation-name:fadeRight;}
+.rs{animation-name:fadeScale;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(-28px);}to{opacity:1;transform:translateX(0);}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(28px);}to{opacity:1;transform:translateX(0);}}
+@keyframes fadeScale{from{opacity:0;transform:scale(.95);}to{opacity:1;transform:scale(1);}}
+/* stagger children in grids */
+.sv-card:nth-child(1){animation-delay:.05s;}
+.sv-card:nth-child(2){animation-delay:.1s;}
+.sv-card:nth-child(3){animation-delay:.15s;}
+.sv-card:nth-child(4){animation-delay:.2s;}
+.sv-card:nth-child(5){animation-delay:.25s;}
+.sv-card:nth-child(6){animation-delay:.3s;}
+.rv-card:nth-child(1){animation-delay:.05s;}
+.rv-card:nth-child(2){animation-delay:.1s;}
+.rv-card:nth-child(3){animation-delay:.15s;}
+.rv-card:nth-child(4){animation-delay:.2s;}
+.rv-card:nth-child(5){animation-delay:.25s;}
+.rv-card:nth-child(6){animation-delay:.3s;}
+/* trust items */
+.trust-item:nth-child(1) .trust-num{animation:fadeUp .6s .1s ease both;}
+.trust-item:nth-child(2) .trust-num{animation:fadeUp .6s .2s ease both;}
+.trust-item:nth-child(3) .trust-num{animation:fadeUp .6s .3s ease both;}
+.trust-item:nth-child(4) .trust-num{animation:fadeUp .6s .4s ease both;}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
@@ -470,7 +497,7 @@ footer{background:#07101e;padding:56px 56px 36px;border-top:1px solid rgba(255,2
 
   <!-- Right: photo + big 3D pipes + floating stats -->
   <div class="h-right">
-    <div class="h-photo"></div>
+    <img class="h-photo" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&q=80&auto=format&fit=crop" alt="HVAC technician at work"/>
     <div class="h-photo-overlay"></div>
     <canvas id="hc"></canvas>
 
@@ -562,7 +589,7 @@ footer{background:#07101e;padding:56px 56px 36px;border-top:1px solid rgba(255,2
 <section id="about">
   <div class="ab-inner">
     <div class="ab-photo-wrap rl">
-      <div class="ab-photo"></div>
+      <img class="ab-photo" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&q=80&auto=format&fit=crop" alt="HVAC technician at work"/>
       <div class="ab-float">
         <div class="ab-float-num">15+</div>
         <div class="ab-float-lbl">Years of Excellence</div>
@@ -768,9 +795,18 @@ footer{background:#07101e;padding:56px 56px 36px;border-top:1px solid rgba(255,2
       <a href="#cta" class="btn-solid rv" style="opacity:1;flex-shrink:0;">Get a Free Quote</a>
     </div>
     <div class="pj-grid">
-      <div class="pj-card rs"><div class="pj-fill pj-c1"></div><div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Commercial · Full HVAC</div><div class="pj-title">24,000 Sq Ft Office Complex</div><div class="pj-sub">Downtown District · Dual-Zone · On Schedule</div></div></div>
-      <div class="pj-card rs"><div class="pj-fill pj-c2"></div><div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Residential · Emergency</div><div class="pj-title">Main Line Burst Repair</div><div class="pj-sub">On-Site in 47 Min · Restored by 4am</div></div></div>
-      <div class="pj-card rs"><div class="pj-fill pj-c3"></div><div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Multi-Family · Mini-Splits</div><div class="pj-title">32-Unit Condo Tower</div><div class="pj-sub">All Units · 8 Days · Zero Complaints</div></div></div>
+      <div class="pj-card rs">
+        <img class="pj-fill" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80&auto=format&fit=crop" alt="Commercial HVAC installation"/>
+        <div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Commercial · Full HVAC</div><div class="pj-title">24,000 Sq Ft Office Complex</div><div class="pj-sub">Downtown District · Dual-Zone · On Schedule</div></div>
+      </div>
+      <div class="pj-card rs">
+        <img class="pj-fill" src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80&auto=format&fit=crop" alt="HVAC repair work"/>
+        <div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Residential · Emergency</div><div class="pj-title">Main Line Burst Repair</div><div class="pj-sub">On-Site in 47 Min · Restored by 4am</div></div>
+      </div>
+      <div class="pj-card rs">
+        <img class="pj-fill" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Plumbing work"/>
+        <div class="pj-ov"></div><div class="pj-body"><div class="pj-label">Multi-Family · Mini-Splits</div><div class="pj-title">32-Unit Condo Tower</div><div class="pj-sub">All Units · 8 Days · Zero Complaints</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -949,7 +985,7 @@ mi.concat(mi).concat(mi).concat(mi).forEach(function(t){var d=document.createEle
   (function a(){requestAnimationFrame(a);pts.rotation.y+=.0006;pts.rotation.x+=.0002;renderer.render(scene,camera);})();
 })();
 
-// GSAP
+// GSAP — keep only Lenis sync + counter + process pin (CSS handles all reveals now)
 window.addEventListener('load',function(){
   gsap.registerPlugin(ScrollTrigger);
   lenis.on('scroll',ScrollTrigger.update);
@@ -957,23 +993,14 @@ window.addEventListener('load',function(){
   gsap.ticker.lagSmoothing(0);
 
   // Trust counters
-  ScrollTrigger.create({trigger:'.trust',start:'top 88%',once:true,onEnter:function(){
+  ScrollTrigger.create({trigger:'.trust',start:'top 92%',once:true,onEnter:function(){
     document.querySelectorAll('[data-target]').forEach(function(el){
       var target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'';
       gsap.to({v:0},{v:target,duration:2,ease:'power2.out',onUpdate:function(){el.textContent=Math.floor(this.targets()[0].v).toLocaleString()+suffix;}});
     });
-    gsap.to('.rs',{opacity:1,scale:1,duration:.8,stagger:.1,ease:'power3.out'});
   }});
 
-  document.querySelectorAll('.rv').forEach(function(el){gsap.to(el,{opacity:1,y:0,duration:.85,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
-  document.querySelectorAll('.rl').forEach(function(el){gsap.to(el,{opacity:1,x:0,duration:.95,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
-  document.querySelectorAll('.rr').forEach(function(el){gsap.to(el,{opacity:1,x:0,duration:.95,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
-
-  ScrollTrigger.create({trigger:'#services',start:'top 78%',once:true,onEnter:function(){
-    gsap.from('.sv-card',{opacity:0,y:22,duration:.6,stagger:.07,ease:'power3.out'});
-  }});
-
-  // Pinned process
+  // Pinned process horizontal scroll
   var slides=document.querySelectorAll('.pr-slide');
   var prBar=document.getElementById('pr-bar');
   ScrollTrigger.create({
@@ -985,15 +1012,4 @@ window.addEventListener('load',function(){
       prBar.style.width=(self.progress*100)+'%';
     }
   });
-
-  ScrollTrigger.create({trigger:'#reviews',start:'top 80%',once:true,onEnter:function(){
-    gsap.from('.rv-card',{opacity:0,y:24,duration:.65,stagger:.08,ease:'power3.out'});
-  }});
-
-  ScrollTrigger.create({trigger:'#projects',start:'top 82%',once:true,onEnter:function(){
-    gsap.from('.pj-card',{opacity:0,y:32,duration:.8,stagger:.1,ease:'power3.out'});
-  }});
-
-  ScrollTrigger.create({trigger:'#cta',start:'top 80%',once:true,onEnter:function(){
-    gsap.from('.ct-title',{y:48,opacity:0,duration:.9,ease:'expo.out'});
-    gsap.from('.ct-phone',{scale:.8
+});

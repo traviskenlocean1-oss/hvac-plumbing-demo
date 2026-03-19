@@ -6,7 +6,7 @@
 <title>Arctic Air & Plumbing — Stay Cool. Stay Flowing.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600;1,9..144,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -28,7 +28,7 @@
   --blue-dim:rgba(14,165,233,0.09);
   --red:#ef4444;
   --navy:#0c1a2e;
-  --fh:'Instrument Serif',serif;
+  --fh:'Fraunces',serif;
   --fb:'DM Sans',sans-serif;
 }
 html{scroll-behavior:auto;}
@@ -43,6 +43,8 @@ nav{
   backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
 }
+#hero{padding-top:calc(68px + 36px);}
+body{padding-top:0;}
 .n-brand{text-decoration:none;display:flex;align-items:center;gap:10px;}
 .n-mark{width:34px;height:34px;background:var(--blue-dark);border-radius:8px;display:flex;align-items:center;justify-content:center;}
 .n-mark svg{stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;}
@@ -234,8 +236,9 @@ nav{
 .pr-track{display:flex;height:100%;will-change:transform;}
 .pr-slide{
   min-width:100vw;height:100vh;
-  display:flex;align-items:center;
-  padding:0 56px;flex-shrink:0;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:0;
+  padding:0 56px 0 56px;flex-shrink:0;
   position:relative;background:var(--white);
 }
 .pr-slide::before{
@@ -245,22 +248,55 @@ nav{
 }
 .pr-slide::after{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 75% 80% at 28% 50%,rgba(255,255,255,0) 0%,var(--white) 72%);
+  background:radial-gradient(ellipse 60% 80% at 25% 50%,rgba(255,255,255,0) 0%,var(--white) 68%);
   pointer-events:none;
 }
 .pr-slide:nth-child(even){background:var(--off);}
-.pr-slide:nth-child(even)::after{background:radial-gradient(ellipse 75% 80% at 28% 50%,rgba(248,250,252,0) 0%,var(--off) 72%);}
-.pr-content{position:relative;z-index:1;max-width:580px;}
+.pr-slide:nth-child(even)::after{background:radial-gradient(ellipse 60% 80% at 25% 50%,rgba(248,250,252,0) 0%,var(--off) 68%);}
+.pr-content{position:relative;z-index:1;max-width:520px;}
+.pr-visual{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;}
 .pr-snum{font-size:.68rem;font-weight:700;color:var(--blue-dark);letter-spacing:.1em;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .pr-snum::before{content:'';display:block;width:16px;height:2px;background:var(--blue-dark);}
-.pr-h{font-family:var(--fh);font-size:clamp(3rem,6vw,7rem);font-weight:400;line-height:.92;letter-spacing:-.02em;color:var(--text);margin-bottom:22px;}
+.pr-h{font-family:var(--fh);font-size:clamp(3rem,5.5vw,6.5rem);font-weight:400;line-height:.92;letter-spacing:-.02em;color:var(--text);margin-bottom:22px;}
 .pr-h em{font-style:italic;color:var(--blue-dark);}
-.pr-p{font-size:1rem;line-height:1.75;color:var(--text2);margin-bottom:28px;max-width:440px;}
+.pr-p{font-size:.95rem;line-height:1.75;color:var(--text2);margin-bottom:28px;max-width:420px;}
 .pr-pill{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);border:1px solid rgba(14,165,233,.2);border-radius:100px;padding:8px 16px;}
 .pr-pill span{font-size:.7rem;font-weight:600;color:var(--blue-dark);}
-.pr-bgnum{position:absolute;right:56px;top:50%;transform:translateY(-50%);font-family:var(--fh);font-size:clamp(12rem,25vw,30rem);font-weight:400;font-style:italic;color:rgba(14,165,233,.05);line-height:1;user-select:none;pointer-events:none;z-index:0;}
-.pr-prog{position:fixed;bottom:0;left:0;right:0;height:3px;background:var(--border);z-index:100;}
-.pr-bar{height:100%;background:var(--blue-dark);width:0%;}
+.pr-bgnum{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--fh);font-size:clamp(16rem,28vw,34rem);font-weight:400;font-style:italic;color:rgba(14,165,233,.04);line-height:1;user-select:none;pointer-events:none;z-index:0;}
+/* Bigger visible progress bar */
+.pr-prog{position:fixed;bottom:0;left:0;right:0;height:5px;background:var(--border);z-index:100;}
+.pr-bar{height:100%;background:linear-gradient(90deg,var(--blue-dark),var(--blue));width:0%;transition:width .1s linear;box-shadow:0 0 8px rgba(2,132,199,.4);}
+
+/* process visual cards */
+.pr-vis-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px 32px;box-shadow:0 8px 32px rgba(0,0,0,.07);min-width:180px;text-align:center;margin:8px;}
+.pr-vis-card--alt{background:var(--off);}
+.pr-vis-icon{margin-bottom:12px;}
+.pr-vis-stat{font-family:var(--fh);font-size:1.7rem;font-style:italic;color:var(--blue-dark);line-height:1;margin-bottom:4px;}
+.pr-vis-lbl{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);}
+/* map visual */
+.pr-vis-map{position:relative;width:260px;height:220px;background:linear-gradient(135deg,#e0f2fe,#f0f9ff);border-radius:16px;border:1px solid var(--border);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.07);}
+.pr-vis-map-bg{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(14,165,233,.06) 0px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,rgba(14,165,233,.06) 0px,transparent 1px,transparent 40px);}
+.pr-vis-pin{position:absolute;top:50px;left:50%;transform:translateX(-50%);}
+.pr-vis-truck{position:absolute;top:100px;left:40%;font-size:1.6rem;}
+.pr-vis-eta{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:white;border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:.72rem;text-align:center;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.08);}
+.pr-vis-eta strong{color:var(--blue-dark);font-size:.82rem;display:block;}
+.pr-vis-eta span{color:var(--text3);}
+/* quote visual */
+.pr-vis-quote{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px 24px;box-shadow:0 8px 32px rgba(0,0,0,.07);width:280px;}
+.pr-vis-quote-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.pr-vis-quote-tag{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);}
+.pr-vis-quote-locked{font-size:.65rem;font-weight:600;color:#059669;background:#dcfce7;border-radius:100px;padding:3px 8px;}
+.pr-vis-line{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--text2);padding:5px 0;}
+.pr-vis-total{display:flex;justify-content:space-between;align-items:center;padding-top:10px;margin-top:6px;border-top:2px solid var(--text);font-size:.82rem;color:var(--text);}
+.pr-vis-total strong{font-family:var(--fh);font-size:1.4rem;font-style:italic;color:var(--blue-dark);}
+.pr-vis-note{margin-top:10px;font-size:.65rem;color:#059669;font-weight:500;}
+/* guarantee badge */
+.pr-vis-badge{position:relative;width:200px;height:200px;display:flex;align-items:center;justify-content:center;}
+.pr-vis-badge-ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(14,165,233,.2);animation:pr-ring 3s ease-in-out infinite;}
+@keyframes pr-ring{0%,100%{transform:scale(1);opacity:.6;}50%{transform:scale(1.08);opacity:1;}}
+.pr-vis-badge-inner{background:var(--white);border:2px solid var(--blue-dark);border-radius:50%;width:160px;height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;box-shadow:0 8px 32px rgba(2,132,199,.15);}
+.pr-vis-badge-num{font-family:var(--fh);font-size:2.8rem;font-style:italic;color:var(--blue-dark);line-height:1;}
+.pr-vis-badge-lbl{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);text-align:center;line-height:1.4;}
 
 /* ── REVIEWS GRID ── */
 #reviews{background:var(--white);padding:96px 56px;}
@@ -293,7 +329,7 @@ nav{
 .pj-fill{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s ease;}
 .pj-card:hover .pj-fill{transform:scale(1.04);}
 .pj-c1{background-image:url('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80&auto=format&fit=crop');}
-.pj-c2{background-image:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop');}
+.pj-c2{background-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80&auto=format&fit=crop');}
 .pj-c3{background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop');}
 .pj-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,26,46,.9) 0%,rgba(12,26,46,.1) 55%,transparent 100%);transition:background .4s;}
 .pj-card:hover .pj-ov{background:linear-gradient(to top,rgba(12,26,46,.95) 20%,rgba(12,26,46,.35) 100%);}
@@ -401,6 +437,16 @@ footer{background:#07101e;padding:56px 56px 36px;border-top:1px solid rgba(255,2
     <a href="#cta" class="n-cta">Emergency? Call Now</a>
   </div>
 </nav>
+
+<!-- EMERGENCY BANNER -->
+<div id="emg-banner" style="position:fixed;top:68px;left:0;right:0;z-index:999;background:#ef4444;padding:9px 56px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div style="width:7px;height:7px;background:#fff;border-radius:50%;animation:blink 1.1s ease-in-out infinite;flex-shrink:0;"></div>
+    <span style="font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.04em;">AC OUT? PIPE BURST? WE COME TO YOU —</span>
+  </div>
+  <a href="tel:5559110100" style="font-family:'Fraunces',serif;font-size:1.05rem;font-style:italic;font-weight:600;color:#fff;text-decoration:none;letter-spacing:-.01em;">(555) 911-0100</a>
+  <span style="font-size:.68rem;font-weight:500;color:rgba(255,255,255,.75);letter-spacing:.04em;text-transform:uppercase;">Average Response Under 2 Hours</span>
+</div>
 
 <!-- HERO — SPLIT -->
 <section id="hero">
@@ -554,15 +600,118 @@ footer{background:#07101e;padding:56px 56px 36px;border-top:1px solid rgba(255,2
   <div class="pr-outer" id="pr-outer">
     <div class="pr-sticky" id="pr-sticky">
       <div class="pr-track" id="pr-track">
-        <div class="pr-slide"><div class="pr-bgnum">01</div><div class="pr-content"><div class="pr-snum">How It Works</div><div class="pr-h">You call.<br/><em>We answer.</em></div><p class="pr-p">Day or night, a real technician answers every call. Not a machine. Not voicemail. We assess your situation and get someone moving your way immediately.</p><div class="pr-pill"><span>Average answer: under 3 rings</span></div></div></div>
-        <div class="pr-slide"><div class="pr-bgnum">02</div><div class="pr-content"><div class="pr-snum">Step 02 of 04</div><div class="pr-h">On site.<br/><em>Fast.</em></div><p class="pr-p">Fully stocked trucks positioned across the service area. Guaranteed on-site within 2 hours. We usually beat it.</p><div class="pr-pill"><span>Guaranteed 2-hour response</span></div></div></div>
-        <div class="pr-slide"><div class="pr-bgnum">03</div><div class="pr-content"><div class="pr-snum">Step 03 of 04</div><div class="pr-h">Flat rate.<br/><em>No games.</em></div><p class="pr-p">Clear written quote before any work starts. Flat-rate pricing — no hourly billing surprises. You approve it, we stick to it. Period.</p><div class="pr-pill"><span>100% transparent pricing</span></div></div></div>
-        <div class="pr-slide"><div class="pr-bgnum">04</div><div class="pr-content"><div class="pr-snum">Step 04 of 04</div><div class="pr-h">Fixed.<br/><em>Guaranteed.</em></div><p class="pr-p">Every repair comes with a 12-month parts and labor warranty. If it fails within the year, we come back at zero cost. No excuses.</p><div class="pr-pill"><span>12-month warranty on all work</span></div></div></div>
+        <div class="pr-slide">
+          <div class="pr-bgnum">01</div>
+          <div class="pr-content">
+            <div class="pr-snum">How It Works</div>
+            <div class="pr-h">You call.<br/><em>We answer.</em></div>
+            <p class="pr-p">Day or night, a real technician answers every call. Not a machine. Not voicemail. We assess your situation and get someone moving your way immediately.</p>
+            <div class="pr-pill"><span>Average answer: under 3 rings</span></div>
+          </div>
+          <div class="pr-visual">
+            <div class="pr-vis-card">
+              <div class="pr-vis-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 9.75 19.79 19.79 0 01.88 1.1 2 2 0 012.86.001h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+              <div class="pr-vis-stat">Under 3 rings</div>
+              <div class="pr-vis-lbl">Live tech, every time</div>
+            </div>
+            <div class="pr-vis-card pr-vis-card--alt">
+              <div class="pr-vis-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+              <div class="pr-vis-stat">24 / 7 / 365</div>
+              <div class="pr-vis-lbl">Always available</div>
+            </div>
+          </div>
+        </div>
+        <div class="pr-slide">
+          <div class="pr-bgnum">02</div>
+          <div class="pr-content">
+            <div class="pr-snum">Step 02 of 04</div>
+            <div class="pr-h">On site.<br/><em>Fast.</em></div>
+            <p class="pr-p">Fully stocked trucks positioned across the service area. Guaranteed on-site within 2 hours. We usually beat it by a lot.</p>
+            <div class="pr-pill"><span>Guaranteed 2-hour response</span></div>
+          </div>
+          <div class="pr-visual">
+            <div class="pr-vis-map">
+              <div class="pr-vis-map-bg"></div>
+              <div class="pr-vis-pin"><svg width="20" height="20" viewBox="0 0 24 24" fill="#ef4444" stroke="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z"/></svg></div>
+              <div class="pr-vis-truck">🚛</div>
+              <div class="pr-vis-eta"><strong>ETA: 42 min</strong><br/><span>En route to you</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="pr-slide">
+          <div class="pr-bgnum">03</div>
+          <div class="pr-content">
+            <div class="pr-snum">Step 03 of 04</div>
+            <div class="pr-h">Flat rate.<br/><em>No games.</em></div>
+            <p class="pr-p">Clear written quote before any work starts. Flat-rate pricing — no hourly billing surprises. You approve it, we stick to it. Period.</p>
+            <div class="pr-pill"><span>100% transparent pricing</span></div>
+          </div>
+          <div class="pr-visual">
+            <div class="pr-vis-quote">
+              <div class="pr-vis-quote-header">
+                <span class="pr-vis-quote-tag">Written Estimate</span>
+                <span class="pr-vis-quote-locked">🔒 Locked In</span>
+              </div>
+              <div class="pr-vis-line"><span>AC Compressor Replacement</span><span>$480</span></div>
+              <div class="pr-vis-line"><span>Labor (flat rate)</span><span>$120</span></div>
+              <div class="pr-vis-line"><span>Parts & materials</span><span>$95</span></div>
+              <div class="pr-vis-total"><span>Total</span><strong>$695</strong></div>
+              <div class="pr-vis-note">✓ No surprises. No hourly billing. You approved it.</div>
+            </div>
+          </div>
+        </div>
+        <div class="pr-slide">
+          <div class="pr-bgnum">04</div>
+          <div class="pr-content">
+            <div class="pr-snum">Step 04 of 04</div>
+            <div class="pr-h">Fixed.<br/><em>Guaranteed.</em></div>
+            <p class="pr-p">Every repair comes with a 12-month parts and labor warranty. If it fails within the year, we come back at zero cost. No excuses, no fine print.</p>
+            <div class="pr-pill"><span>12-month warranty on all work</span></div>
+          </div>
+          <div class="pr-visual">
+            <div class="pr-vis-badge">
+              <div class="pr-vis-badge-ring"></div>
+              <div class="pr-vis-badge-inner">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                <div class="pr-vis-badge-num">12</div>
+                <div class="pr-vis-badge-lbl">Month<br/>Warranty</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <div class="pr-prog"><div class="pr-bar" id="pr-bar"></div></div>
+
+<!-- GUARANTEE BAND -->
+<div style="background:linear-gradient(135deg,#0c1a2e 0%,#0369a1 100%);padding:52px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div style="width:56px;height:56px;background:rgba(255,255,255,.1);border-radius:50%;border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7dd3fc" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+    </div>
+    <div>
+      <div style="font-family:'Fraunces',serif;font-size:1.6rem;font-style:italic;color:#fff;line-height:1;margin-bottom:4px;">12-Month Guarantee</div>
+      <div style="font-size:.78rem;color:rgba(255,255,255,.55);">Every job backed — if it fails within the year, we come back free. No fine print.</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:40px;flex-wrap:wrap;">
+    <div style="text-align:center;">
+      <div style="font-family:'Fraunces',serif;font-size:2rem;font-style:italic;color:#7dd3fc;line-height:1;">$0</div>
+      <div style="font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.4);margin-top:4px;">Callback Fee</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-family:'Fraunces',serif;font-size:2rem;font-style:italic;color:#7dd3fc;line-height:1;">100%</div>
+      <div style="font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.4);margin-top:4px;">Parts + Labor</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-family:'Fraunces',serif;font-size:2rem;font-style:italic;color:#7dd3fc;line-height:1;">365</div>
+      <div style="font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.4);margin-top:4px;">Days Coverage</div>
+    </div>
+  </div>
+  <a href="#cta" style="padding:12px 28px;border-radius:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.82rem;font-weight:600;text-decoration:none;transition:background .2s;white-space:nowrap;" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">Get Your Free Quote</a>
+</div>
 
 <!-- REVIEWS GRID -->
 <section id="reviews">
@@ -643,7 +792,7 @@ footer{background:#07101e;padding:56px 56px 36px;border-top:1px solid rgba(255,2
     <p class="ct-sub">We answer 24 hours a day, 365 days a year. A real technician picks up every time.</p>
     <a href="tel:5559110100" class="ct-phone">(555) 911-0100</a>
     <a href="tel:5559110100" class="ct-btn">Call Now — We Answer</a>
-    <a href="mailto:service@arcticair.com" class="ct-email">service@arcticair.com</a>
+    <a href="/cdn-cgi/l/email-protection#6b180e191d02080e2b0a19081f02080a021945080406" class="ct-email"><span class="__cf_email__" data-cfemail="3c4f594e4a555f597c5d4e5f48555f5d554e125f5351">[email&#160;protected]</span></a>
   </div>
 </section>
 
@@ -653,12 +802,12 @@ footer{background:#07101e;padding:56px 56px 36px;border-top:1px solid rgba(255,2
     <div class="ft-brand"><div class="ft-logo">Arctic Air <span>&</span> Plumbing</div><p>Licensed HVAC and plumbing specialists. Serving homeowners and businesses 24/7. Every job guaranteed.</p></div>
     <div class="ft-col"><h4>Services</h4><ul><li><a href="#">AC Installation</a></li><li><a href="#">Emergency Repair</a></li><li><a href="#">Plumbing</a></li><li><a href="#">Water Heaters</a></li><li><a href="#">Maintenance Plans</a></li></ul></div>
     <div class="ft-col"><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">How It Works</a></li><li><a href="#">Our Work</a></li><li><a href="#">Reviews</a></li><li><a href="#">Careers</a></li></ul></div>
-    <div class="ft-col"><h4>Contact</h4><ul><li><a href="tel:5559110100">(555) 911-0100</a></li><li><a href="#">service@arcticair.com</a></li><li><a href="#">Free Estimate</a></li><li><a href="#">Emergency Line</a></li></ul></div>
+    <div class="ft-col"><h4>Contact</h4><ul><li><a href="tel:5559110100">(555) 911-0100</a></li><li><a href="#"><span class="__cf_email__" data-cfemail="4132243337282224012033223528222028336f222e2c">[email&#160;protected]</span></a></li><li><a href="#">Free Estimate</a></li><li><a href="#">Emergency Line</a></li></ul></div>
   </div>
   <div class="ft-bot"><p>© 2026 Arctic Air & Plumbing. All rights reserved.</p><div class="ft-certs"><span class="ft-cert">Licensed</span><span class="ft-cert">Insured</span><span class="ft-cert">NATE Certified</span></div></div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // LENIS
 var lenis=new Lenis({duration:1.3,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smooth:true});
 function raf(t){lenis.raf(t);requestAnimationFrame(raf);}
@@ -847,13 +996,4 @@ window.addEventListener('load',function(){
 
   ScrollTrigger.create({trigger:'#cta',start:'top 80%',once:true,onEnter:function(){
     gsap.from('.ct-title',{y:48,opacity:0,duration:.9,ease:'expo.out'});
-    gsap.from('.ct-phone',{scale:.8,opacity:0,duration:.8,delay:.25,ease:'back.out(1.5)'});
-    gsap.from('.ct-sub,.ct-btn,.ct-email',{opacity:0,y:14,duration:.6,stagger:.08,delay:.45,ease:'power3.out'});
-  }});
-
-  // Floating stat cards entrance
-  gsap.from('.h-stat-card',{opacity:0,y:20,duration:.8,stagger:.15,delay:.5,ease:'back.out(1.5)'});
-});
-</script>
-</body>
-</html>
+    gsap.from('.ct-phone',{scale:.8

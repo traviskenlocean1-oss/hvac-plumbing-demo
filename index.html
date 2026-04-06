@@ -17,7 +17,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
 /* ── TOKENS ── */
@@ -124,11 +123,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .pill::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--blue); flex-shrink:0; }
 .hero-right {
-  display: flex; align-items: center; justify-content: center;
-  padding: 3rem 0 3rem 2rem; position: relative;
+  position: relative; overflow: hidden;
+  min-height: 100%;
+}
+.hero-right img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
 }
 @media (max-width: 900px) { .hero-right { display: none; } }
-#hero-canvas { width: 100%; max-width: 520px; aspect-ratio: 1/1; }
 
 /* ── TRUST BAR ── */
 #trust { background: var(--grey); padding: 2rem 0; border-bottom: 1px solid var(--border); }
@@ -256,17 +257,23 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .cta-sub { font-size: .95rem; color: var(--muted); margin-bottom: 2rem; }
 
 /* ── FOOTER ── */
-footer { background: var(--white); border-top: 1px solid var(--border); padding: 3rem 0 1.5rem; }
-.ft-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem 2rem; margin-bottom: 2rem; }
-.ft-logo { font-size: 1rem; font-weight: 800; color: var(--char); }
+footer { background: var(--white); border-top: 1px solid var(--border); padding: 4rem 0 1.75rem; }
+.ft-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+@media (max-width: 900px) { .ft-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+@media (max-width: 480px) { .ft-grid { grid-template-columns: 1fr; } }
+.ft-logo { font-size: 1.1rem; font-weight: 800; color: var(--char); margin-bottom: .65rem; display: block; }
 .ft-logo .dot { color: var(--blue); }
-.ft-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
-.ft-links a { font-size: .82rem; color: var(--muted); transition: color .2s; }
-.ft-links a:hover { color: var(--char); }
-.ft-phone { font-size: .92rem; font-weight: 700; color: var(--blue); }
-.ft-bot { padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .75rem; }
+.ft-tagline { font-size: .85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.1rem; max-width: 240px; }
+.ft-big-phone { display: block; font-size: 1.5rem; font-weight: 800; color: var(--blue); letter-spacing: -.02em; margin-bottom: .3rem; }
+.ft-license { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+.ft-col-h { font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--char); display: block; margin-bottom: 1.1rem; }
+.ft-ul { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+.ft-ul a, .ft-ul span { font-size: .84rem; color: var(--muted); transition: color .2s; }
+.ft-ul a:hover { color: var(--blue); }
+.ft-ul .emrg { color: var(--blue); font-weight: 600; }
+.ft-bot { padding-top: 1.75rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .75rem; }
 .ft-copy { font-size: .75rem; color: var(--muted); }
-.ft-legal { font-size: .75rem; color: var(--muted); }
+.ft-lic { font-size: .75rem; color: var(--muted); }
 </style>
 
 <script type="application/ld+json">
@@ -286,8 +293,9 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
         <li><a href="#how">Process</a></li>
         <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#area">Service Area</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="#contact" class="btn btn-outline" style="font-size:.8rem;padding:.6rem 1.35rem;">Get Free Quote</a>
+      <a href="tel:+13055550100" class="btn btn-outline" style="font-size:.8rem;padding:.6rem 1.35rem;">(305) 555-0100</a>
     </div>
   </div>
 </nav>
@@ -299,8 +307,8 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
     <h1 class="hero-hl">Expert HVAC &amp;<br/>Plumbing <span class="bl">You Can<br/>Count On.</span></h1>
     <p class="hero-sub">Licensed, NATE-certified technicians serving Miami-Dade and Broward County since 2009. We fix it right the first time — or it's free.</p>
     <div class="hero-ctas">
-      <a href="#contact" class="btn btn-blue">Get Free Quote</a>
-      <a href="tel:+13055550100" class="btn btn-ghost">Call (305) 555-0100</a>
+      <a href="tel:+13055550100" class="btn btn-blue">Call (305) 555-0100</a>
+      <a href="#services" class="btn btn-ghost">View Services</a>
     </div>
     <div class="hero-pills">
       <span class="pill">24/7 Emergency</span>
@@ -309,7 +317,10 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
     </div>
   </div>
   <div class="hero-right">
-    <canvas id="hero-canvas"></canvas>
+    <img
+      src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1000&q=80"
+      alt="HVAC technician servicing an AC unit"
+    />
   </div>
 </section>
 
@@ -579,94 +590,65 @@ footer { background: var(--white); border-top: 1px solid var(--border); padding:
   <div class="container" style="max-width:660px;">
     <h2 class="cta-hl rev">AC Down in the Miami Heat?</h2>
     <p class="cta-sub rev">We'll be there fast. Licensed, insured, and guaranteed.</p>
-    <div class="rev"><a href="#contact" class="btn btn-blue" style="font-size:.92rem;padding:.9rem 2.2rem;">Get Your Free Quote</a></div>
+    <div class="rev"><a href="tel:+13055550100" class="btn btn-blue" style="font-size:.92rem;padding:.9rem 2.2rem;">Call (305) 555-0100</a></div>
   </div>
 </section>
 
-<!-- ═══ CONTACT FORM ═══ -->
-<section id="contact" style="background:var(--white);padding:6rem 0;border-top:1px solid var(--border);">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
-      <div>
-        <div class="sec-label rev">Free Estimate</div>
-        <h2 class="sec-hl rev">Request a Quote</h2>
-        <p style="color:var(--muted);margin-bottom:1.75rem;font-size:.9rem;" class="rev">Fill out the form and we respond within 1 hour during business hours. Emergencies: call directly.</p>
-        <div style="display:flex;flex-direction:column;gap:.85rem;" class="rev">
-          <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.875rem;color:var(--body);">
-            <span style="color:var(--blue);font-weight:700;margin-top:.1rem;">✓</span> Same-day service available
-          </div>
-          <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.875rem;color:var(--body);">
-            <span style="color:var(--blue);font-weight:700;margin-top:.1rem;">✓</span> Free estimates on all installations
-          </div>
-          <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.875rem;color:var(--body);">
-            <span style="color:var(--blue);font-weight:700;margin-top:.1rem;">✓</span> Licensed &amp; insured technicians
-          </div>
-          <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.875rem;color:var(--body);">
-            <span style="color:var(--blue);font-weight:700;margin-top:.1rem;">✓</span> 100% satisfaction guarantee
-          </div>
-        </div>
-        <div style="margin-top:2.25rem;padding:1.35rem 1.5rem;border:1px solid var(--border);border-radius:8px;background:var(--grey);" class="rev">
-          <div style="font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem;">Emergency Line</div>
-          <a href="tel:+13055550100" style="font-size:1.6rem;font-weight:800;color:var(--blue);letter-spacing:-.02em;">(305) 555-0100</a>
-          <div style="font-size:.78rem;color:var(--muted);margin-top:.2rem;">Available 24 hours, 7 days a week</div>
-        </div>
-      </div>
-      <form id="cform" action="https://formspree.io/f/REPLACE_ID" method="POST"
-        style="display:flex;flex-direction:column;gap:1.1rem;" class="rev">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-          <div>
-            <label style="display:block;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;">First Name</label>
-            <input name="first_name" type="text" required placeholder="Maria" style="width:100%;padding:.72rem 1rem;border:1.5px solid var(--border);border-radius:6px;font-family:var(--f);font-size:.875rem;color:var(--char);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'"/>
-          </div>
-          <div>
-            <label style="display:block;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;">Last Name</label>
-            <input name="last_name" type="text" required placeholder="Garcia" style="width:100%;padding:.72rem 1rem;border:1.5px solid var(--border);border-radius:6px;font-family:var(--f);font-size:.875rem;color:var(--char);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'"/>
-          </div>
-        </div>
-        <div>
-          <label style="display:block;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;">Phone</label>
-          <input name="phone" type="tel" required placeholder="(305) 000-0000" style="width:100%;padding:.72rem 1rem;border:1.5px solid var(--border);border-radius:6px;font-family:var(--f);font-size:.875rem;color:var(--char);outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'"/>
-        </div>
-        <div>
-          <label style="display:block;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;">Service Needed</label>
-          <select name="service" style="width:100%;padding:.72rem 1rem;border:1.5px solid var(--border);border-radius:6px;font-family:var(--f);font-size:.875rem;color:var(--char);background:var(--white);outline:none;">
-            <option value="">Select a service...</option>
-            <option>AC Repair</option>
-            <option>AC Installation</option>
-            <option>Heating Service</option>
-            <option>Plumbing Repair</option>
-            <option>Emergency Service</option>
-            <option>Maintenance Plan</option>
-          </select>
-        </div>
-        <div>
-          <label style="display:block;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;">Describe the Issue</label>
-          <textarea name="message" rows="3" placeholder="AC not cooling, pipe leaking under sink..." style="width:100%;padding:.72rem 1rem;border:1.5px solid var(--border);border-radius:6px;font-family:var(--f);font-size:.875rem;color:var(--char);resize:vertical;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--border)'"></textarea>
-        </div>
-        <button type="submit" id="cform-btn" class="btn btn-blue" style="width:100%;justify-content:center;padding:.9rem;font-size:.875rem;">Send Request</button>
-      </form>
-    </div>
-  </div>
-</section>
 
 <!-- ═══ FOOTER ═══ -->
-<footer>
+<footer id="contact">
   <div class="container">
-    <div class="ft-top">
-      <a href="#hero" class="ft-logo">Arctic Air<span class="dot">.</span> &amp; Plumbing</a>
-      <ul class="ft-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#why">Why Us</a></li>
-        <li><a href="#how">Process</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#area">Service Area</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <a href="tel:+13055550100" class="ft-phone">(305) 555-0100</a>
+    <div class="ft-grid">
+
+      <!-- Brand + Contact -->
+      <div>
+        <a href="#hero" class="ft-logo">Arctic Air<span class="dot">.</span> &amp; Plumbing</a>
+        <p class="ft-tagline">Miami-Dade &amp; Broward County's trusted HVAC and plumbing specialists since 2009.</p>
+        <a href="tel:+13055550100" class="ft-big-phone">(305) 555-0100</a>
+        <div class="ft-license">License #CAC1234567 · Insured · NATE Certified</div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <span class="ft-col-h">Services</span>
+        <ul class="ft-ul">
+          <li><a href="#services">AC Repair</a></li>
+          <li><a href="#services">AC Installation</a></li>
+          <li><a href="#services">Heating</a></li>
+          <li><a href="#services">Plumbing</a></li>
+          <li><a href="#services">Maintenance Plans</a></li>
+          <li><a href="#services" class="emrg">Emergency Service</a></li>
+        </ul>
+      </div>
+
+      <!-- Hours -->
+      <div>
+        <span class="ft-col-h">Hours</span>
+        <ul class="ft-ul">
+          <li><span>Mon – Fri: 7am – 7pm</span></li>
+          <li><span>Saturday: 8am – 5pm</span></li>
+          <li><span>Sunday: 9am – 3pm</span></li>
+          <li style="margin-top:.35rem;"><span class="emrg">Emergency: 24 / 7</span></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <span class="ft-col-h">Company</span>
+        <ul class="ft-ul">
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#how">Our Process</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#area">Service Area</a></li>
+          <li><a href="mailto:info@arcticairandplumbing.com">info@arcticairandplumbing.com</a></li>
+          <li><span>1234 NW 27th Ave, Miami Gardens, FL</span></li>
+        </ul>
+      </div>
+
     </div>
     <div class="ft-bot">
-      <p class="ft-copy">&copy; 2026 Arctic Air &amp; Plumbing. All rights reserved.</p>
-      <p class="ft-legal">Miami Gardens, FL · Licensed &amp; Insured · NATE Certified</p>
+      <p class="ft-copy">&copy; 2026 Arctic Air &amp; Plumbing LLC. All rights reserved.</p>
+      <p class="ft-lic">State Licensed · Fully Insured · NATE Certified Technicians</p>
     </div>
   </div>
 </footer>
@@ -694,116 +676,6 @@ try{
   window.addEventListener('scroll',function(){nav.classList.toggle('stuck',window.scrollY>60);},{passive:true});
 }
 
-/* THREE.JS — soft blue wireframe HVAC */
-try{
-  var canvas=document.getElementById('hero-canvas');
-  var sz=canvas.offsetWidth||480;
-  var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  renderer.setSize(sz,sz);
-  renderer.setClearColor(0x000000,0);
-
-  var scene=new THREE.Scene();
-  var camera=new THREE.PerspectiveCamera(42,1,0.1,100);
-  camera.position.set(0,0.4,5.8);
-
-  var group=new THREE.Group();
-  scene.add(group);
-
-  /* Material helper */
-  function wm(op){
-    return new THREE.MeshBasicMaterial({color:0x2563EB,wireframe:true,transparent:true,opacity:op||.55});
-  }
-  function lm(op){
-    return new THREE.LineBasicMaterial({color:0x93C5FD,transparent:true,opacity:op||.3});
-  }
-
-  /* Main cabinet */
-  group.add(new THREE.Mesh(new THREE.BoxGeometry(2,2.5,1),wm(.5)));
-
-  /* Inner box — duct interior */
-  group.add(new THREE.Mesh(new THREE.BoxGeometry(1.5,1.8,.6),wm(.2)));
-
-  /* Coils — stacked horizontal rings */
-  for(var i=0;i<5;i++){
-    var cg=new THREE.TorusGeometry(.65,.03,6,24);
-    var cm=new THREE.Mesh(cg,wm(.3));
-    cm.position.set(.8,i*.32-.58,0);
-    cm.rotation.y=Math.PI/2;
-    group.add(cm);
-  }
-
-  /* Front grill — horizontal lines */
-  for(var g=-1.1;g<=1.1;g+=.2){
-    var lg=new THREE.BufferGeometry().setFromPoints([
-      new THREE.Vector3(-1,g,.51),new THREE.Vector3(1,g,.51)
-    ]);
-    group.add(new THREE.Line(lg,lm(.2)));
-  }
-
-  /* Fan ring */
-  var fanRing=new THREE.Mesh(new THREE.TorusGeometry(.48,.04,8,32),wm(.7));
-  fanRing.position.set(0,.5,.52);
-  group.add(fanRing);
-
-  /* Fan blades */
-  var fanGroup=new THREE.Group();
-  fanGroup.position.set(0,.5,0);
-  for(var b=0;b<5;b++){
-    var ang=b*Math.PI*2/5;
-    var bg=new THREE.BufferGeometry().setFromPoints([
-      new THREE.Vector3(0,0,.52),
-      new THREE.Vector3(Math.cos(ang)*.44,Math.sin(ang)*.44,.52)
-    ]);
-    fanGroup.add(new THREE.Line(bg,lm(.45)));
-  }
-  group.add(fanGroup);
-
-  /* Pipes — left side */
-  var p1=new THREE.Mesh(new THREE.CylinderGeometry(.08,.08,1.4,8),wm(.38));
-  p1.position.set(-1.12,-.45,0);
-  group.add(p1);
-  var p2=new THREE.Mesh(new THREE.CylinderGeometry(.065,.065,1,8),wm(.32));
-  p2.position.set(-1.2,.5,0);
-  group.add(p2);
-
-  /* Elbow */
-  var el=new THREE.Mesh(new THREE.TorusGeometry(.16,.055,6,10,Math.PI/2),wm(.42));
-  el.position.set(-1.04,-1.18,0);
-  el.rotation.z=Math.PI;
-  group.add(el);
-
-  /* Connection box top */
-  var tb=new THREE.Mesh(new THREE.BoxGeometry(.7,.35,.4),wm(.3));
-  tb.position.set(0,1.35,.15);
-  group.add(tb);
-
-  /* Particle field — very sparse */
-  var pbuf=new Float32Array(60*3);
-  for(var pi=0;pi<180;pi++) pbuf[pi]=(Math.random()-.5)*8;
-  var pGeo=new THREE.BufferGeometry();
-  pGeo.setAttribute('position',new THREE.BufferAttribute(pbuf,3));
-  scene.add(new THREE.Points(pGeo,new THREE.PointsMaterial({color:0x93C5FD,size:.055,transparent:true,opacity:.25})));
-
-  /* Animation */
-  var clock=new THREE.Clock();
-  (function loop(){
-    requestAnimationFrame(loop);
-    var t=clock.getElapsedTime();
-    /* Slow, calm rotation */
-    group.rotation.y=Math.sin(t*.28)*.3+.1;
-    group.rotation.x=Math.sin(t*.18)*.07;
-    /* Fan spins gently */
-    fanGroup.rotation.z=t*1.4;
-    fanRing.rotation.z=t*1.4;
-    renderer.render(scene,camera);
-  })();
-
-  window.addEventListener('resize',function(){
-    var nw=canvas.offsetWidth;
-    renderer.setSize(nw,nw);
-  },{passive:true});
-}catch(err){console.warn('Three.js:',err);}
 
 /* SCROLL REVEAL */
 function show(el){
@@ -836,14 +708,6 @@ document.querySelectorAll('.ctr-val').forEach(function(el){
   cio.observe(el);
 });
 
-/* FORM */
-var cform=document.getElementById('cform');
-if(cform){
-  cform.addEventListener('submit',function(){
-    var btn=document.getElementById('cform-btn');
-    if(btn){btn.textContent='Sending...';btn.disabled=true;}
-  });
-}
 
 })();
 </script>

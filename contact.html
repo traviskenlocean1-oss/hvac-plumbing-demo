@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact Us | Arctic Air &amp; Plumbing — Miami HVAC</title>
+<meta name="description" content="Contact Arctic Air &amp; Plumbing in Miami Gardens, FL. Call (305) 555-0100 or fill out our form for same-day HVAC and plumbing service."/>
+<link rel="canonical" href="https://arcticairandplumbing.com/contact.html"/>
+<meta property="og:title" content="Contact Arctic Air &amp; Plumbing | Miami, FL"/>
+<meta property="og:type" content="website"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Arctic Air &amp; Plumbing","telephone":"+13055550100","email":"info@arcticairandplumbing.com","address":{"@type":"PostalAddress","streetAddress":"1234 NW 27th Ave","addressLocality":"Miami Gardens","addressRegion":"FL","postalCode":"33056","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"08:00","closes":"17:00"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sky:#0EA5E9;--skyh:#0284C7;--red:#DC2626;--redh:#B91C1C;
+  --dark:#0F172A;--darkm:#1E293B;--body:#374151;--muted:#6B7280;
+  --border:#E5E7EB;--white:#fff;--cream:#FDF8F0;--grey:#F3F4F6;
+  --fh:'Poppins',sans-serif;--fb:Verdana,Geneva,sans-serif
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--body);background:var(--white);line-height:1.6}
+
+/* TOP BAR */
+.topbar{background:var(--sky);color:#fff;font-family:var(--fh);font-size:.8rem;font-weight:500;padding:.45rem 0}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.topbar a{color:#fff;text-decoration:none}
+.topbar a:hover{text-decoration:underline}
+.topbar-left,.topbar-right{display:flex;align-items:center;gap:1.25rem}
+
+/* NAV */
+nav{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.nav-logo-icon{width:42px;height:42px;background:var(--sky);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon svg{width:24px;height:24px;fill:#fff}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-logo-text strong{font-family:var(--fh);font-size:1rem;font-weight:800;color:var(--dark)}
+.nav-logo-text span{font-family:var(--fh);font-size:.7rem;font-weight:500;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:.25rem}
+.nav-links a{font-family:var(--fh);font-size:.88rem;font-weight:600;color:var(--body);text-decoration:none;padding:.45rem .85rem;border-radius:6px;transition:background .2s,color .2s}
+.nav-links a:hover{background:var(--grey);color:var(--dark)}
+.nav-links a.active{color:var(--sky)}
+.nav-cta{background:var(--red);color:#fff;font-family:var(--fh);font-size:.85rem;font-weight:700;padding:.55rem 1.2rem;border-radius:6px;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--redh)}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,var(--dark) 0%,var(--darkm) 100%);color:#fff;padding:4rem 1.5rem 3.5rem;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&auto=format&fit=crop&q=40') center/cover no-repeat;opacity:.1}
+.page-hero-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.page-hero-badge{display:inline-block;background:var(--red);color:#fff;font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.35rem .9rem;border-radius:999px;margin-bottom:1.2rem}
+.page-hero h1{font-family:var(--fh);font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.1;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:1rem}
+.page-hero p{font-size:1rem;color:rgba(255,255,255,.8);max-width:520px;margin:0 auto}
+
+/* MAIN CONTACT SECTION */
+.contact-section{background:var(--grey);padding:5rem 1.5rem}
+.contact-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:flex-start}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+
+/* INFO CARDS */
+.info-stack{display:flex;flex-direction:column;gap:1.25rem}
+.info-card{background:var(--white);border-radius:12px;padding:1.5rem;box-shadow:0 2px 10px rgba(0,0,0,.05);display:flex;align-items:flex-start;gap:1rem}
+.info-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.info-icon.sky{background:var(--sky)}
+.info-icon.red{background:var(--red)}
+.info-icon.dark{background:var(--darkm)}
+.info-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.info-body h4{font-family:var(--fh);font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:.3rem}
+.info-body a,.info-body p{font-size:.88rem;color:var(--muted);text-decoration:none;line-height:1.55;display:block}
+.info-body a{color:var(--sky);font-weight:600}
+.info-body a:hover{color:var(--skyh)}
+
+.hours-table{width:100%;margin-top:.3rem;border-collapse:collapse}
+.hours-table tr td{font-size:.83rem;padding:.2rem 0;color:var(--muted)}
+.hours-table tr td:first-child{color:var(--dark);font-weight:600;width:140px}
+.emrg-note{margin-top:1.25rem;background:var(--red);color:#fff;border-radius:10px;padding:1.1rem 1.25rem;display:flex;align-items:center;gap:.85rem}
+.emrg-note svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.emrg-note div h4{font-family:var(--fh);font-size:.88rem;font-weight:700;margin-bottom:.2rem}
+.emrg-note div p{font-size:.82rem;opacity:.9}
+
+/* FORM CARD */
+.form-card{background:var(--white);border-radius:14px;padding:2.25rem 2rem;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+.form-card h3{font-family:var(--fh);font-size:1.25rem;font-weight:800;color:var(--dark);margin-bottom:.4rem}
+.form-card p{font-size:.88rem;color:var(--muted);margin-bottom:1.75rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+@media(max-width:500px){.form-row{grid-template-columns:1fr}}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-family:var(--fh);font-size:.8rem;font-weight:600;color:var(--dark);margin-bottom:.4rem}
+.form-group input,
+.form-group select,
+.form-group textarea{width:100%;padding:.7rem .95rem;border:1.5px solid var(--border);border-radius:8px;font-family:var(--fb);font-size:.88rem;color:var(--body);background:var(--white);transition:border-color .2s,box-shadow .2s;outline:none;resize:vertical}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--sky);box-shadow:0 0 0 3px rgba(14,165,233,.12)}
+.form-group textarea{min-height:110px}
+.form-submit{width:100%;background:var(--red);color:#fff;font-family:var(--fh);font-size:.95rem;font-weight:700;padding:.85rem;border:none;border-radius:8px;cursor:pointer;transition:background .2s;margin-top:.5rem}
+.form-submit:hover{background:var(--redh)}
+.form-note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:.85rem}
+
+/* MAP SECTION */
+.map-section{background:var(--darkm);padding:0}
+.map-section iframe{width:100%;height:420px;display:block;border:none;filter:grayscale(20%)}
+
+/* QUICK CONTACT STRIP */
+.quick-strip{background:var(--skyh);color:#fff;padding:2rem 1.5rem}
+.quick-strip-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.quick-strip h3{font-family:var(--fh);font-size:1.25rem;font-weight:800}
+.quick-strip p{font-size:.88rem;opacity:.85;margin-top:.2rem}
+.quick-btns{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn-wh{background:#fff;color:var(--skyh);font-family:var(--fh);font-weight:700;font-size:.9rem;padding:.65rem 1.5rem;border-radius:6px;text-decoration:none;white-space:nowrap;transition:opacity .2s}
+.btn-wh:hover{opacity:.9}
+.btn-outline-w{border:2px solid rgba(255,255,255,.5);color:#fff;font-family:var(--fh);font-weight:600;font-size:.9rem;padding:.63rem 1.5rem;border-radius:6px;text-decoration:none;transition:border-color .2s}
+.btn-outline-w:hover{border-color:#fff}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,.8);padding:3.5rem 1.5rem 2rem;position:relative;overflow:hidden}
+footer::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&auto=format&fit=crop&q=30') center/cover no-repeat;opacity:.06}
+.footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem}
+@media(max-width:900px){.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand strong{font-family:var(--fh);font-size:1.1rem;font-weight:800;color:#fff;display:block;margin-bottom:.5rem}
+.footer-brand p{font-size:.85rem;line-height:1.6;margin-bottom:1rem;opacity:.75}
+.footer-lic{font-family:var(--fh);font-size:.75rem;font-weight:600;background:rgba(255,255,255,.08);display:inline-block;padding:.3rem .75rem;border-radius:4px;color:rgba(255,255,255,.7)}
+.footer-col h4{font-family:var(--fh);font-size:.85rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:.5rem}
+.footer-col ul li a{font-size:.85rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
+.footer-col ul li a:hover{color:#fff}
+.footer-bottom{position:relative;z-index:1;max-width:1200px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;font-size:.8rem;color:rgba(255,255,255,.45)}
+
+@media(max-width:768px){.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span>📍 Miami Gardens, FL 33056</span>
+      <span>Lic #CAC1234567</span>
+    </div>
+    <div class="topbar-right">
+      <a href="mailto:info@arcticairandplumbing.com">info@arcticairandplumbing.com</a>
+      <a href="tel:+13055550100"><strong>(305) 555-0100</strong></a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div class="nav-logo-text">
+        <strong>Arctic Air &amp; Plumbing</strong>
+        <span>Miami, Florida</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="service-areas.html">Service Areas</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <a href="tel:+13055550100" class="nav-cta">Call Now</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-badge">24/7 Emergency Line Open</div>
+    <h1>Get in Touch<br/>With Our Team</h1>
+    <p>Same-day service available. Call now for emergencies or fill out the form and we'll get back to you within the hour.</p>
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<div class="contact-section">
+  <div class="contact-grid">
+
+    <!-- INFO COLUMN -->
+    <div class="info-stack">
+
+      <div class="info-card">
+        <div class="info-icon sky">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="info-body">
+          <h4>Phone</h4>
+          <a href="tel:+13055550100">(305) 555-0100</a>
+          <p>Calls answered 7 days a week</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon sky">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="info-body">
+          <h4>Email</h4>
+          <a href="mailto:info@arcticairandplumbing.com">info@arcticairandplumbing.com</a>
+          <p>We reply within 2 hours during business hours</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon dark">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="info-body">
+          <h4>Office Location</h4>
+          <p>1234 NW 27th Ave<br/>Miami Gardens, FL 33056</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon dark">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="info-body">
+          <h4>Business Hours</h4>
+          <table class="hours-table">
+            <tr><td>Mon – Fri</td><td>7:00 AM – 7:00 PM</td></tr>
+            <tr><td>Saturday</td><td>8:00 AM – 5:00 PM</td></tr>
+            <tr><td>Sunday</td><td>8:00 AM – 5:00 PM</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="emrg-note">
+        <svg viewBox="0 0 24 24"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <div>
+          <h4>After-Hours Emergency?</h4>
+          <p>Call (305) 555-0100 anytime — we dispatch 24/7 for emergencies, including weekends and holidays.</p>
+        </div>
+      </div>
+
+    </div><!-- /info-stack -->
+
+    <!-- FORM COLUMN -->
+    <div class="form-card">
+      <h3>Request Service</h3>
+      <p>Fill out the form and we'll contact you within the hour to confirm your appointment.</p>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name *</label>
+            <input type="text" id="fname" name="first_name" placeholder="Carlos" required/>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name *</label>
+            <input type="text" id="lname" name="last_name" placeholder="Rivera" required/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="(305) 000-0000" required/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="address">Service Address</label>
+          <input type="text" id="address" name="address" placeholder="123 Main St, Miami, FL"/>
+        </div>
+        <div class="form-group">
+          <label for="service">Service Needed *</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service…</option>
+            <option>AC Repair</option>
+            <option>AC Installation</option>
+            <option>AC Maintenance / Tune-Up</option>
+            <option>AC Cleaning</option>
+            <option>Ductwork / Duct Sealing</option>
+            <option>Duct Replacement</option>
+            <option>Indoor Air Quality</option>
+            <option>Mini Split Repair</option>
+            <option>Mini Split Installation</option>
+            <option>Water Heater Service</option>
+            <option>Plumbing</option>
+            <option>Commercial HVAC</option>
+            <option>Emergency Service</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="msg">Describe the Issue</label>
+          <textarea id="msg" name="message" placeholder="Tell us what's going on — model number, symptoms, how long it's been an issue…"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send My Request →</button>
+        <p class="form-note">We respect your privacy. Your info is never shared or sold.</p>
+      </form>
+    </div>
+
+  </div>
+</div><!-- /contact-section -->
+
+<!-- MAP -->
+<div class="map-section">
+  <iframe
+    title="Arctic Air &amp; Plumbing location — Miami Gardens, FL"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57336.86!2d-80.27!3d25.94!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b6d8dce9b74b%3A0x1!2sMiami+Gardens%2C+FL+33056!5e0!3m2!1sen!2sus!4v1700000000000"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- QUICK STRIP -->
+<div class="quick-strip">
+  <div class="quick-strip-inner">
+    <div>
+      <h3>Still Have Questions?</h3>
+      <p>Our team is available 7 days a week — don't hesitate to reach out.</p>
+    </div>
+    <div class="quick-btns">
+      <a href="tel:+13055550100" class="btn-wh">Call (305) 555-0100</a>
+      <a href="service-areas.html" class="btn-outline-w">Check Your Area</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>Arctic Air &amp; Plumbing</strong>
+      <p>Miami-Dade's most trusted HVAC and plumbing company. Licensed, insured, and available 24/7 for emergencies.</p>
+      <div class="footer-lic">Lic #CAC1234567</div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">AC Repair</a></li>
+        <li><a href="services.html">AC Installation</a></li>
+        <li><a href="services.html">AC Maintenance</a></li>
+        <li><a href="services.html">Mini Splits</a></li>
+        <li><a href="services.html">Ductwork</a></li>
+        <li><a href="services.html">Plumbing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="service-areas.html">Service Areas</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+13055550100">(305) 555-0100</a></li>
+        <li><a href="mailto:info@arcticairandplumbing.com">info@arcticairandplumbing.com</a></li>
+        <li><a href="service-areas.html">1234 NW 27th Ave<br/>Miami Gardens, FL 33056</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Arctic Air &amp; Plumbing. All rights reserved.</span>
+    <span>Miami Gardens, FL | Lic #CAC1234567</span>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded',()=>{
+  if(typeof gsap!=='undefined'){
+    gsap.from('.form-card',{opacity:0,y:30,duration:.7,delay:.2});
+    gsap.from('.info-card',{opacity:0,x:-20,duration:.55,stagger:.1,delay:.1});
+  }
+});
+</script>
+</body>
+</html>

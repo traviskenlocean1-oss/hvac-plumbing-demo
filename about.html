@@ -16,163 +16,126 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --sky:#0EA5E9;--skyh:#0284C7;--red:#DC2626;--redh:#B91C1C;
-  --dark:#0F172A;--darkm:#1E293B;--body:#374151;--muted:#6B7280;
-  --border:#E5E7EB;--white:#fff;--cream:#FDF8F0;--grey:#F3F4F6;
-  --fh:'Poppins',sans-serif;--fb:Verdana,Geneva,sans-serif
-}
+:root{--sky:#0EA5E9;--skyh:#0284C7;--red:#DC2626;--redh:#B91C1C;--dark:#0F172A;--darkm:#1E293B;--body:#374151;--muted:#6B7280;--border:#E5E7EB;--white:#fff;--cream:#FDF8F0;--grey:#F3F4F6;--fh:'Poppins',sans-serif;--fb:Verdana,Geneva,sans-serif}
 html{scroll-behavior:smooth}
-body{font-family:var(--fb);color:var(--body);background:var(--white);line-height:1.6}
+body{font-family:var(--fb);color:var(--body);background:var(--white);line-height:1.65;font-size:16px}
 
-/* TOP BAR */
-.topbar{background:var(--sky);color:#fff;font-family:var(--fh);font-size:.8rem;font-weight:500;padding:.45rem 0}
+.topbar{background:var(--sky);color:#fff;font-family:var(--fh);font-size:.875rem;font-weight:500;padding:.5rem 0}
 .topbar-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.topbar a{color:#fff;text-decoration:none}
-.topbar a:hover{text-decoration:underline}
+.topbar a{color:#fff;text-decoration:none}.topbar a:hover{text-decoration:underline}
 .topbar-left,.topbar-right{display:flex;align-items:center;gap:1.25rem}
 
-/* NAV */
 nav{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:72px}
 .nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
-.nav-logo-icon{width:42px;height:42px;background:var(--sky);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.nav-logo-icon svg{width:24px;height:24px;fill:#fff}
+.nav-logo-icon{width:46px;height:46px;background:var(--sky);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon svg{width:26px;height:26px;fill:#fff}
 .nav-logo-text{display:flex;flex-direction:column;line-height:1.1}
-.nav-logo-text strong{font-family:var(--fh);font-size:1rem;font-weight:800;color:var(--dark)}
-.nav-logo-text span{font-family:var(--fh);font-size:.7rem;font-weight:500;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.nav-logo-text strong{font-family:var(--fh);font-size:1.05rem;font-weight:800;color:var(--dark)}
+.nav-logo-text span{font-family:var(--fh);font-size:.72rem;font-weight:500;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
 .nav-links{display:flex;align-items:center;gap:.25rem}
-.nav-links a{font-family:var(--fh);font-size:.88rem;font-weight:600;color:var(--body);text-decoration:none;padding:.45rem .85rem;border-radius:6px;transition:background .2s,color .2s}
-.nav-links a:hover{background:var(--grey);color:var(--dark)}
-.nav-links a.active{color:var(--sky)}
-.nav-cta{background:var(--red);color:#fff;font-family:var(--fh);font-size:.85rem;font-weight:700;padding:.55rem 1.2rem;border-radius:6px;text-decoration:none;transition:background .2s}
+.nav-links a{font-family:var(--fh);font-size:1rem;font-weight:500;color:var(--body);text-decoration:none;padding:.5rem 1rem;border-radius:6px;transition:background .2s,color .2s}
+.nav-links a:hover{background:var(--grey);color:var(--dark)}.nav-links a.active{color:var(--sky)}
+.nav-cta{background:var(--red);color:#fff;font-family:var(--fh);font-size:.9rem;font-weight:700;padding:.6rem 1.35rem;border-radius:6px;text-decoration:none;transition:background .2s}
 .nav-cta:hover{background:var(--redh)}
 
-/* PAGE HERO */
-.page-hero{background:linear-gradient(135deg,var(--dark) 0%,var(--darkm) 100%);color:#fff;padding:4rem 1.5rem 3.5rem;text-align:center;position:relative;overflow:hidden}
+.page-hero{background:linear-gradient(135deg,var(--dark) 0%,var(--darkm) 100%);color:#fff;padding:5rem 1.5rem 4rem;text-align:center;position:relative;overflow:hidden}
 .page-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1600&auto=format&fit=crop&q=40') center/cover no-repeat;opacity:.12}
 .page-hero-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
-.page-hero-badge{display:inline-block;background:var(--sky);color:#fff;font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.35rem .9rem;border-radius:999px;margin-bottom:1.2rem}
-.page-hero h1{font-family:var(--fh);font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.1;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:1rem}
-.page-hero p{font-size:1rem;color:rgba(255,255,255,.8);max-width:560px;margin:0 auto}
+.page-hero-badge{display:inline-block;background:var(--sky);color:#fff;font-family:var(--fh);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.4rem 1rem;border-radius:999px;margin-bottom:1.35rem}
+.page-hero h1{font-family:var(--fh);font-size:clamp(2.5rem,5vw,55px);font-weight:900;line-height:1.05;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:1.1rem}
+.page-hero p{font-size:1.05rem;color:rgba(255,255,255,.8);max-width:560px;margin:0 auto;line-height:1.65}
 
-/* SECTION COMMON */
-section{padding:5rem 1.5rem}
+section{padding:6rem 1.5rem}
 .section-inner{max-width:1200px;margin:0 auto}
-.section-tag{font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:.6rem}
-.section-title{font-family:var(--fh);font-size:clamp(1.6rem,3.5vw,2.25rem);font-weight:800;color:var(--dark);line-height:1.2;margin-bottom:.9rem}
-.section-sub{font-size:.98rem;color:var(--muted);max-width:600px;margin-bottom:3rem}
+.section-tag{font-family:var(--fh);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:.65rem}
+.section-title{font-family:var(--fh);font-size:clamp(2rem,4vw,50px);font-weight:800;color:var(--dark);line-height:1.1;margin-bottom:1rem}
+.section-sub{font-size:1rem;color:var(--muted);max-width:620px;margin-bottom:3rem;line-height:1.65}
 
-/* OUR STORY */
 .story-section{background:var(--white)}
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
 @media(max-width:768px){.story-grid{grid-template-columns:1fr}}
 .story-img{border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.12)}
-.story-img img{width:100%;height:460px;object-fit:cover;display:block}
-.story-text p{font-size:.96rem;color:var(--body);line-height:1.75;margin-bottom:1.1rem}
+.story-img img{width:100%;height:480px;object-fit:cover;display:block}
+.story-text p{font-size:1rem;color:var(--body);line-height:1.75;margin-bottom:1.15rem}
 .story-highlights{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
-.highlight-box{background:var(--grey);border-radius:10px;padding:1.2rem;text-align:center}
-.highlight-box .num{font-family:var(--fh);font-size:2rem;font-weight:900;color:var(--sky);line-height:1}
-.highlight-box .lbl{font-family:var(--fh);font-size:.8rem;font-weight:600;color:var(--dark);margin-top:.3rem}
+.highlight-box{background:var(--grey);border-radius:10px;padding:1.35rem;text-align:center}
+.highlight-box .num{font-family:var(--fh);font-size:2.25rem;font-weight:900;color:var(--sky);line-height:1}
+.highlight-box .lbl{font-family:var(--fh);font-size:.85rem;font-weight:600;color:var(--dark);margin-top:.35rem}
 
-/* TEAM */
 .team-section{background:var(--grey)}
 .team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.5rem}
 .team-card{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);text-align:center}
-.team-card-img{width:100%;height:220px;object-fit:cover;object-position:top;display:block}
-.team-card-body{padding:1.1rem 1rem 1.25rem}
-.team-card-name{font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:.2rem}
-.team-card-role{font-family:var(--fh);font-size:.75rem;font-weight:500;color:var(--sky);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
-.team-card-cert{font-size:.78rem;color:var(--muted)}
+.team-card-img{width:100%;height:230px;object-fit:cover;object-position:top;display:block}
+.team-card-body{padding:1.2rem 1rem 1.4rem}
+.team-card-name{font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:.25rem}
+.team-card-role{font-family:var(--fh);font-size:.78rem;font-weight:500;color:var(--sky);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.55rem}
+.team-card-cert{font-size:.82rem;color:var(--muted)}
 
-/* CERTIFICATIONS */
 .certs-section{background:var(--cream)}
 .certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem}
-.cert-card{background:var(--white);border-radius:12px;padding:1.75rem 1.5rem;box-shadow:0 2px 12px rgba(0,0,0,.05);display:flex;align-items:flex-start;gap:1rem}
-.cert-icon{width:48px;height:48px;background:var(--sky);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cert-card{background:var(--white);border-radius:12px;padding:1.85rem 1.6rem;box-shadow:0 2px 12px rgba(0,0,0,.05);display:flex;align-items:flex-start;gap:1.1rem}
+.cert-icon{width:50px;height:50px;background:var(--sky);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .cert-icon svg{width:26px;height:26px;fill:#fff}
-.cert-text h4{font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:.3rem}
-.cert-text p{font-size:.83rem;color:var(--muted);line-height:1.5}
+.cert-text h4{font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:.35rem}
+.cert-text p{font-size:.88rem;color:var(--muted);line-height:1.55}
 
-/* VALUES */
-.values-section{background:var(--darkm);color:#fff;padding:5rem 1.5rem}
+.values-section{background:var(--darkm);color:#fff;padding:6rem 1.5rem}
 .values-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;margin-top:3rem}
-.value-card{border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.75rem 1.5rem}
-.value-card-icon{width:44px;height:44px;background:var(--sky);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.value-card{border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:2rem 1.75rem}
+.value-card-icon{width:46px;height:46px;background:var(--sky);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
 .value-card-icon svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.value-card h4{font-family:var(--fh);font-size:1rem;font-weight:700;margin-bottom:.5rem}
-.value-card p{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.6}
+.value-card h4{font-family:var(--fh);font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
+.value-card p{font-size:.92rem;color:rgba(255,255,255,.7);line-height:1.65}
 
-/* CTA STRIP */
-.cta-strip{background:var(--red);color:#fff;padding:3.5rem 1.5rem;text-align:center}
-.cta-strip h2{font-family:var(--fh);font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:.75rem}
-.cta-strip p{font-size:.95rem;color:rgba(255,255,255,.85);margin-bottom:1.75rem;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-strip{background:var(--red);color:#fff;padding:4rem 1.5rem;text-align:center}
+.cta-strip h2{font-family:var(--fh);font-size:clamp(1.75rem,3.5vw,2.25rem);font-weight:800;margin-bottom:.75rem}
+.cta-strip p{font-size:1rem;color:rgba(255,255,255,.85);margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.65}
 .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn-wh{background:#fff;font-family:var(--fh);font-weight:700;font-size:.95rem;padding:.75rem 1.75rem;border-radius:6px;text-decoration:none;transition:opacity .2s}
-.btn-wh-red{color:var(--red)}
-.btn-wh-red:hover{opacity:.9}
-.btn-outline-w{border:2px solid rgba(255,255,255,.6);color:#fff;font-family:var(--fh);font-weight:600;font-size:.95rem;padding:.73rem 1.75rem;border-radius:6px;text-decoration:none;transition:border-color .2s}
+.btn-wh{background:#fff;font-family:var(--fh);font-weight:700;font-size:1rem;padding:.8rem 1.85rem;border-radius:6px;text-decoration:none;transition:opacity .2s}
+.btn-wh-red{color:var(--red)}.btn-wh-red:hover{opacity:.9}
+.btn-outline-w{border:2px solid rgba(255,255,255,.6);color:#fff;font-family:var(--fh);font-weight:600;font-size:1rem;padding:.78rem 1.85rem;border-radius:6px;text-decoration:none;transition:border-color .2s}
 .btn-outline-w:hover{border-color:#fff}
 
-/* FOOTER */
-footer{background:var(--dark);color:rgba(255,255,255,.8);padding:3.5rem 1.5rem 2rem;position:relative;overflow:hidden}
+footer{background:var(--dark);color:rgba(255,255,255,.8);padding:4rem 1.5rem 2rem;position:relative;overflow:hidden}
 footer::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&auto=format&fit=crop&q=30') center/cover no-repeat;opacity:.06}
 .footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem}
 @media(max-width:900px){.footer-inner{grid-template-columns:1fr 1fr}}
 @media(max-width:540px){.footer-inner{grid-template-columns:1fr}}
-.footer-brand strong{font-family:var(--fh);font-size:1.1rem;font-weight:800;color:#fff;display:block;margin-bottom:.5rem}
-.footer-brand p{font-size:.85rem;line-height:1.6;margin-bottom:1rem;opacity:.75}
-.footer-lic{font-family:var(--fh);font-size:.75rem;font-weight:600;background:rgba(255,255,255,.08);display:inline-block;padding:.3rem .75rem;border-radius:4px;color:rgba(255,255,255,.7)}
-.footer-col h4{font-family:var(--fh);font-size:.85rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem}
-.footer-col ul{list-style:none}
-.footer-col ul li{margin-bottom:.5rem}
-.footer-col ul li a{font-size:.85rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
+.footer-brand strong{font-family:var(--fh);font-size:1.15rem;font-weight:800;color:#fff;display:block;margin-bottom:.55rem}
+.footer-brand p{font-size:.88rem;line-height:1.65;margin-bottom:1.1rem;opacity:.75}
+.footer-lic{font-family:var(--fh);font-size:.78rem;font-weight:600;background:rgba(255,255,255,.08);display:inline-block;padding:.3rem .8rem;border-radius:4px;color:rgba(255,255,255,.7)}
+.footer-col h4{font-family:var(--fh);font-size:.88rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1.1rem}
+.footer-col ul{list-style:none}.footer-col ul li{margin-bottom:.55rem}
+.footer-col ul li a{font-size:.88rem;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
 .footer-col ul li a:hover{color:#fff}
-.footer-bottom{position:relative;z-index:1;max-width:1200px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;font-size:.8rem;color:rgba(255,255,255,.45)}
+.footer-bottom{position:relative;z-index:1;max-width:1200px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;font-size:.82rem;color:rgba(255,255,255,.45)}
 
 @media(max-width:768px){.nav-links{display:none}}
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-inner">
-    <div class="topbar-left">
-      <span>📍 Miami Gardens, FL 33056</span>
-      <span>Lic #CAC1234567</span>
-    </div>
-    <div class="topbar-right">
-      <a href="mailto:info@arcticairandplumbing.com">info@arcticairandplumbing.com</a>
-      <a href="tel:+13055550100"><strong>(305) 555-0100</strong></a>
-    </div>
+    <div class="topbar-left"><span>📍 Miami Gardens, FL 33056</span><span>Lic #CAC1234567</span></div>
+    <div class="topbar-right"><a href="mailto:info@arcticairandplumbing.com">info@arcticairandplumbing.com</a><a href="tel:+13055550100"><strong>(305) 555-0100</strong></a></div>
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-      </div>
-      <div class="nav-logo-text">
-        <strong>Arctic Air &amp; Plumbing</strong>
-        <span>Miami, Florida</span>
-      </div>
+      <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+      <div class="nav-logo-text"><strong>Arctic Air &amp; Plumbing</strong><span>Miami, Florida</span></div>
     </a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="about.html" class="active">About</a>
-      <a href="service-areas.html">Service Areas</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html" class="active">About</a><a href="service-areas.html">Service Areas</a><a href="contact.html">Contact</a>
     </div>
     <a href="tel:+13055550100" class="nav-cta">Call Now</a>
   </div>
 </nav>
 
-<!-- PAGE HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
     <div class="page-hero-badge">Since 2014</div>
@@ -181,13 +144,10 @@ footer::before{content:'';position:absolute;inset:0;background:url('https://imag
   </div>
 </div>
 
-<!-- OUR STORY -->
 <section class="story-section">
   <div class="section-inner">
     <div class="story-grid">
-      <div class="story-img">
-        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&auto=format&fit=crop&q=80" alt="Arctic Air technician at work" loading="lazy"/>
-      </div>
+      <div class="story-img"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&auto=format&fit=crop&q=80" alt="Arctic Air technician at work" loading="lazy"/></div>
       <div class="story-text">
         <div class="section-tag">Our Story</div>
         <h2 class="section-title">Built on Reliability,<br/>Grown by Trust</h2>
@@ -205,192 +165,57 @@ footer::before{content:'';position:absolute;inset:0;background:url('https://imag
   </div>
 </section>
 
-<!-- TEAM -->
 <section class="team-section">
   <div class="section-inner">
     <div class="section-tag" style="text-align:center">The Team</div>
     <h2 class="section-title" style="text-align:center;margin:0 auto .9rem">Meet Our Technicians</h2>
     <p class="section-sub" style="text-align:center;margin:0 auto 3rem">Every member of the Arctic Air team is licensed, background-checked, and committed to delivering five-star service on every call.</p>
     <div class="team-grid">
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=75" alt="Carlos Rivera" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">Carlos Rivera</div>
-          <div class="team-card-role">Founder &amp; Master Tech</div>
-          <div class="team-card-cert">EPA 608 Certified · 20+ yrs</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=75" alt="Marcus Johnson" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">Marcus Johnson</div>
-          <div class="team-card-role">Lead HVAC Tech</div>
-          <div class="team-card-cert">NATE Certified · 12 yrs</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=75" alt="David Perez" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">David Perez</div>
-          <div class="team-card-role">Commercial HVAC Specialist</div>
-          <div class="team-card-cert">EPA 608 · BPI Certified</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&auto=format&fit=crop&q=75" alt="James Williams" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">James Williams</div>
-          <div class="team-card-role">Plumbing Supervisor</div>
-          <div class="team-card-cert">Master Plumber · FL Lic</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&auto=format&fit=crop&q=75" alt="Kevin Torres" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">Kevin Torres</div>
-          <div class="team-card-role">HVAC Technician</div>
-          <div class="team-card-cert">NATE Certified · 8 yrs</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&auto=format&fit=crop&q=75" alt="Luis Hernandez" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">Luis Hernandez</div>
-          <div class="team-card-role">Mini Split Specialist</div>
-          <div class="team-card-cert">Mitsubishi Diamond Dealer</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&auto=format&fit=crop&q=75" alt="Andre Martin" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">Andre Martin</div>
-          <div class="team-card-role">IAQ Specialist</div>
-          <div class="team-card-cert">ACCA Certified · 6 yrs</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=75" alt="Robert Chen" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">Robert Chen</div>
-          <div class="team-card-role">Duct &amp; Ventilation Tech</div>
-          <div class="team-card-cert">SMACNA Certified</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?w=400&auto=format&fit=crop&q=75" alt="Miguel Santos" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">Miguel Santos</div>
-          <div class="team-card-role">Emergency Response Tech</div>
-          <div class="team-card-cert">EPA 608 · 24/7 On-Call</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop&q=75" alt="Tommy Wallace" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">Tommy Wallace</div>
-          <div class="team-card-role">Residential HVAC Tech</div>
-          <div class="team-card-cert">NATE Certified · 5 yrs</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&auto=format&fit=crop&q=75" alt="Jason Brooks" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">Jason Brooks</div>
-          <div class="team-card-role">Water Heater Tech</div>
-          <div class="team-card-cert">Licensed Plumber · FL</div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-card-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=75" alt="Rafael Diaz" loading="lazy"/>
-        <div class="team-card-body">
-          <div class="team-card-name">Rafael Diaz</div>
-          <div class="team-card-role">Operations Manager</div>
-          <div class="team-card-cert">10+ yrs HVAC Industry</div>
-        </div>
-      </div>
-
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=75" alt="Carlos Rivera" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Carlos Rivera</div><div class="team-card-role">Founder &amp; Master Tech</div><div class="team-card-cert">EPA 608 Certified · 20+ yrs</div></div></div>
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=75" alt="Marcus Johnson" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Marcus Johnson</div><div class="team-card-role">Lead HVAC Tech</div><div class="team-card-cert">NATE Certified · 12 yrs</div></div></div>
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=75" alt="David Perez" loading="lazy"/><div class="team-card-body"><div class="team-card-name">David Perez</div><div class="team-card-role">Commercial Specialist</div><div class="team-card-cert">EPA 608 · BPI Certified</div></div></div>
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&auto=format&fit=crop&q=75" alt="James Williams" loading="lazy"/><div class="team-card-body"><div class="team-card-name">James Williams</div><div class="team-card-role">Plumbing Supervisor</div><div class="team-card-cert">Master Plumber · FL Lic</div></div></div>
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&auto=format&fit=crop&q=75" alt="Kevin Torres" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Kevin Torres</div><div class="team-card-role">HVAC Technician</div><div class="team-card-cert">NATE Certified · 8 yrs</div></div></div>
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&auto=format&fit=crop&q=75" alt="Luis Hernandez" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Luis Hernandez</div><div class="team-card-role">Mini Split Specialist</div><div class="team-card-cert">Mitsubishi Diamond Dealer</div></div></div>
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&auto=format&fit=crop&q=75" alt="Andre Martin" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Andre Martin</div><div class="team-card-role">IAQ Specialist</div><div class="team-card-cert">ACCA Certified · 6 yrs</div></div></div>
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=75" alt="Robert Chen" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Robert Chen</div><div class="team-card-role">Duct &amp; Ventilation Tech</div><div class="team-card-cert">SMACNA Certified</div></div></div>
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?w=400&auto=format&fit=crop&q=75" alt="Miguel Santos" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Miguel Santos</div><div class="team-card-role">Emergency Response Tech</div><div class="team-card-cert">EPA 608 · 24/7 On-Call</div></div></div>
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop&q=75" alt="Tommy Wallace" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Tommy Wallace</div><div class="team-card-role">Residential HVAC Tech</div><div class="team-card-cert">NATE Certified · 5 yrs</div></div></div>
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&auto=format&fit=crop&q=75" alt="Jason Brooks" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Jason Brooks</div><div class="team-card-role">Water Heater Tech</div><div class="team-card-cert">Licensed Plumber · FL</div></div></div>
+      <div class="team-card"><img class="team-card-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=75" alt="Rafael Diaz" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Rafael Diaz</div><div class="team-card-role">Operations Manager</div><div class="team-card-cert">10+ yrs HVAC Industry</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
 <section class="certs-section">
   <div class="section-inner">
     <div class="section-tag" style="text-align:center">Credentials</div>
     <h2 class="section-title" style="text-align:center;margin:0 auto .9rem">Licensed, Certified &amp; Insured</h2>
     <p class="section-sub" style="text-align:center;margin:0 auto 3rem">We hold every certification required to work safely and legally in Miami-Dade County.</p>
     <div class="certs-grid">
-      <div class="cert-card">
-        <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-        <div class="cert-text"><h4>Florida CAC License</h4><p>Lic #CAC1234567 — State of Florida Certified Air Conditioning Contractor.</p></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="cert-text"><h4>EPA 608 Certified</h4><p>All technicians hold Universal EPA 608 certification for proper refrigerant handling.</p></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-        <div class="cert-text"><h4>NATE Certified Techs</h4><p>Multiple team members hold NATE certification — the gold standard for HVAC excellence.</p></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-        <div class="cert-text"><h4>Fully Insured</h4><p>$2M general liability and workers' compensation coverage on every job we perform.</p></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <div class="cert-text"><h4>Mitsubishi Diamond Dealer</h4><p>Authorized dealer and installer for Mitsubishi Electric ductless mini split systems.</p></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cert-text"><h4>Background-Checked Staff</h4><p>Every technician passes a thorough background check before joining the Arctic Air team.</p></div>
-      </div>
+      <div class="cert-card"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="cert-text"><h4>Florida CAC License</h4><p>Lic #CAC1234567 — State of Florida Certified Air Conditioning Contractor.</p></div></div>
+      <div class="cert-card"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cert-text"><h4>EPA 608 Certified</h4><p>All technicians hold Universal EPA 608 certification for proper refrigerant handling.</p></div></div>
+      <div class="cert-card"><div class="cert-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><div class="cert-text"><h4>NATE Certified Techs</h4><p>Multiple team members hold NATE certification — the gold standard for HVAC excellence.</p></div></div>
+      <div class="cert-card"><div class="cert-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div class="cert-text"><h4>Fully Insured</h4><p>$2M general liability and workers' compensation coverage on every job we perform.</p></div></div>
+      <div class="cert-card"><div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="cert-text"><h4>Mitsubishi Diamond Dealer</h4><p>Authorized dealer and installer for Mitsubishi Electric ductless mini split systems.</p></div></div>
+      <div class="cert-card"><div class="cert-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="cert-text"><h4>Background-Checked Staff</h4><p>Every technician passes a thorough background check before joining the Arctic Air team.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- VALUES -->
 <section class="values-section">
   <div class="section-inner">
     <div class="section-tag" style="color:rgba(255,255,255,.5)">What We Stand For</div>
     <h2 class="section-title" style="color:#fff">Our Core Values</h2>
     <div class="values-grid">
-      <div class="value-card">
-        <div class="value-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h4>Honesty First</h4>
-        <p>We diagnose honestly, price fairly, and never upsell work that isn't needed. You'll always know exactly what you're paying for.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h4>Speed &amp; Reliability</h4>
-        <p>When your AC is out in Miami heat, every minute counts. We prioritize fast dispatch and arrive when we say we will.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-card-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-        <h4>Craftsmanship</h4>
-        <p>We install and repair systems the right way — following manufacturer specs, building codes, and industry best practices.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h4>Community</h4>
-        <p>We're a Miami-Dade company serving our own neighbors. We reinvest in local hiring and give back to the community we call home.</p>
-      </div>
+      <div class="value-card"><div class="value-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>Honesty First</h4><p>We diagnose honestly, price fairly, and never upsell work that isn't needed. You'll always know exactly what you're paying for.</p></div>
+      <div class="value-card"><div class="value-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Speed &amp; Reliability</h4><p>When your AC is out in Miami heat, every minute counts. We prioritize fast dispatch and arrive when we say we will.</p></div>
+      <div class="value-card"><div class="value-card-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h4>Craftsmanship</h4><p>We install and repair systems the right way — following manufacturer specs, building codes, and industry best practices.</p></div>
+      <div class="value-card"><div class="value-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><h4>Community</h4><p>We're a Miami-Dade company serving our own neighbors. We reinvest in local hiring and give back to the community we call home.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CTA STRIP -->
 <div class="cta-strip">
   <h2>Ready to Work with the Best?</h2>
   <p>Call us today or request service online — our team is ready to help you stay comfortable all year long.</p>
@@ -400,59 +225,22 @@ footer::before{content:'';position:absolute;inset:0;background:url('https://imag
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <strong>Arctic Air &amp; Plumbing</strong>
-      <p>Miami-Dade's most trusted HVAC and plumbing company. Licensed, insured, and available 24/7 for emergencies.</p>
-      <div class="footer-lic">Lic #CAC1234567</div>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="services.html">AC Repair</a></li>
-        <li><a href="services.html">AC Installation</a></li>
-        <li><a href="services.html">AC Maintenance</a></li>
-        <li><a href="services.html">Mini Splits</a></li>
-        <li><a href="services.html">Ductwork</a></li>
-        <li><a href="services.html">Plumbing</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="service-areas.html">Service Areas</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="contact.html">Careers</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="tel:+13055550100">(305) 555-0100</a></li>
-        <li><a href="mailto:info@arcticairandplumbing.com">info@arcticairandplumbing.com</a></li>
-        <li><a href="service-areas.html">1234 NW 27th Ave<br/>Miami Gardens, FL 33056</a></li>
-      </ul>
-    </div>
+    <div class="footer-brand"><strong>Arctic Air &amp; Plumbing</strong><p>Miami-Dade's most trusted HVAC and plumbing company. Licensed, insured, and available 24/7 for emergencies.</p><div class="footer-lic">Lic #CAC1234567</div></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">AC Repair</a></li><li><a href="services.html">AC Installation</a></li><li><a href="services.html">AC Maintenance</a></li><li><a href="services.html">Mini Splits</a></li><li><a href="services.html">Ductwork</a></li><li><a href="services.html">Plumbing</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="contact.html">Contact</a></li><li><a href="contact.html">Careers</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+13055550100">(305) 555-0100</a></li><li><a href="mailto:info@arcticairandplumbing.com">info@arcticairandplumbing.com</a></li><li><a href="service-areas.html">1234 NW 27th Ave<br/>Miami Gardens, FL 33056</a></li></ul></div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2025 Arctic Air &amp; Plumbing. All rights reserved.</span>
-    <span>Miami Gardens, FL | Lic #CAC1234567</span>
-  </div>
+  <div class="footer-bottom"><span>© 2025 Arctic Air &amp; Plumbing. All rights reserved.</span><span>Miami Gardens, FL | Lic #CAC1234567</span></div>
 </footer>
 
 <script>
 window.addEventListener('DOMContentLoaded',()=>{
   if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
     gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray('.team-card').forEach((el,i)=>{
-      gsap.from(el,{opacity:0,y:30,duration:.55,delay:(i%4)*.08,scrollTrigger:{trigger:el,start:'top 88%',once:true}});
-    });
-    gsap.utils.toArray('.cert-card').forEach((el,i)=>{
-      gsap.from(el,{opacity:0,x:-20,duration:.5,delay:i*.07,scrollTrigger:{trigger:el,start:'top 88%',once:true}});
-    });
+    gsap.utils.toArray('.team-card').forEach((el,i)=>{gsap.from(el,{opacity:0,y:30,duration:.55,delay:(i%4)*.08,scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
+    gsap.utils.toArray('.cert-card').forEach((el,i)=>{gsap.from(el,{opacity:0,x:-20,duration:.5,delay:i*.07,scrollTrigger:{trigger:el,start:'top 88%',once:true}});});
   }
 });
 </script>

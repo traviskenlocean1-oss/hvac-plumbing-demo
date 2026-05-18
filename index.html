@@ -1,1 +1,555 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>AC Repair &amp; HVAC Miami, FL | Artic Air &amp; Plumbing</title>
+<meta name="description" content="Artic Air &amp; Plumbing — Miami's top-rated HVAC and plumbing company. Fast AC repair, installation, and 24/7 emergency service in Miami Gardens, FL. Call (305) 555-0100."/>
+<link rel="canonical" href="https://arcticairandplumbing.com/"/>
+<meta property="og:title" content="AC Repair &amp; HVAC Miami, FL | Artic Air &amp; Plumbing"/>
+<meta property="og:description" content="Fast, reliable AC repair and HVAC service in Miami-Dade. Licensed, insured, 24/7 emergency available."/>
+<meta property="og:type" content="website"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Artic Air &amp; Plumbing","telephone":"+13055550100","email":"info@arcticairandplumbing.com","url":"https://arcticairandplumbing.com","address":{"@type":"PostalAddress","streetAddress":"1234 NW 27th Ave","addressLocality":"Miami Gardens","addressRegion":"FL","postalCode":"33056","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"08:00","closes":"17:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"500"},"areaServed":"Miami-Dade County"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sky:#0EA5E9;
+  --skyh:#0284C7;
+  --skyd:#0369A1;
+  --red:#DC2626;--redh:#B91C1C;
+  --dark:#0B1120;
+  --darkm:#0F1E35;
+  --darkb:#0D2D52;
+  --body:#374151;--muted:#6B7280;
+  --border:#E2E8F0;
+  --white:#fff;
+  --offwhite:#F8FAFC;
+  --bluegrey:#EFF6FF;
+  --cream:#F0F7FF;
+  --fh:'Poppins',sans-serif;--fb:Verdana,Geneva,sans-serif
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--body);background:var(--white);line-height:1.65;font-size:16px}
+
+/* ── TOP BAR ── */
+.topbar{background:var(--sky);color:#fff;font-family:var(--fh);font-size:.875rem;font-weight:500;padding:.5rem 0}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.topbar a{color:#fff;text-decoration:none;opacity:.9;transition:opacity .2s}
+.topbar a:hover{opacity:1}
+.topbar-left,.topbar-right{display:flex;align-items:center;gap:1.5rem}
+.topbar-pin{display:inline-block;width:8px;height:8px;background:#fff;border-radius:50%;margin-right:.35rem;opacity:.7}
+
+/* ── NAV ── */
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 1px 12px rgba(11,17,32,.08)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:96px}
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.2}
+.nav-logo-text strong{font-family:var(--fh);font-size:1.15rem;font-weight:900;color:var(--dark);font-style:italic;letter-spacing:-.01em}
+.nav-logo-text span{font-family:var(--fh);font-size:.65rem;font-weight:600;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:.1rem}
+.nav-links a{font-family:var(--fh);font-size:1rem;font-weight:500;color:var(--body);text-decoration:none;padding:.5rem 1rem;border-radius:8px;transition:background .2s,color .2s}
+.nav-links a:hover{background:var(--bluegrey);color:var(--skyd)}
+.nav-links a.active{color:var(--sky);background:var(--bluegrey)}
+.nav-cta{background:linear-gradient(135deg,var(--red) 0%,var(--redh) 100%);color:#fff;font-family:var(--fh);font-size:.9rem;font-weight:700;padding:.6rem 1.4rem;border-radius:8px;text-decoration:none;transition:opacity .2s;box-shadow:0 2px 8px rgba(220,38,38,.3)}
+.nav-cta:hover{opacity:.9}
+
+/* ── RATING BAR ── */
+.rating-bar{background:linear-gradient(135deg,var(--dark) 0%,var(--darkb) 100%);color:#fff;font-family:var(--fh);font-size:.875rem;font-weight:500;padding:.7rem 0;border-bottom:1px solid rgba(14,165,233,.2)}
+.rating-bar-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.rating-stars{color:#F59E0B;letter-spacing:3px;font-size:.95rem}
+.rating-bar strong{font-weight:700;color:var(--sky)}
+.rating-divider{width:1px;height:14px;background:rgba(255,255,255,.15)}
+
+/* ── HERO ── */
+.hero{min-height:90vh;background:linear-gradient(135deg,var(--dark) 0%,var(--darkm) 45%,var(--darkb) 100%);position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.2;display:block}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,17,32,.7) 40%,rgba(11,17,32,.1) 100%)}
+.hero-inner{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:3rem 1.5rem;display:grid;grid-template-columns:1fr 500px;gap:3.5rem;align-items:center}
+@media(max-width:1000px){.hero-inner{grid-template-columns:1fr}}
+
+/* hero chips */
+.hero-chips{display:flex;gap:.85rem;margin-bottom:1.75rem;flex-wrap:wrap}
+.hero-chip{display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:.65rem 1.1rem;backdrop-filter:blur(8px)}
+.hero-chip-ic{width:34px;height:34px;background:linear-gradient(135deg,var(--sky) 0%,var(--skyd) 100%);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(14,165,233,.3)}
+.hero-chip-ic svg{width:17px;height:17px;fill:#fff}
+.hero-chip-txt{font-family:var(--fh);font-size:.8rem;font-weight:600;color:rgba(255,255,255,.9);line-height:1.25;text-transform:uppercase;letter-spacing:.04em}
+
+.hero-h1{font-family:var(--fh);font-size:clamp(3rem,6vw,65px);font-weight:900;color:#fff;line-height:1.03;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:.5rem}
+.hero-h1 .loc{display:block;font-size:clamp(1.6rem,3vw,34px);color:var(--sky);font-weight:700;letter-spacing:.02em;margin-top:.4rem}
+
+.hero-bullets{list-style:none;margin:1.6rem 0 2.1rem;display:flex;flex-direction:column;gap:.7rem}
+.hero-bullets li{display:flex;align-items:center;gap:.75rem;font-size:1rem;color:rgba(255,255,255,.85);font-family:var(--fb)}
+.hero-bullets li svg{width:17px;height:17px;fill:var(--sky);flex-shrink:0}
+
+.hero-cta-row{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-red{background:linear-gradient(135deg,var(--red) 0%,var(--redh) 100%);color:#fff;font-family:var(--fh);font-weight:700;font-size:1rem;padding:.8rem 1.9rem;border-radius:8px;text-decoration:none;transition:opacity .2s;box-shadow:0 3px 12px rgba(220,38,38,.35)}
+.btn-red:hover{opacity:.9}
+.btn-outline-hero{border:2px solid rgba(255,255,255,.35);color:#fff;font-family:var(--fh);font-weight:600;font-size:1rem;padding:.78rem 1.9rem;border-radius:8px;text-decoration:none;transition:border-color .2s,background .2s}
+.btn-outline-hero:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.06)}
+
+/* ── HERO CARD ── */
+.hero-card{background:rgba(11,17,32,.42);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(14,165,233,.22);border-radius:18px;padding:2.5rem 2.25rem;box-shadow:0 8px 40px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06)}
+.hero-card-title{font-family:var(--fh);font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:.35rem;text-align:center}
+.hero-card-sub{font-family:var(--fh);font-size:.82rem;color:rgba(255,255,255,.5);text-align:center;margin-bottom:1.75rem}
+.hero-card-divider{width:40px;height:2px;background:var(--sky);border-radius:2px;margin:0 auto 1.75rem}
+.hero-form-field{width:100%;padding:.8rem 1rem;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:9px;font-family:var(--fb);font-size:.9rem;color:#fff;margin-bottom:.9rem;outline:none;transition:border-color .2s,background .2s}
+.hero-form-field::placeholder{color:rgba(255,255,255,.35)}
+.hero-form-field:focus{border-color:var(--sky);background:rgba(255,255,255,.1)}
+.hero-form-field option{background:var(--dark);color:#fff}
+.hero-form-btn{width:100%;background:linear-gradient(135deg,var(--sky) 0%,var(--skyd) 100%);color:#fff;font-family:var(--fh);font-size:1rem;font-weight:700;padding:.9rem;border:none;border-radius:9px;cursor:pointer;transition:opacity .2s;box-shadow:0 3px 12px rgba(14,165,233,.35);letter-spacing:.02em}
+.hero-form-btn:hover{opacity:.9}
+.hero-card-note{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin-top:1.1rem;flex-wrap:wrap}
+.hero-card-note span{font-family:var(--fh);font-size:.75rem;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:.35rem}
+.hero-card-note span::before{content:'';width:6px;height:6px;background:var(--sky);border-radius:50%;opacity:.7;flex-shrink:0}
+
+/* ── COUNTERS ── */
+.counters{background:linear-gradient(135deg,var(--dark) 0%,var(--darkb) 100%);color:#fff;padding:2.75rem 1.5rem;border-top:1px solid rgba(14,165,233,.15);border-bottom:1px solid rgba(14,165,233,.15)}
+.counters-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+@media(max-width:700px){.counters-inner{grid-template-columns:repeat(2,1fr)}}
+.counter-item{text-align:center;padding:.5rem 0}
+.counter-num{font-family:var(--fh);font-size:2.5rem;font-weight:900;line-height:1;background:linear-gradient(135deg,#fff 0%,rgba(14,165,233,.9) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.counter-lbl{font-family:var(--fh);font-size:.78rem;font-weight:500;opacity:.65;margin-top:.4rem;text-transform:uppercase;letter-spacing:.07em}
+.counter-sep{width:1px;background:rgba(255,255,255,.08)}
+
+/* ── SECTIONS ── */
+section{padding:6rem 1.5rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-tag{font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:.65rem;display:flex;align-items:center;gap:.5rem}
+.section-tag::before{content:'';width:18px;height:2px;background:var(--sky);border-radius:2px}
+.section-title{font-family:var(--fh);font-size:clamp(2rem,4vw,50px);font-weight:800;color:var(--dark);line-height:1.08;margin-bottom:1rem}
+.section-sub{font-size:1rem;color:var(--muted);max-width:620px;margin-bottom:3rem;line-height:1.7}
+
+/* ── EMERGENCY SECTION ── */
+.emrg-section{background:linear-gradient(180deg,var(--offwhite) 0%,var(--bluegrey) 100%)}
+.emrg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+@media(max-width:900px){.emrg-grid{grid-template-columns:1fr}}
+.emrg-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(11,17,32,.08);border:1px solid rgba(14,165,233,.08);transition:transform .25s,box-shadow .25s}
+.emrg-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(11,17,32,.12)}
+.emrg-img{width:100%;aspect-ratio:16/9;overflow:hidden}
+.emrg-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.emrg-card:hover .emrg-img img{transform:scale(1.04)}
+.emrg-body{padding:1.6rem}
+.emrg-title{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:.9rem;line-height:1.3}
+.emrg-bul{list-style:none;margin-bottom:1.2rem;display:flex;flex-direction:column;gap:.55rem}
+.emrg-bul li{font-size:.9rem;color:var(--muted);padding-left:1.25rem;position:relative;line-height:1.55}
+.emrg-bul li::before{content:'';position:absolute;left:0;top:.55em;width:7px;height:7px;background:var(--sky);border-radius:50%}
+.emrg-link{font-family:var(--fh);font-size:.88rem;font-weight:700;color:var(--sky);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;transition:gap .2s}
+.emrg-link:hover{color:var(--skyd);gap:.65rem}
+.emrg-link::after{content:'→'}
+
+/* ── SERVICES ── */
+.svc-section{background:var(--white)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
+.svc-card{background:var(--offwhite);border-radius:14px;overflow:hidden;transition:transform .25s,box-shadow .25s;text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid transparent}
+.svc-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(11,17,32,.1);border-color:rgba(14,165,233,.15)}
+.svc-card-img{width:100%;height:200px;object-fit:cover;display:block}
+.svc-card-body{padding:1.4rem;flex:1;display:flex;flex-direction:column}
+.svc-card-title{font-family:var(--fh);font-size:1.08rem;font-weight:700;color:var(--dark);margin-bottom:.5rem}
+.svc-card-desc{font-size:.9rem;color:var(--muted);line-height:1.6;flex:1;margin-bottom:1rem}
+.svc-card-link{font-family:var(--fh);font-size:.88rem;font-weight:700;color:var(--sky);display:inline-flex;align-items:center;gap:.35rem;transition:gap .2s}
+.svc-card-link:hover{color:var(--skyd);gap:.6rem}
+.svc-card-link::after{content:'→'}
+
+/* ── TEAM PREVIEW ── */
+.team-section{background:linear-gradient(180deg,var(--bluegrey) 0%,var(--offwhite) 100%)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1.25rem}
+.team-card{background:var(--white);border-radius:14px;overflow:hidden;text-align:center;box-shadow:0 2px 12px rgba(11,17,32,.06);border:1px solid rgba(14,165,233,.08)}
+.team-card img{width:100%;height:200px;object-fit:cover;object-position:top;display:block}
+.team-card-body{padding:1rem}
+.team-card-name{font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--dark)}
+.team-card-role{font-family:var(--fh);font-size:.72rem;font-weight:500;color:var(--sky);text-transform:uppercase;letter-spacing:.06em;margin-top:.25rem}
+.team-more{text-align:center;margin-top:2.25rem}
+.team-more a{font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--sky);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;transition:gap .2s}
+.team-more a:hover{gap:.65rem}
+.team-more a::after{content:'→'}
+
+/* ── WHY US ── */
+.why-section{background:linear-gradient(135deg,var(--dark) 0%,var(--darkm) 50%,var(--darkb) 100%);color:#fff;padding:6rem 1.5rem}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;margin-top:3rem}
+.why-card{border:1px solid rgba(14,165,233,.18);border-radius:14px;padding:2rem 1.75rem;background:rgba(255,255,255,.03);transition:background .25s,border-color .25s}
+.why-card:hover{background:rgba(14,165,233,.06);border-color:rgba(14,165,233,.35)}
+.why-card-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--sky) 0%,var(--skyd) 100%);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;box-shadow:0 3px 10px rgba(14,165,233,.3)}
+.why-card-icon svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.why-card h4{font-family:var(--fh);font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
+.why-card p{font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.65}
+
+/* ── REVIEWS ── */
+.reviews-section{background:linear-gradient(180deg,var(--offwhite) 0%,var(--bluegrey) 100%);padding:6rem 1.5rem}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.review-card{background:var(--white);border-radius:14px;padding:2rem 1.75rem;box-shadow:0 2px 14px rgba(11,17,32,.06);border:1px solid rgba(14,165,233,.08);position:relative}
+.review-card::before{content:'\201C';font-family:Georgia,serif;font-size:5rem;color:var(--sky);opacity:.12;position:absolute;top:.5rem;left:1.25rem;line-height:1}
+.review-stars{color:#F59E0B;font-size:.95rem;letter-spacing:2px;margin-bottom:.9rem}
+.review-text{font-size:.92rem;color:var(--body);line-height:1.7;margin-bottom:1.1rem;font-style:italic}
+.review-author{font-family:var(--fh);font-size:.88rem;font-weight:700;color:var(--dark)}
+.review-city{font-size:.78rem;color:var(--muted);margin-top:.2rem}
+
+/* ── CTA SECTION ── */
+.cta-section{background:var(--white);padding:6rem 1.5rem}
+.cta-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+@media(max-width:768px){.cta-grid{grid-template-columns:1fr}}
+.cta-info h2{font-family:var(--fh);font-size:clamp(2rem,4vw,48px);font-weight:800;color:var(--dark);margin-bottom:1rem;line-height:1.08}
+.cta-info p{font-size:1rem;color:var(--muted);margin-bottom:.65rem;line-height:1.7}
+.cta-details{display:flex;flex-direction:column;gap:.7rem;margin-top:1.75rem}
+.cta-detail{display:flex;align-items:center;gap:.9rem;font-family:var(--fh);font-size:.92rem;font-weight:600;color:var(--dark)}
+.cta-detail-ic{width:34px;height:34px;background:var(--bluegrey);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cta-detail-ic svg{width:17px;height:17px;stroke:var(--sky);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cta-form{background:linear-gradient(160deg,var(--dark) 0%,var(--darkb) 100%);border-radius:18px;padding:2.5rem 2.25rem;box-shadow:0 8px 32px rgba(11,17,32,.2)}
+.cta-form h3{font-family:var(--fh);font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:.4rem}
+.cta-form p{font-size:.88rem;color:rgba(255,255,255,.5);margin-bottom:1.6rem}
+.form-field{width:100%;padding:.8rem 1rem;border:1.5px solid rgba(255,255,255,.1);border-radius:9px;font-family:var(--fb);font-size:.9rem;color:#fff;margin-bottom:.9rem;outline:none;background:rgba(255,255,255,.07);transition:border-color .2s,background .2s}
+.form-field::placeholder{color:rgba(255,255,255,.3)}
+.form-field:focus{border-color:var(--sky);background:rgba(255,255,255,.1)}
+.form-field option{background:var(--dark);color:#fff}
+.form-btn{width:100%;background:linear-gradient(135deg,var(--sky) 0%,var(--skyd) 100%);color:#fff;font-family:var(--fh);font-size:1rem;font-weight:700;padding:.9rem;border:none;border-radius:9px;cursor:pointer;transition:opacity .2s;box-shadow:0 3px 12px rgba(14,165,233,.3);letter-spacing:.02em}
+.form-btn:hover{opacity:.9}
+
+/* ── FOOTER ── */
+footer{background:linear-gradient(160deg,var(--dark) 0%,var(--darkb) 100%);color:rgba(255,255,255,.75);padding:4.5rem 1.5rem 2rem;position:relative;overflow:hidden}
+footer::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&auto=format&fit=crop&q=30') center/cover no-repeat;opacity:.04}
+.footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem}
+@media(max-width:900px){.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand strong{font-family:var(--fh);font-size:1.1rem;font-weight:900;color:#fff;display:block;margin-bottom:.55rem;font-style:italic;letter-spacing:-.01em}
+.footer-brand p{font-size:.88rem;line-height:1.7;margin-bottom:1.1rem;opacity:.65}
+.footer-lic{font-family:var(--fh);font-size:.75rem;font-weight:600;background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.25);display:inline-block;padding:.3rem .85rem;border-radius:6px;color:rgba(255,255,255,.7)}
+.footer-col h4{font-family:var(--fh);font-size:.8rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.1rem}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:.55rem}
+.footer-col ul li a{font-size:.88rem;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.footer-col ul li a:hover{color:var(--sky)}
+.footer-bottom{position:relative;z-index:1;max-width:1200px;margin:2.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;font-size:.8rem;color:rgba(255,255,255,.35)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .emrg-grid{grid-template-columns:1fr}
+  .counters-inner{grid-template-columns:repeat(2,1fr)}
+  .hero-h1{font-size:clamp(2.5rem,9vw,52px)}
+  .hero-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span>Miami Gardens, FL 33056</span>
+      <span style="opacity:.3">|</span>
+      <span>Lic #CAC1234567</span>
+    </div>
+    <div class="topbar-right">
+      <a href="mailto:info@arcticairandplumbing.com">info@arcticairandplumbing.com</a>
+      <a href="tel:+13055550100" style="font-weight:700">(305) 555-0100</a>
+    </div>
+  </div>
+</div>
+
+<!-- RATING BAR -->
+<div class="rating-bar">
+  <div class="rating-bar-inner">
+    <span style="opacity:.65">Our Customers Rate Us</span>
+    <strong>4.9 Out of 5</strong>
+    <span class="rating-stars">★★★★★</span>
+    <div class="rating-divider"></div>
+    <span style="opacity:.65">Based on <strong style="color:#fff;opacity:1">500+</strong> Google Reviews</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
       <img src="artic-air-logo.png" alt="Artic Air Heating &amp; Cooling" style="height:90px;width:auto;object-fit:contain;flex-shrink:0">
+
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="service-areas.html">Service Areas</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="tel:+13055550100" class="nav-cta">Call Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&auto=format&fit=crop&q=60" alt="Artic Air HVAC technician Miami" loading="eager"/>
+  </div>
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div>
+      <div class="hero-chips">
+        <div class="hero-chip">
+          <div class="hero-chip-ic"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <div class="hero-chip-txt">4.9-Star Rated By<br/>Our Customers</div>
+        </div>
+        <div class="hero-chip">
+          <div class="hero-chip-ic"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="hero-chip-txt">Satisfaction<br/>Guaranteed</div>
+        </div>
+      </div>
+      <h1 class="hero-h1">AC Repair &amp; HVAC<span class="loc">Miami, Florida</span></h1>
+      <ul class="hero-bullets">
+        <li><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Locally Owned &amp; Operated — Miami Since 2014</li>
+        <li><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Fully Licensed &amp; Insured — Lic #CAC1234567</li>
+        <li><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Upfront Pricing — No Hidden Fees</li>
+        <li><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Emergency &amp; Same-Day Appointments</li>
+      </ul>
+      <div class="hero-cta-row">
+        <a href="tel:+13055550100" class="btn-red">Call Now — (305) 555-0100</a>
+        <a href="contact.html" class="btn-outline-hero">Book a Home Visit →</a>
+      </div>
+    </div>
+
+    <!-- HERO CARD -->
+    <div class="hero-card">
+      <div class="hero-card-title">Request a Callback</div>
+      <div class="hero-card-sub">We respond within 24 hours</div>
+      <div class="hero-card-divider"></div>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <select class="hero-form-field" name="service">
+          <option value="" disabled selected>Interested in…</option>
+          <option>AC Repair</option>
+          <option>AC Installation</option>
+          <option>AC Maintenance</option>
+          <option>Mini Split</option>
+          <option>Ductwork</option>
+          <option>Plumbing</option>
+          <option>Emergency Service</option>
+        </select>
+        <textarea class="hero-form-field" name="description" rows="3" placeholder="Describe your project or issue…"></textarea>
+        <input class="hero-form-field" type="text" name="name" placeholder="Full Name *" required/>
+        <input class="hero-form-field" type="tel" name="phone" placeholder="Phone *" required/>
+        <input class="hero-form-field" type="email" name="email" placeholder="Email (optional)"/>
+        <button type="submit" class="hero-form-btn">Send Request</button>
+      </form>
+      <div class="hero-card-note">
+        <span>100% Secure &amp; Private</span>
+        <span>Response Within 24 Hours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTERS -->
+<div class="counters">
+  <div class="counters-inner">
+    <div class="counter-item"><div class="counter-num">24/7</div><div class="counter-lbl">Emergency Service</div></div>
+    <div class="counter-item"><div class="counter-num">4.9★</div><div class="counter-lbl">Google Rating</div></div>
+    <div class="counter-item"><div class="counter-num">5,000+</div><div class="counter-lbl">Jobs Completed</div></div>
+    <div class="counter-item"><div class="counter-num">10+ Yrs</div><div class="counter-lbl">Serving Miami</div></div>
+  </div>
+</div>
+
+<!-- EMERGENCY SERVICES -->
+<section class="emrg-section">
+  <div class="section-inner">
+    <div class="section-tag">Always Here For You</div>
+    <h2 class="section-title">24/7 Emergency HVAC Services</h2>
+    <p class="section-sub">When your AC goes out in Miami heat, every minute counts. We dispatch day or night — including weekends and holidays.</p>
+    <div class="emrg-grid">
+      <div class="emrg-card">
+        <div class="emrg-img"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&auto=format&fit=crop&q=75" alt="Emergency AC Repair Miami" loading="lazy"/></div>
+        <div class="emrg-body">
+          <div class="emrg-title">Fast Response Emergency AC Repair</div>
+          <ul class="emrg-bul">
+            <li>Rapid dispatch of fully-equipped technicians</li>
+            <li>Available 24/7, including weekends and holidays</li>
+            <li>Most repairs completed on the first visit</li>
+            <li>No overtime charges — flat honest pricing</li>
+          </ul>
+          <a href="tel:+13055550100" class="emrg-link">Call Now</a>
+        </div>
+      </div>
+      <div class="emrg-card">
+        <div class="emrg-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&auto=format&fit=crop&q=75" alt="AC System Replacement Miami" loading="lazy"/></div>
+        <div class="emrg-body">
+          <div class="emrg-title">AC System Replacement &amp; Installation</div>
+          <ul class="emrg-bul">
+            <li>Same-day quotes and next-day installs available</li>
+            <li>All major brands: Carrier, Trane, Lennox, Rheem</li>
+            <li>Full system sizing and load calculation</li>
+            <li>Financing options available, OAC</li>
+          </ul>
+          <a href="services.html" class="emrg-link">View Services</a>
+        </div>
+      </div>
+      <div class="emrg-card">
+        <div class="emrg-img"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&auto=format&fit=crop&q=75" alt="Duct Repair and HVAC Maintenance Miami" loading="lazy"/></div>
+        <div class="emrg-body">
+          <div class="emrg-title">Duct Repair &amp; Preventive Maintenance</div>
+          <ul class="emrg-bul">
+            <li>Full duct inspection, sealing, and replacement</li>
+            <li>Seasonal tune-ups extend equipment life</li>
+            <li>Filter replacement and coil cleaning included</li>
+            <li>Maintenance plans starting at $9.99/mo</li>
+          </ul>
+          <a href="contact.html" class="emrg-link">Schedule Today</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="svc-section">
+  <div class="section-inner">
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title">HVAC &amp; Plumbing Services</h2>
+    <p class="section-sub">From routine maintenance to full system replacements — we handle it all with licensed, background-checked technicians.</p>
+    <div class="svc-grid">
+      <a href="services.html" class="svc-card">
+        <img class="svc-card-img" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&auto=format&fit=crop&q=75" alt="AC Repair Miami" loading="lazy"/>
+        <div class="svc-card-body"><div class="svc-card-title">AC Repair</div><p class="svc-card-desc">Same-day diagnosis and repair on all makes and models. Stocked trucks for a first-visit fix.</p><span class="svc-card-link">AC Repair</span></div>
+      </a>
+      <a href="services.html" class="svc-card">
+        <img class="svc-card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=75" alt="AC Installation Miami" loading="lazy"/>
+        <div class="svc-card-body"><div class="svc-card-title">AC Installation</div><p class="svc-card-desc">New system installations sized and installed right. Top brands, warranty-backed workmanship.</p><span class="svc-card-link">AC Installation</span></div>
+      </a>
+      <a href="services.html" class="svc-card">
+        <img class="svc-card-img" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop&q=75" alt="AC Maintenance Miami" loading="lazy"/>
+        <div class="svc-card-body"><div class="svc-card-title">AC Maintenance</div><p class="svc-card-desc">Seasonal tune-ups that keep your system efficient, lower bills, and prevent costly breakdowns.</p><span class="svc-card-link">AC Maintenance</span></div>
+      </a>
+      <a href="services.html" class="svc-card">
+        <img class="svc-card-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&auto=format&fit=crop&q=75" alt="Mini Split Systems Miami" loading="lazy"/>
+        <div class="svc-card-body"><div class="svc-card-title">Mini Split Systems</div><p class="svc-card-desc">Ductless mini splits for rooms, garages, and additions. All brands, full refrigerant work.</p><span class="svc-card-link">Mini Splits</span></div>
+      </a>
+      <a href="services.html" class="svc-card">
+        <img class="svc-card-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format&fit=crop&q=75" alt="Ductwork Miami" loading="lazy"/>
+        <div class="svc-card-body"><div class="svc-card-title">Ductwork &amp; Duct Sealing</div><p class="svc-card-desc">Leaky ducts waste up to 30% of conditioned air. We test, seal, and replace duct systems.</p><span class="svc-card-link">Ductwork</span></div>
+      </a>
+      <a href="services.html" class="svc-card">
+        <img class="svc-card-img" src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&auto=format&fit=crop&q=75" alt="Plumbing Miami" loading="lazy"/>
+        <div class="svc-card-body"><div class="svc-card-title">Plumbing</div><p class="svc-card-desc">Licensed plumbers for leak detection, water heaters, fixture installs, and emergency calls.</p><span class="svc-card-link">Plumbing</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM PREVIEW -->
+<section class="team-section">
+  <div class="section-inner">
+    <div class="section-tag">The Team</div>
+    <h2 class="section-title">Meet Our Technicians</h2>
+    <p class="section-sub">Every technician is licensed, background-checked, and trained to deliver five-star service on every call.</p>
+    <div class="team-grid">
+      <div class="team-card"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=75" alt="Carlos Rivera" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Carlos Rivera</div><div class="team-card-role">Founder &amp; Master Tech</div></div></div>
+      <div class="team-card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=75" alt="Marcus Johnson" loading="lazy"/><div class="team-card-body"><div class="team-card-name">Marcus Johnson</div><div class="team-card-role">Lead HVAC Tech</div></div></div>
+      <div class="team-card"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=75" alt="David Perez" loading="lazy"/><div class="team-card-body"><div class="team-card-name">David Perez</div><div class="team-card-role">Commercial Specialist</div></div></div>
+      <div class="team-card"><img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&auto=format&fit=crop&q=75" alt="James Williams" loading="lazy"/><div class="team-card-body"><div class="team-card-name">James Williams</div><div class="team-card-role">Plumbing Supervisor</div></div></div>
+    </div>
+    <div class="team-more"><a href="about.html">Meet the Full Team</a></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section">
+  <div class="section-inner">
+    <div class="section-tag" style="color:rgba(14,165,233,.7)">Why Choose Us</div>
+    <h2 class="section-title" style="color:#fff">Miami's Most Trusted<br/>HVAC Company</h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Same-Day Service</h4><p>Call before noon and we'll be there the same day. Fully stocked trucks mean fewer second trips.</p></div>
+      <div class="why-card"><div class="why-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>Licensed &amp; Insured</h4><p>All technicians are EPA 608 and NATE certified. $2M liability insurance on every job.</p></div>
+      <div class="why-card"><div class="why-card-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h4>Upfront Pricing</h4><p>You get a clear price before any work starts. No surprise invoices, no hidden fees.</p></div>
+      <div class="why-card"><div class="why-card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><h4>Satisfaction Guaranteed</h4><p>We make it right — every time. If you're not 100% satisfied, we come back until you are.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div class="section-inner">
+    <div class="section-tag">Customer Reviews</div>
+    <h2 class="section-title">What Miami Homeowners Say</h2>
+    <p class="section-sub">Over 500 five-star reviews on Google. Here's what a few of our customers had to say.</p>
+    <div class="reviews-grid">
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"AC went out on a Sunday night. Carlos had a tech at my door by 10pm. Fixed in under an hour. Honest pricing. Will never call anyone else."</p><div class="review-author">Maria G.</div><div class="review-city">Miami Gardens, FL — Google Review</div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Replaced my entire system in one day. The crew was professional, clean, and the price was exactly what they quoted. Incredible service."</p><div class="review-author">Robert T.</div><div class="review-city">Hialeah, FL — Google Review</div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Been using Artic Air for 3 years. Their maintenance plan has saved me twice — they caught problems before they became emergencies."</p><div class="review-author">Jennifer M.</div><div class="review-city">Doral, FL — Google Review</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="cta-grid">
+    <div class="cta-info">
+      <div class="section-tag">Get in Touch</div>
+      <h2>Ready to Stay Cool<br/>All Year Long?</h2>
+      <p>Call us now or fill out the form. We respond within the hour during business hours and answer 24/7 for emergencies.</p>
+      <div class="cta-details">
+        <div class="cta-detail"><div class="cta-detail-ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>(305) 555-0100</div>
+        <div class="cta-detail"><div class="cta-detail-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>info@arcticairandplumbing.com</div>
+        <div class="cta-detail"><div class="cta-detail-ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>1234 NW 27th Ave, Miami Gardens, FL 33056</div>
+        <div class="cta-detail"><div class="cta-detail-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>Mon–Fri 7am–7pm · Sat–Sun 8am–5pm · 24/7 Emergency</div>
+      </div>
+    </div>
+    <div class="cta-form">
+      <h3>Request Service</h3>
+      <p>We'll reach out within the hour to confirm your appointment.</p>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input class="form-field" type="text" name="name" placeholder="Full Name *" required/>
+        <input class="form-field" type="tel" name="phone" placeholder="Phone Number *" required/>
+        <select class="form-field" name="service"><option value="" disabled selected>Service Needed *</option><option>AC Repair</option><option>AC Installation</option><option>AC Maintenance</option><option>Mini Split</option><option>Ductwork</option><option>Plumbing</option><option>Emergency</option></select>
+        <textarea class="form-field" name="message" rows="3" placeholder="Describe the issue…"></textarea>
+        <button type="submit" class="form-btn">Send My Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>ARTIC AIR &amp; PLUMBING</strong>
+      <p>Miami-Dade's most trusted HVAC and plumbing company. Licensed, insured, and available 24/7 for emergencies.</p>
+      <div class="footer-lic">Lic #CAC1234567</div>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">AC Repair</a></li><li><a href="services.html">AC Installation</a></li><li><a href="services.html">AC Maintenance</a></li><li><a href="services.html">Mini Splits</a></li><li><a href="services.html">Ductwork</a></li><li><a href="services.html">Plumbing</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="service-areas.html">Service Areas</a></li><li><a href="contact.html">Contact</a></li><li><a href="contact.html">Careers</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+13055550100">(305) 555-0100</a></li><li><a href="mailto:info@arcticairandplumbing.com">info@arcticairandplumbing.com</a></li><li><a href="service-areas.html">1234 NW 27th Ave<br/>Miami Gardens, FL 33056</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Artic Air &amp; Plumbing. All rights reserved.</span>
+    <span>Miami Gardens, FL | Lic #CAC1234567</span>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded',()=>{
+  if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero-h1',{opacity:0,y:40,duration:.9,delay:.2});
+    gsap.from('.hero-chips',{opacity:0,y:20,duration:.6,delay:.1});
+    gsap.from('.hero-bullets li',{opacity:0,x:-20,duration:.5,stagger:.1,delay:.4});
+    gsap.from('.hero-card',{opacity:0,x:30,duration:.8,delay:.3});
+    gsap.from('.counter-item',{opacity:0,y:15,duration:.5,stagger:.1,scrollTrigger:{trigger:'.counters',start:'top 88%',once:true}});
+    gsap.utils.toArray('.emrg-card').forEach((el,i)=>{
+      gsap.from(el,{opacity:0,y:30,duration:.6,delay:i*.15,scrollTrigger:{trigger:el,start:'top 88%',once:true}});
+    });
+    gsap.utils.toArray('.svc-card').forEach((el,i)=>{
+      gsap.from(el,{opacity:0,y:25,duration:.55,delay:(i%3)*.1,scrollTrigger:{trigger:el,start:'top 88%',once:true}});
+    });
+    gsap.utils.toArray('.why-card').forEach((el,i)=>{
+      gsap.from(el,{opacity:0,y:20,duration:.5,delay:i*.08,scrollTrigger:{trigger:el,start:'top 88%',once:true}});
+    });
+    gsap.utils.toArray('.review-card').forEach((el,i)=>{
+      gsap.from(el,{opacity:0,y:20,duration:.5,delay:i*.1,scrollTrigger:{trigger:el,start:'top 88%',once:true}});
+    });
+  }
+});
+</script>
+</body>
+</html>

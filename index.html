@@ -45,8 +45,8 @@ body{font-family:var(--fb);color:var(--body);background:var(--white);line-height
 .topbar-pin{display:inline-block;width:8px;height:8px;background:#fff;border-radius:50%;margin-right:.35rem;opacity:.7}
 
 /* ── NAV ── */
-nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 1px 12px rgba(11,17,32,.08)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:100px}
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 1px 12px rgba(11,17,32,.08);overflow:hidden}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:80px}
 .nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
 .nav-logo-text{display:flex;flex-direction:column;line-height:1.2}
 .nav-logo-text strong{font-family:var(--fh);font-size:1.15rem;font-weight:900;color:var(--dark);font-style:italic;letter-spacing:-.01em}
@@ -267,7 +267,7 @@ footer::before{content:'';position:absolute;inset:0;background:url('https://imag
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="artic-air-logo.png" alt="Artic Air Heating &amp; Cooling" style="height:100px;width:auto;object-fit:contain;flex-shrink:0">
+      <img src="artic-air-logo.png" alt="Artic Air Heating &amp; Cooling" style="height:80px;width:auto;object-fit:contain;flex-shrink:0">
 
     </a>
     <div class="nav-links">

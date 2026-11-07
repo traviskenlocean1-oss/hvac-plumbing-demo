@@ -203,7 +203,7 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .sent b{display:block;font-family:var(--cond);font-size:26px;font-weight:600;margin-bottom:6px}
 @media (max-width:900px){.contact{grid-template-columns:1fr}form{grid-template-columns:1fr}}
 
-/* ---------- footer + closing line ---------- */
+/* ---------- footer ---------- */
 main{position:relative;z-index:5;background:var(--frost)}
 .foot{position:relative;z-index:5;background:var(--ink);color:rgba(242,246,249,.75);padding:0 var(--gut) 40px;font-size:15px}
 .foot-in{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-top:56px;border-top:1px solid rgba(242,246,249,.14)}
@@ -213,10 +213,6 @@ main{position:relative;z-index:5;background:var(--frost)}
 .badge{width:96px;border-radius:12px;margin-bottom:14px}
 .foot-base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:48px;font-size:13px;color:rgba(242,246,249,.45)}
 @media (max-width:820px){.foot-in{grid-template-columns:1fr 1fr}.foot-in>div:first-child{grid-column:1/-1}}
-.closing{position:fixed;left:0;right:0;bottom:0;z-index:1;height:var(--ch,60vh);background:var(--ice);color:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--gut) clamp(20px,4vh,40px);overflow:hidden}
-.closing p{font-size:clamp(18px,1.8vw,26px);margin-bottom:1.5vh;color:var(--cool)}
-.closing .word{font-family:var(--cond);font-weight:700;letter-spacing:-.04em;line-height:.8;white-space:nowrap;display:inline-block;align-self:flex-start;font-size:20vw}
-.spacer{height:var(--ch,60vh)}
 
 /* word reveal (Marlow) */
 .vw{display:inline-block;overflow:hidden;vertical-align:top;padding:.1em 0 .2em;margin:-.1em 0 -.2em}
@@ -357,8 +353,6 @@ main{position:relative;z-index:5;background:var(--frost)}
   </div>
   <div class="foot-base"><span>&copy; 2026 Artic Air &amp; Plumbing. Miami Gardens, FL</span><span>Site by <a href="https://getvisionarywebstudio.com" rel="noopener">Visionary Web Studio</a></span></div>
 </footer>
-<div class="spacer" aria-hidden="true"></div>
-<div class="closing" aria-hidden="true"><p>74° and holding.</p><div class="word">Artic Air</div></div>
 
 <script src="/assets/js/gsap.min.js"></script>
 <script src="/assets/js/ScrollTrigger.min.js"></script>
@@ -564,15 +558,6 @@ main{position:relative;z-index:5;background:var(--frost)}
     });
   }
 
-  /* closing wordmark fits the width */
-  function sizeClosing() {
-    var word = $('.closing .word'); word.style.fontSize = '100px';
-    var avail = innerWidth - 2 * parseFloat(getComputedStyle($('.closing')).paddingLeft);
-    word.style.fontSize = Math.floor(100 * avail / word.scrollWidth) + 'px';
-    var ch = Math.min(innerHeight * 0.62, word.offsetHeight + $('.closing p').offsetHeight + 110);
-    document.documentElement.style.setProperty('--ch', ch + 'px');
-  }
-  sizeClosing();
 
   /* booking form: honeypot + 3 second time trap */
   var form = $('#book'), born = Date.now();
@@ -591,8 +576,8 @@ main{position:relative;z-index:5;background:var(--frost)}
       (urgent ? 'An on-call tech will call you within 15 minutes. If it can\'t wait, call (305) 555-0100 now.' : 'We\'ll call you within the hour to confirm a time window.') + '</div>';
   });
 
-  var rT; addEventListener('resize', function () { clearTimeout(rT); rT = setTimeout(function () { heroLayout(); airLayout(); drawAir(); ScrollTrigger.refresh(); sizeClosing(); }, 150); });
-  addEventListener('load', function () { ScrollTrigger.refresh(); sizeClosing(); });
+  var rT; addEventListener('resize', function () { clearTimeout(rT); rT = setTimeout(function () { heroLayout(); airLayout(); drawAir(); ScrollTrigger.refresh(); }, 150); });
+  addEventListener('load', function () { ScrollTrigger.refresh(); });
 })();
 </script>
 </body>
